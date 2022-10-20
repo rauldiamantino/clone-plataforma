@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Ecommerce</title>
+   <link rel="stylesheet" href="./styles/style.css">
+   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+   <!-- HEADER -->
+   <header>
+      <div id="header-alert-message">
+         <p>CLONE ECOMMERCE - EXCLUSIVAMENTE P/ FINS EDUCACIONAIS</p>
+      </div>
+      <div id="header-box" class="general-margin-padding">
+         <div id="header-left-box">
+            <div id="social-media">
+               <a href="#"><img src="./images/facebook.svg" alt="Facebook"></a>
+               <a href="#"><img src="./images/instagram.svg" alt="Instagram"></a>
+               <a href="#"><img src="./images/pinterest.svg" alt="Pinterest"></a>
+            </div>
+
+            <div id="button-responsive">
+
+            </div>
+            <!-- HEADER SEARCH -->
+            <div id="search-box">
+               <label class="hide-text" for="top-search">Pesquisar</label>
+               <input id="top-search" name="top-search" type="search" placeholder="Procurar..." />
+               <a href="#" id="btn-search"><img src="./images/magnify.svg" alt="Botão pesquisar"></a>
+            </div>
+         </div>
+         <h1 id="logo">logomarca</h1>
+         <div id="header-right-box">
+            <!-- HEADER ACCOUNT -->
+            <div id="account">
+               <a href="#" id="link-account"><img src="./images/account-circle.svg" alt="Entrar"></a>
+               <ul id="account-list">
+                  <li>
+                     <a href="#">Entrar</a>
+                  </li>
+                  <li>
+                     <a href="#">Criar conta</a>
+                  </li>
+               </ul>
+            </div>
+            <!-- HEADER SHOPPING CART -->
+            <a href="#"><img src="./images/shopping.svg" alt="Carrinho de Compras"></a>
+         </div>
+      </div>
+
+      <!-- NAVBAR CATEGORIES -->
+      <nav class="menu-categories">
+         <ul>
+            <li>
+               <a href="./categories.html">LANÇAMENTOS</a>
+               <ul>
+                  <li><a href="./categories.html">Personalizados</a></li>
+                  <li><a href="./categories.html">Coleção Essência</a></li>
+                  <li><a href="./categories.html">Coleção Brasil</a></li>
+                  <li><a href="./categories.html">Coleção Espanha</a></li>
+               </ul>
+            </li>
+            <li>
+               <a href="./categories.html">MAIS VENDIDOS</a>
+               <ul>
+                  <li><a href="./categories.html">Personalizados</a></li>
+                  <li><a href="./categories.html">Coleção Essência</a></li>
+                  <li><a href="./categories.html">Coleção Brasil</a></li>
+                  <li><a href="./categories.html">Coleção Espanha</a></li>
+               </ul>
+            </li>
+            <li>
+               <a href="./categories.html">COLEÇÕES</a>
+               <ul>
+                  <li><a href="./categories.html">Personalizados</a></li>
+                  <li><a href="./categories.html">Coleção Essência</a></li>
+                  <li><a href="./categories.html">Coleção Brasil</a></li>
+                  <li><a href="./categories.html">Coleção Espanha</a></li>
+               </ul>
+            </li>
+            <li>
+               <a href="./categories.html">ROUPAS</a>
+               <ul>
+                  <li><a href="./categories.html">Personalizados</a></li>
+                  <li><a href="./categories.html">Coleção Essência</a></li>
+                  <li><a href="./categories.html">Coleção Brasil</a></li>
+                  <li><a href="./categories.html">Coleção Espanha</a></li>
+               </ul>
+            </li>
+            <li>
+               <a href="./categories.html">ACESSÓRIOS</a>
+               <ul>
+                  <li><a href="./categories.html">Personalizados</a></li>
+                  <li><a href="./categories.html">Coleção Essência</a></li>
+                  <li><a href="./categories.html">Coleção Brasil</a></li>
+                  <li><a href="./categories.html">Coleção Espanha</a></li>
+               </ul>
+            </li>
+            <li>
+               <a href="./categories.html">CLÁSSICOS</a>
+               <ul>
+                  <li><a href="./categories.html">Personalizados</a></li>
+                  <li><a href="./categories.html">Coleção Essência</a></li>
+                  <li><a href="./categories.html">Coleção Brasil</a></li>
+                  <li><a href="./categories.html">Coleção Espanha</a></li>
+               </ul>
+            </li>
+            <li>
+               <a href="./categories.html">SALE</a>
+               <ul>
+                  <li><a href="./categories.html">Personalizados</a></li>
+                  <li><a href="./categories.html">Coleção Essência</a></li>
+                  <li><a href="./categories.html">Coleção Brasil</a></li>
+                  <li><a href="./categories.html">Coleção Espanha</a></li>
+               </ul>
+            </li>
+         </ul>
+      </nav>
+   </header>
+
+   <!-- MAIN -->
+   <main>
+
+      <!-- MAIN BANNER -->
+      <section class="main-banner banner1">
+         <img src="./images/left.svg" class="button-left">
+         <img src="./images/right.svg" class="button-right">
+      </section>
+
+      <!-- SHIPPING BANNER -->
+      <section class="shipping-banner general-margin-padding">
+         <div class="shipping-box">
+            <div class="shipping-box-col-img">
+               <img src="./images/truck-fast-outline.svg" alt="Frete Grátis">
+            </div>
+            <div class="shipping-box-col-text">
+               <h2>FRETE GRÁTIS</h2>
+               <h3>A partir de R$ 399,00</h3>
+            </div>
+         </div>
+         <div class="shipping-box">
+            <div class="shipping-box-col-img">
+               <img src="./images/credit-card-check-outline.svg" alt="Frete Grátis">
+            </div>
+            <div class="shipping-box-col-text">
+               <h2>PARCELAMENTO</h2>
+               <h3>Em até 6x Sem Juros</h3>
+            </div>
+         </div>
+         <div class="shipping-box">
+            <div class="shipping-box-col-img">
+               <img src="./images/lock-outline.svg" alt="Frete Grátis">
+            </div>
+            <div class="shipping-box-col-text">
+               <h2>COMPRA SEGURA</h2>
+               <h3>Certificado de Segurança SSL</h3>
+            </div>
+         </div>
+         <div class="shipping-box">
+            <div class="shipping-box-col-img">
+               <img src="./images/barcode-scan.svg" alt="Frete Grátis">
+            </div>
+            <div class="shipping-box-col-text">
+               <h2>BOLETO</h2>
+               <h3>5% de Desconto</h3>
+            </div>
+         </div>
+
+      </section>
+
+      <!-- SECONDARY BANNER -->
+      <section class="secondary-banners general-margin-padding">
+         <div class="secondary-banner-col">
+            <img src="./images/pexels-arayik-manukyan-9629406.jpg" alt="Banner">
+         </div>
+         <div class="secondary-banner-col">
+            <img src="./images/pexels-av-raw-12479472.jpg" alt="Banner" class="zoom">
+         </div>
+         <div class="secondary-banner-col">
+            <img src="./images/pexels-kenan-almokdad-5366614.jpg" alt="Banner">
+         </div>
+      </section>
+
+      <!-- PRODUCT LIST -->
+      <section class="product-box general-margin-padding">
+         <h2>MAIS VENDIDOS</h2>
+         <div class="product-list">
+            <div class="product">
+               <div class="img-product"><img src="./images/pexels-monstera-6311251.jpg" alt="Produto"></div>
+               <h3>Camiseta Básica de Algodão</h3>
+               <h4>R$ 107,90</h4>
+            </div>
+
+            <div class="product">
+               <div class="img-product"><img src="./images/pexels-monstera-6311251.jpg" alt="Produto"></div>
+               <h3>Camiseta Básica de Algodão</h3>
+               <h4>R$ 107,90</h4>
+            </div>
+
+            <!-- <div class="product">
+               <div class="img-product"><img src="./images/pexels-monstera-6311251.jpg" alt="Produto"></div>
+               <h3>Camiseta Básica de Algodão</h3>
+               <h4>R$ 107,90</h4>
+            </div>
+         
+            <div class="product">
+               <div class="img-product"><img src="./images/pexels-monstera-6311251.jpg" alt="Produto"></div>
+               <h3>Camiseta Básica de Algodão</h3>
+               <h4>R$ 107,90</h4>
+            </div> -->
+
+         </div>
+      </section>
+
+      <!-- PRODUCT LIST -->
+      <section class="product-box general-margin-padding">
+         <h2>LANÇAMENTOS</h2>
+         <div class="product-list">
+            <div class="product">
+               <div class="img-product"><img src="./images/pexels-monstera-6311251.jpg" alt="Produto"></div>
+               <h3>Camiseta Básica de Algodão</h3>
+               <h4>R$ 107,90</h4>
+            </div>
+            <div class="product">
+               <div class="img-product"><img src="./images/pexels-monstera-6311251.jpg" alt="Produto"></div>
+               <h3>Camiseta Básica de Algodão</h3>
+               <h4>R$ 107,90</h4>
+            </div>
+            <div class="product">
+               <div class="img-product"><img src="./images/pexels-monstera-6311251.jpg" alt="Produto"></div>
+               <h3>Camiseta Básica de Algodão</h3>
+               <h4>R$ 107,90</h4>
+            </div>
+            <div class="product">
+               <div class="img-product"><img src="./images/pexels-monstera-6311251.jpg" alt="Produto"></div>
+               <h3>Camiseta Básica de Algodão</h3>
+               <h4>R$ 107,90</h4>
+            </div>
+         </div>
+      </section>
+   </main>
+
+   <!-- FOOTER -->
+   <footer>
+      <section class="footer-top general-margin-padding">
+         <div class="footer-col">
+            <h2>INSTITUCIONAL</h2>
+            <ul>
+               <li><a href="">Home</a></li>
+               <li><a href="">Sobre</a></li>
+               <li><a href="">Dúvidas</a></li>
+               <li><a href="">Contato</a></li>
+            </ul>
+         </div>
+         <div class="footer-col">
+            <h2>MINHA CONTA</h2>
+            <ul>
+               <li><a href="">Meus Dados</a></li>
+               <li><a href="">Meus Pedidos</a></li>
+               <li><a href="">Lista de Desejos</a></li>
+            </ul>
+         </div>
+         <div class="footer-col">
+            <h2>ATENDIMENTO</h2>
+            <p>
+               De segunda a sexta das 10h às 18h <br>
+               Sábado das 11h às 16h
+            </p>
+            <p>
+               (11) 90000-0000<br>
+               (11) 90000-0000
+            </p>
+            <p>
+               Rua Um, 234 - Centro<br>
+               São Paulo/SP - CEP 01000-000
+            </p>
+         </div>
+         <div class="footer-col">
+            <div class="footer-internal-col">
+               <h2>FORMAS DE PAGAMENTO</h2>
+               <img src="./images/payment.png" alt="Formas de Pagamento" id="payment">
+            </div>
+            <div class="footer-internal-col">
+               <h2>SEGURANÇA</h2>
+               <img src="./images/ssl.png" alt="Certificado de Segurança SSL" id="ssl">
+            </div>
+            <div class="footer-internal-col">
+               <h2>SIGA-NOS</h2>
+               <div id="social-media">
+                  <a href="#"><img src="./images/facebook.svg" alt="Facebook"></a>
+                  <a href="#"><img src="./images/instagram.svg" alt="Instagram"></a>
+               </div>
+            </div>
+         </div>
+         <div class="footer-col">
+            <h2>NEWSLETTER</h2>
+            <p>
+               Receba nossas dicas, <br>
+               novidades e promoções.
+            </p>
+            <form action="">
+               <fieldset id="form-news">
+                  <legend class="hide-text">Newsletter</legend>
+                  <label for="news-name" class="hide-text">Nome</label>
+                  <input type="text" name="news-name" id="news-name" placeholder="Nome">
+                  <label for="news-email" class="hide-text">Email</label>
+                  <div id="email-submit-box">
+                     <input type="email" name="news-email" id="news-email" placeholder="E-mail">
+                     <button type="submit">OK</button>
+                  </div>
+               </fieldset>
+            </form>
+         </div>
+      </section>
+      <section class="footer-bottom">
+         <p>Todos os direitos reservados - CNPJ 00.000.000/0000-00</p>
+         <p>criado por: <strong>Raul Diamantino</strong></p>
+      </section>
+   </footer>
+
+   <!-- JAVASCRIPT -->
+   <script src="./scripts/script.js"></script>
+</body>
+
+</html>

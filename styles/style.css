@@ -655,6 +655,7 @@ footer {
   gap: 10px;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   padding: 20px;
   color: var(--grey);
   justify-content: center;
@@ -697,6 +698,7 @@ footer {
 
   #logo {
     padding: 0 10px;
+    font-size: 1.2rem;
   }
 
   #header-right-box {
@@ -851,7 +853,7 @@ footer {
 
   .shipping-box-col-text h2,
   h3 {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 
   .secondary-banners {

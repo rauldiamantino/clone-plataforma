@@ -295,6 +295,10 @@ header {
   object-fit: cover;
 }
 
+.banner-selected:hover {
+  filter: brightness(50%);
+}
+
 /* CATEGORIES BANNER */
 
 .categories-banner {
@@ -832,6 +836,10 @@ footer {
   .menu-categories li ul a:hover {
     text-decoration: none;
     color: var(--darkGrey);
+  }
+
+  .main-banner:hover {
+    filter: brightness(100%);
   }
 
   .main-banner,

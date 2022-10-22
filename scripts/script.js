@@ -19,7 +19,7 @@ function closeMenu() {
   menuCategories.classList.remove("open");
 }
 
-// PAGE PRODUCT
+// PAGE PRODUCT - CHANGE IMAGE
 let mainImage = document.querySelector(".main-image > img");
 let secondaryImages = document.querySelectorAll(".product-img");
 
@@ -33,4 +33,22 @@ function selectImage(img) {
 
 function setMainImage(img) {
   mainImage.setAttribute("src", img);
+}
+
+// PAGE PRODUCT - IMPORT DATA
+let products = document.querySelectorAll(".product");
+let modal = document.querySelector("dialog");
+let nameProduct = document.querySelector("#prod-name");
+let priceProduct = document.querySelector("#prod-price");
+
+products.forEach(selectProduct);
+
+function selectProduct(prod) {
+  prod.addEventListener("click", function (event) {
+    let prodName = prod.dataset.prodname;
+    let prodPrice = prod.dataset.prodprice;
+    modal.showModal();
+    nameProduct.textContent = prodName;
+    priceProduct.textContent = prodPrice;
+  });
 }

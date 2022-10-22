@@ -671,13 +671,6 @@ dialog::backdrop{
   background-color: rgba(0, 0, 0, 0.226);
 }
 
-dialog {
-  border: 0;
-  margin: auto;
-  border-radius: 3px;
-  outline: 0;
-}
-
 @media (max-width: 600px) {
   #header-alert-message {
     font-size: 0.7rem;

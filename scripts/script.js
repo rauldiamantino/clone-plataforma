@@ -1,4 +1,3 @@
-// Script MAIN BANNER
 // MENU RESPONSIVE
 let buttonOpen = document.querySelector(".button-responsive");
 let buttonClose = document.querySelector(".titleMenu");
@@ -18,4 +17,20 @@ function openMenu() {
 
 function closeMenu() {
   menuCategories.classList.remove("open");
+}
+
+// PAGE PRODUCT
+let mainImage = document.querySelector(".main-image > img");
+let secondaryImages = document.querySelectorAll(".product-img");
+
+secondaryImages.forEach(selectImage);
+
+function selectImage(img) {
+  img.addEventListener("click", function (event) {
+    setMainImage(event.target.src);
+  });
+}
+
+function setMainImage(img) {
+  mainImage.setAttribute("src", img);
 }

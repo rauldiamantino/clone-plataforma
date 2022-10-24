@@ -36,19 +36,18 @@ function setMainImage(img) {
 }
 
 // PAGE PRODUCT - IMPORT DATA
+
 let products = document.querySelectorAll(".product");
 let modal = document.querySelector("dialog");
 let nameProduct = document.querySelector("#prod-name");
 let priceProduct = document.querySelector("#prod-price");
 
-products.forEach(selectProduct);
+products.forEach(getProduct);
 
-function selectProduct(prod) {
+function getProduct(prod) {
   prod.addEventListener("click", function (event) {
-    let prodName = prod.dataset.prodname;
-    let prodPrice = prod.dataset.prodprice;
     modal.showModal();
-    nameProduct.textContent = prodName;
-    priceProduct.textContent = prodPrice;
+    nameProduct.textContent = prod.dataset.prodname;
+    priceProduct.textContent = prod.dataset.prodprice;
   });
 }

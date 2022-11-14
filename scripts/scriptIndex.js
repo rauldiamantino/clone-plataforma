@@ -1,46 +1,37 @@
-// Script MAIN BANNER
-
-let buttonRight = document.querySelector(".button-right");
-let buttonLeft = document.querySelector(".button-left");
-let mainBanner = document.querySelectorAll(".main-banner-images > img");
+const $banners = document.querySelectorAll(".main-banner-images img");
+const $buttons = document.querySelectorAll(".buttons-banner-main img");
 let counterBanner = 0;
 
-buttonRight.addEventListener("click", () => {
-  removeAllClasses();
-  nextImage();
-});
+const clickedButton = $buttons => {
+     $buttons.forEach(button => {
+          button.addEventListener("click", () => {
+               removeAllBannerClasses();
+               button.classList.contains("button-right") ? nextBanner() : prevBanner();
+          });
+     });
+};
 
-buttonLeft.addEventListener("click", () => {
-  removeAllClasses();
-  prevImage();
-});
+clickedButton($buttons);
 
-function nextImage() {
-  if (counterBanner < mainBanner.length - 1) {
-    counterBanner++;
-    addClassSelected(mainBanner[counterBanner]);
-  } else {
-    counterBanner = -1;
-    nextImage();
-  }
-}
+const removeAllBannerClasses = () => {
+     $banners.forEach(banner => {
+          banner.classList.remove("banner-selected");
+     });
+};
 
-function prevImage() {
-  if (counterBanner <= 0) {
-    counterBanner = mainBanner.length;
-    prevImage();
-  } else {
-    --counterBanner;
-    addClassSelected(mainBanner[counterBanner]);
-  }
-}
+const addClassToBanner = banner => {
+     banner.classList.add("banner-selected");
+     console.log(banner)
+};
 
-function removeAllClasses() {
-  mainBanner.forEach(function (banner) {
-    banner.classList.remove("banner-selected");
-  });
-}
+const nextBanner = () => {
+     counterBanner < $banners.length - 1
+          ? (++counterBanner, addClassToBanner($banners[counterBanner]))
+          : ((counterBanner = -1), nextBanner());
+};
 
-function addClassSelected(banner) {
-  banner.classList.add("banner-selected");
-}
+const prevBanner = () => {
+     counterBanner <= 0
+          ? ((counterBanner = $banners.length), prevBanner())
+          : (--counterBanner, addClassToBanner($banners[counterBanner]));
+};

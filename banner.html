@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* MAIN BANNER */
+        .main-banner {
+            position: relative;
+            transition: 0.4s;
+            width: 100%;
+            height: 500px;
+        }
+
+        /* BANNER BUTTON */
+        .buttons-banner-main {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .buttons-banner-main img {
+            width: 40px;
+            height: 80px;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+        .buttons-banner-main img:hover {
+            background-color: rgba(0, 0, 0, 0.247);
+        }
+
+        /* BANNERS IMAGES */
+        .main-banner-images {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: -1;
+            display: flex;
+        }
+
+        .banner-none {
+            height: 100%;
+            max-width: 100vw;
+            object-fit: cover;
+            transition: 0.1s;
+            z-index: -1;
+        }
+
+        .banner-selected:hover {
+            filter: brightness(50%);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- MAIN BANNER -->
+    <section class="main-banner">
+        <div class="buttons-banner-main">
+            <img src="./images/left.svg" class="button-left">
+            <img src="./images/right.svg" class="button-right">
+        </div>
+        <div class="main-banner-images">
+            <img src="./images/banner1.jpg" class="banner-none">
+            <img src="./images/banner2.jpg" class="banner-none">
+            <img src="./images/banner3.jpg" class="banner-none">
+            <img src="./images/banner4.jpg" class="banner-none">
+        </div>
+    </section>
+
+</body>
+
+</html>

@@ -33,7 +33,7 @@ const changeBannerAuto = () => {
           currentBanner += 1;
           currentBanner >= maxBanners ? (currentBanner = 0) : false;
           changeBanner(currentBanner);
-     }, 3000);
+     }, 5000);
 };
 
-changeBannerAuto()
+changeBannerAuto();

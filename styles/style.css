@@ -851,15 +851,9 @@ dialog {
           color: var(--darkGrey);
      }
 
-     .main-banner:hover {
-          filter: none;
-     }
-
-     .main-banner,
-     .main-banner-images,
-     .banner-none,
-     .banner-selected {
-          max-height: 210px;
+     #main-banner img {
+          max-height: 80vh;
+          object-fit: cover;
      }
 
      .shipping-banner {

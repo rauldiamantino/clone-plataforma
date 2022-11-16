@@ -852,7 +852,7 @@ dialog {
      }
 
      #main-banner img {
-          max-height: 80vh;
+          max-height: 60vh;
           object-fit: cover;
      }
 

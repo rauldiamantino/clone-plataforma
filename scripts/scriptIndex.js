@@ -1,37 +1,39 @@
-const $banners = document.querySelectorAll(".main-banner-images img");
-const $buttons = document.querySelectorAll(".buttons-banner-main img");
-let counterBanner = 0;
+const $buttons = document.querySelectorAll("button");
+const $banners = document.querySelectorAll(".item");
+const maxBanners = $banners.length;
+let currentBanner = 0;
 
-const clickedButton = $buttons => {
-     $buttons.forEach(button => {
-          button.addEventListener("click", () => {
-               removeAllBannerClasses();
-               button.classList.contains("button-right") ? nextBanner() : prevBanner();
-          });
+clickedButton = button => {
+     button.addEventListener("click", () => {
+          currentBannerManipulation(button);
      });
 };
 
-clickedButton($buttons);
+$buttons.forEach(clickedButton);
 
-const removeAllBannerClasses = () => {
-     $banners.forEach(banner => {
-          banner.classList.remove("banner-selected");
+const currentBannerManipulation = button => {
+     const isLeft = button.classList.contains("left-btn");
+
+     isLeft ? (currentBanner -= 1) : (currentBanner += 1);
+     currentBanner >= maxBanners ? (currentBanner = 0) : false;
+     currentBanner < 0 ? (currentBanner = maxBanners - 1) : false;
+     changeBanner(currentBanner);
+};
+
+const changeBanner = currentBanner => {
+     $banners[currentBanner].scrollIntoView({
+          behavior: "smooth",
+          inline: "start",
+          block: "nearest",
      });
 };
 
-const addClassToBanner = banner => {
-     banner.classList.add("banner-selected");
-     console.log(banner)
+const changeBannerAuto = () => {
+     setInterval(function () {
+          currentBanner += 1;
+          currentBanner >= maxBanners ? (currentBanner = 0) : false;
+          changeBanner(currentBanner);
+     }, 3000);
 };
 
-const nextBanner = () => {
-     counterBanner < $banners.length - 1
-          ? (++counterBanner, addClassToBanner($banners[counterBanner]))
-          : ((counterBanner = -1), nextBanner());
-};
-
-const prevBanner = () => {
-     counterBanner <= 0
-          ? ((counterBanner = $banners.length), prevBanner())
-          : (--counterBanner, addClassToBanner($banners[counterBanner]));
-};
+changeBannerAuto()

@@ -241,61 +241,61 @@ header {
 /* MAIN */
 
 /* MAIN BANNER */
-.main-banner {
-     position: relative;
-     transition: 0.4s;
-     width: 100%;
-     height: 500px;
-}
-
-/* BANNER BUTTON */
-.buttons-banner-main {
-     position: absolute;
-     width: 100%;
-     height: 100%;
-     display: flex;
-     align-items: center;
-     justify-content: space-between;
-}
-
-.buttons-banner-main img {
-     width: 40px;
-     height: 80px;
-     cursor: pointer;
-     transition: 0.4s;
-}
-
-.buttons-banner-main img:hover {
-     background-color: rgba(0, 0, 0, 0.247);
-}
-
-/* BANNERS IMAGES */
-.main-banner-images {
-     width: 100%;
-     height: 100%;
-     position: absolute;
-     z-index: -1;
-}
-
-.banner-none {
-     position: absolute;
-     height: 100%;
+#container {
      max-width: 100vw;
-     object-fit: cover;
-     transition: 0.1s;
-     transform: translate(-100%);
-}
-
-.banner-selected {
-     position: absolute;
-     transform: translate(0%);
-     max-width: 100%;
      height: 100%;
+     position: relative;
+}
+
+#carousel {
+     height: auto;
+     overflow-x: hidden;
+}
+
+#carousel::-webkit-scrollbar {
+     display: none;
+}
+
+#main-banner {
+     height: auto;
+     display: flex;
+}
+
+#main-banner img {
+     min-width: 100%;
+     width: 2000px;
+     height: 500px;
      object-fit: cover;
 }
 
-.banner-selected:hover {
-     filter: brightness(50%);
+button img {
+     width: 30px;
+     height: 55px;
+}
+
+.left-btn,
+.right-btn {
+     border: none;
+     position: absolute;
+     bottom: 50%;
+     height: 90px;
+     width: 35px;
+     transform: translateY(50%);
+     left: 0;
+     right: auto;
+     cursor: pointer;
+     transition: all 600ms;
+     background-color: transparent;
+}
+
+.right-btn {
+     right: 0;
+     left: auto;
+}
+
+.left-btn:hover,
+.right-btn:hover {
+     background-color: rgba(0, 0, 0, 0.253);
 }
 
 /* CATEGORIES BANNER */
@@ -352,7 +352,7 @@ header {
      display: flex;
      max-width: 100%;
      height: 100%;
-     justify-content: space-between;
+     justify-content: center;
      margin-bottom: 20px;
 }
 
@@ -679,7 +679,7 @@ dialog {
      outline: 0;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 990px) {
      #header-alert-message {
           font-size: 0.7rem;
           padding: 12px;

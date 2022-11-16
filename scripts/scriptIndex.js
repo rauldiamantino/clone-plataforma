@@ -36,4 +36,4 @@ const changeBannerAuto = () => {
      }, 5000);
 };
 
-changeBannerAuto();
+//changeBannerAuto();

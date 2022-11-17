@@ -4,19 +4,19 @@ let buttonClose = document.querySelector(".titleMenu");
 let menuCategories = document.querySelector(".background-categories");
 
 buttonOpen.addEventListener("click", function () {
-  openMenu();
+     openMenu();
 });
 
 buttonClose.addEventListener("click", function () {
-  closeMenu();
+     closeMenu();
 });
 
 function openMenu() {
-  menuCategories.classList.add("open");
+     menuCategories.classList.add("open");
 }
 
 function closeMenu() {
-  menuCategories.classList.remove("open");
+     menuCategories.classList.remove("open");
 }
 
 // PAGE PRODUCT - CHANGE IMAGE
@@ -26,13 +26,13 @@ let secondaryImages = document.querySelectorAll(".product-img");
 secondaryImages.forEach(selectImage);
 
 function selectImage(img) {
-  img.addEventListener("click", function (event) {
-    setMainImage(event.target.src);
-  });
+     img.addEventListener("click", function (event) {
+          setMainImage(event.target.src);
+     });
 }
 
 function setMainImage(img) {
-  mainImage.setAttribute("src", img);
+     mainImage.setAttribute("src", img);
 }
 
 // PAGE PRODUCT - IMPORT DATA
@@ -41,13 +41,18 @@ let products = document.querySelectorAll(".product");
 let modal = document.querySelector("dialog");
 let nameProduct = document.querySelector("#prod-name");
 let priceProduct = document.querySelector("#prod-price");
+let btnCloseModal = document.querySelector("#btn-close-modal");
 
 products.forEach(getProduct);
 
 function getProduct(prod) {
-  prod.addEventListener("click", function (event) {
-    modal.showModal();
-    nameProduct.textContent = prod.dataset.prodname;
-    priceProduct.textContent = prod.dataset.prodprice;
-  });
+     prod.addEventListener("click", function (event) {
+          modal.showModal();
+          nameProduct.textContent = prod.dataset.prodname;
+          priceProduct.textContent = prod.dataset.prodprice;
+     });
 }
+
+btnCloseModal.addEventListener("click", () => {
+     modal.close();
+});

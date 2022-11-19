@@ -1,19 +1,21 @@
 /* GET BUTTONS */
 const $buttons = document.querySelectorAll("button");
-const $banners = document.querySelectorAll(".item");
-let currentBanner = 0;
 
 const clickedButton = button => {
      button.addEventListener("click", () => {
           currentBannerManipulation(button);
           openResponsiveMenu(button);
           closeModal(button);
+          currentProductListManipulation(button);
      });
 };
 
 $buttons.forEach(clickedButton);
 
 /* CHANGE MANUAL AND AUTO ROTATE BANNER */
+const $banners = document.querySelectorAll(".item");
+let currentBanner = 0;
+
 const changeBanner = currentBanner => {
      const $mainBanner = document.querySelector("#main-banner");
      const styleTranslateDefinition = `translateX(${-currentBanner * 100}%)`;
@@ -23,26 +25,69 @@ const changeBanner = currentBanner => {
 };
 
 const changeBannerAuto = () => {
-     setInterval(function () {
-          currentBannerManipulation($buttons[1]);
-     }, 5000);
+     $buttons.forEach(button => {
+          const isLeft = button;
+          if (isLeft.classList.contains("btnLeft-m-banner")) {
+               setInterval(function () {
+                    currentBannerManipulation(isLeft);
+               }, 5000);
+          }
+     });
 };
 
 changeBannerAuto();
 
 /* CALL THE FUNCTION TO CHANGE THE BANNER */
 const currentBannerManipulation = button => {
-     const isLeft = button.classList.contains("left-btn");
+     const isLeft = button.classList.contains("btnLeft-m-banner");
+     const isRight = button.classList.contains("btnRight-m-banner");
      const maxBanners = $banners.length;
 
      /* manipulation current banner */
-     isLeft ? (currentBanner -= 1) : (currentBanner += 1);
+     if (isLeft) {
+          currentBanner -= 1;
+     }
+     if (isRight) {
+          currentBanner += 1;
+     }
+
      currentBanner >= maxBanners ? (currentBanner = 0) : false;
      currentBanner < 0 ? (currentBanner = maxBanners - 1) : false;
 
      /* call the function to change the banner */
      changeBanner(currentBanner);
 };
+
+/* PRODUCT LINE CAROUSEL WITH FOUR COLUMNS*/
+let currentProductList = 0;
+const $productList = document.querySelectorAll("#products-line > .product-list");
+
+const currentProductListManipulation = button => {
+     const isBtnProductsLeft = button.classList.contains("prod-btnLeft-carousel");
+     const isBtnProductsRight = button.classList.contains("prod-btnRight-carousel");
+     const maxProductList = $productList.length - 1;
+
+     if (isBtnProductsLeft) {
+          currentProductList -= 1;
+     }
+
+     if (isBtnProductsRight) {
+          currentProductList += 1;
+     }
+
+     currentProductList >= maxProductList ? (currentProductList = maxProductList) : false;
+     currentProductList < 0 ? (currentProductList = 0) : false;
+     changeProductList(currentProductList, $productList);
+};
+
+const changeProductList = (currentProductList, productList) => {
+     const styleTranslateDefinition = `translateX(${-currentProductList * 100}%)`;
+     productList.forEach(list => {
+          list.style.transform = styleTranslateDefinition;
+     });
+};
+
+
 
 /* MENU RESPONSIVE */
 const openResponsiveMenu = button => {

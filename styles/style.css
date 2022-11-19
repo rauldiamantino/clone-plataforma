@@ -1000,6 +1000,7 @@ footer {
 
      .main-image {
           width: 100%;
+          height: auto;
      }
 
      .secondary-images {

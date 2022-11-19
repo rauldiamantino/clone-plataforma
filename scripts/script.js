@@ -1,24 +1,3 @@
-// MENU RESPONSIVE
-let buttonOpen = document.querySelector(".button-responsive");
-let buttonClose = document.querySelector(".titleMenu");
-let menuCategories = document.querySelector(".background-categories");
-
-buttonOpen.addEventListener("click", function () {
-     openMenu();
-});
-
-buttonClose.addEventListener("click", function () {
-     closeMenu();
-});
-
-function openMenu() {
-     menuCategories.classList.add("open");
-}
-
-function closeMenu() {
-     menuCategories.classList.remove("open");
-}
-
 // PAGE PRODUCT - CHANGE IMAGE
 let mainImage = document.querySelector(".main-image > img");
 let secondaryImages = document.querySelectorAll(".product-img");
@@ -37,22 +16,22 @@ function setMainImage(img) {
 
 // PAGE PRODUCT - IMPORT DATA
 
-let products = document.querySelectorAll(".product");
-let modal = document.querySelector("dialog");
-let nameProduct = document.querySelector("#prod-name");
-let priceProduct = document.querySelector("#prod-price");
-let btnCloseModal = document.querySelector("#btn-close-modal");
+// let products = document.querySelectorAll(".product");
+// let modal = document.querySelector("dialog");
+// let nameProduct = document.querySelector("#prod-name");
+// let priceProduct = document.querySelector("#prod-price");
+// let btnCloseModal = document.querySelector("#btn-close-modal");
 
-products.forEach(getProduct);
+// products.forEach(getProduct);
 
-function getProduct(prod) {
-     prod.addEventListener("click", function (event) {
-          modal.showModal();
-          nameProduct.textContent = prod.dataset.prodname;
-          priceProduct.textContent = prod.dataset.prodprice;
-     });
-}
+// function getProduct(prod) {
+//      prod.addEventListener("click", function (event) {
+//           modal.showModal();
+//           nameProduct.textContent = prod.dataset.prodname;
+//           priceProduct.textContent = prod.dataset.prodprice;
+//      });
+// }
 
-btnCloseModal.addEventListener("click", () => {
-     modal.close();
-});
+// btnCloseModal.addEventListener("click", () => {
+//      modal.close();
+// });

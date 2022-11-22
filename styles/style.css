@@ -245,7 +245,7 @@ header {
 
 /* MAIN */
 
-/* CAROUSEL */
+/* BANNER CAROUSEL */
 #container {
      margin: auto;
      height: 100%;
@@ -597,63 +597,61 @@ button img {
      font-size: 0.9rem;
 }
 
-/* CAROUSEL PRODUCT LINE */
+/* PRODUCT LINE CAROUSEL*/
 .container-products-carousel {
      justify-content: center;
-     padding: 0 60px;
-     margin: auto;
+     padding: 0 40px;
      max-width: 97vw;
      position: relative;
 }
 
-.container-products-carousel .left-btn,
-.container-products-carousel .right-btn {
+/* PRODUCT CAROUSEL */
+.product.prod-carousel {
+     gap: 10px;
+     min-width: 23%;
+     margin-left: 1%;
      display: flex;
-     justify-content: center;
+     flex-direction: column;
      align-items: center;
+     justify-content: center;
+     cursor: pointer;
+     border: 1px solid transparent;
+     padding-bottom: 12px;
 }
 
-.container-products-carousel .left-btn img,
-.container-products-carousel .right-btn img {
+button.left-btn-prod img,
+button.right-btn-prod img {
      height: 50px;
      width: 50px;
 }
 
-.container-products-carousel .left-btn:hover,
-.container-products-carousel .right-btn:hover {
+.left-btn.left-btn-prod,
+.right-btn.right-btn-prod {
+     border: none;
+     position: absolute;
+     z-index: 1;
+     bottom: 50%;
+     transform: translateY(50%);
+     left: 0;
+     right: auto;
+     cursor: pointer;
+     transition: all 600ms;
      background-color: transparent;
-}
-
-.container-products-carousel #carousel {
      display: flex;
-     flex-flow: row nowrap;
+     align-items: center;
      justify-content: center;
 }
 
-.container-products-carousel #carousel #products-line {
-     display: grid;
-     grid-template-columns: 100% 100%;
-     justify-items: center;
-     overflow-x: hidden;
-     gap: 20px;
+.right-btn.right-btn-prod {
+     right: 0;
+     left: auto;
 }
 
-#products-line .product-list {
-     display: grid;
-     grid-template-columns: 1fr 1fr 1fr 1fr;
-     width: 100%;
-     transition: 1s;
-}
-
-.container-products-carousel #carousel .product-line {
+#carousel #products-line {
      display: flex;
-     gap: 20px;
-     flex-flow: row nowrap;
-}
-
-.container-products-carousel #carousel .product-line .product {
+     max-width: 100%;
      transition: 0.5s;
-     min-width: 25%;
+     gap: 1%;
 }
 
 /* FOOTER */
@@ -987,7 +985,9 @@ footer {
      }
 
      .secondary-banners {
-          margin: 0 10px;
+          margin: 0;
+          padding: 0;
+          width: 100vw;
           gap: 10px;
           flex-direction: column;
      }
@@ -1000,7 +1000,7 @@ footer {
      }
 
      .product-box {
-          margin: 0 10px;
+          margin: 0;
           gap: 20px;
      }
 
@@ -1120,29 +1120,30 @@ footer {
           top: 0;
      }
 
-     /* CAROUSEL PRODUCT */
-     /* .container-products-carousel #carousel {
-          display: flex;
-          flex-flow: row nowrap;
-          justify-content: center;
-          background-color: red;
-     } */
+     /* PRODUCT LINE CAROUSEL*/
+     .product.prod-carousel {
+          min-width: 48%;
+          margin-left: 1%;
+     }
 
-     .container-products-carousel #carousel #products-line {
-          display: grid;
-          grid-template-columns: 100% 100%;
-          justify-items: center;
+     .container-products-carousel {
+          justify-content: center;
+          padding: 0 20px;
+          margin: auto;
+          width: 97vw;
+     }
+
+     .left-btn.left-btn-prod {
+          left: -8px;
+          right: auto;
+     }
+
+     .right-btn.right-btn-prod {
+          right: -8px;
+          left: auto;
+     }
+
+     main {
           overflow-x: hidden;
-          gap: 20px;
-     }
-
-     #products-line .product-list {
-          display: flex;
-          flex-flow: row nowrap;
-          justify-content: center;
-     }
-
-     #products-line .product-list .product {
-          width: 50vw;
      }
 }

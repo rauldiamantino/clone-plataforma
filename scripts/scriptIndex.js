@@ -6,7 +6,7 @@ const clickedButton = button => {
           currentBannerManipulation(button);
           openResponsiveMenu(button);
           closeModal(button);
-          currentProductListManipulation(button);
+          verifyCarouselButton(button);
      });
 };
 
@@ -58,36 +58,53 @@ const currentBannerManipulation = button => {
      changeBanner(currentBanner);
 };
 
-/* PRODUCT LINE CAROUSEL WITH FOUR COLUMNS*/
-let currentProductList = 0;
-const $productList = document.querySelectorAll("#products-line > .product-list");
+/* PRODUCT LINE CAROUSEL*/
+const $prodCarousel = document.querySelector("#products-line");
+const $allProductsCarousel = document.querySelectorAll("#products-line .product");
+let counter = 0;
 
-const currentProductListManipulation = button => {
-     const isBtnProductsLeft = button.classList.contains("prod-btnLeft-carousel");
-     const isBtnProductsRight = button.classList.contains("prod-btnRight-carousel");
-     const maxProductList = $productList.length - 1;
+const verifyCarouselButton = button => {
+     const isLeft = button.classList.contains("left-btn-prod");
+     const isRight = button.classList.contains("right-btn-prod");
 
-     if (isBtnProductsLeft) {
-          currentProductList -= 1;
-     }
-
-     if (isBtnProductsRight) {
-          currentProductList += 1;
-     }
-
-     currentProductList >= maxProductList ? (currentProductList = maxProductList) : false;
-     currentProductList < 0 ? (currentProductList = 0) : false;
-     changeProductList(currentProductList, $productList);
+     manipulationCounterCarousel(isLeft, isRight);
 };
 
-const changeProductList = (currentProductList, productList) => {
-     const styleTranslateDefinition = `translateX(${-currentProductList * 100}%)`;
-     productList.forEach(list => {
-          list.style.transform = styleTranslateDefinition;
-     });
+const manipulationCounterCarousel = (btnLeft, btnRight) => {
+     if (btnLeft) counter--;
+     if (btnRight) counter++;
+     if (counter <= 0) counter = 0;
+     if (counter >= counterLimiter()) counter = counterLimiter();
+
+     $prodCarousel.style.transform = styleTranslateDefinition(counter);
 };
 
+/* CALL THE FUNCTION IF RESIZE THE SCREEN */
+document.body.onresize = () => {
+     if (document.body.clientWidth > 900) manipulationCounterCarousel((counter = 0));
+};
 
+const styleTranslateDefinition = counter => `translateX(${-counter * 100}%)`;
+
+const counterLimiter = () => {
+     return limiter(carouselXProductsPixels());
+};
+
+const limiter = carouselXProductsPixels => {
+     // verify if $prodCarousel exists in the page, and get width
+     const widthCarousel = $prodCarousel ? $prodCarousel.offsetWidth : false;
+     const result = carouselXProductsPixels / widthCarousel - 1;
+     return roundResult(result);
+};
+
+const roundResult = number => number.toFixed(0);
+
+const carouselXProductsPixels = () => {
+     const widthProducts = $allProductsCarousel[0].offsetWidth;
+     const result = $allProductsCarousel.length * widthProducts;
+
+     return result;
+};
 
 /* MENU RESPONSIVE */
 const openResponsiveMenu = button => {

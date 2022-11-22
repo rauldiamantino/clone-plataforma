@@ -3,10 +3,10 @@ const $buttons = document.querySelectorAll("button");
 
 const clickedButton = button => {
      button.addEventListener("click", () => {
-          currentBannerManipulation(button);
-          openResponsiveMenu(button);
           closeModal(button);
-          verifyCarouselButton(button);
+          openResponsiveMenu(button);
+          currentBannerManipulation(button);
+          verifyCarouselButton(button, "left-btn-prod", "right-btn-prod");
      });
 };
 
@@ -27,6 +27,7 @@ const changeBanner = currentBanner => {
 const changeBannerAuto = () => {
      $buttons.forEach(button => {
           const isLeft = button;
+
           if (isLeft.classList.contains("btnLeft-m-banner")) {
                setInterval(function () {
                     currentBannerManipulation(isLeft);
@@ -45,10 +46,10 @@ const currentBannerManipulation = button => {
 
      /* manipulation current banner */
      if (isLeft) {
-          currentBanner -= 1;
+          currentBanner--;
      }
      if (isRight) {
-          currentBanner += 1;
+          currentBanner++;
      }
 
      currentBanner >= maxBanners ? (currentBanner = 0) : false;
@@ -63,9 +64,9 @@ const $prodCarousel = document.querySelector("#products-line");
 const $allProductsCarousel = document.querySelectorAll("#products-line .product");
 let counter = 0;
 
-const verifyCarouselButton = button => {
-     const isLeft = button.classList.contains("left-btn-prod");
-     const isRight = button.classList.contains("right-btn-prod");
+const verifyCarouselButton = (button, leftClass, rightClass) => {
+     const isLeft = button.classList.contains(leftClass);
+     const isRight = button.classList.contains(rightClass);
 
      manipulationCounterCarousel(isLeft, isRight);
 };
@@ -79,12 +80,12 @@ const manipulationCounterCarousel = (btnLeft, btnRight) => {
      $prodCarousel.style.transform = styleTranslateDefinition(counter);
 };
 
-/* CALL THE FUNCTION IF RESIZE THE SCREEN */
+const styleTranslateDefinition = counter => `translateX(${-counter * 100}%)`;
+
+/* call the function if resize the screen */
 document.body.onresize = () => {
      if (document.body.clientWidth > 900) manipulationCounterCarousel((counter = 0));
 };
-
-const styleTranslateDefinition = counter => `translateX(${-counter * 100}%)`;
 
 const counterLimiter = () => {
      return limiter(carouselXProductsPixels());
@@ -122,7 +123,10 @@ const closeRespMenu = (button, categoriesMenu) => {
 
 /* GET PRODUCTS, AND MODAL WITH THE PRODUCT PAGE*/
 const $products = document.querySelectorAll(".product");
-const clickedProduct = product => product.addEventListener("click", () => openModal(product));
+const clickedProduct = product =>
+     product.addEventListener("click", () => {
+          openModal(product);
+     });
 
 $products.forEach(clickedProduct);
 
@@ -132,11 +136,25 @@ const addBackgroundScroll = () => (document.documentElement.style.overflow = "in
 
 const openModal = product => {
      const $modalProduct = document.querySelector(".background-modal-product");
-     console.log(product);
 
      $modalProduct.style.display = "flex";
      removeBackgroundScroll();
      closeModalEscKey($modalProduct);
+     setProductData(product.dataset);
+};
+
+const setProductData = product => {
+     const productName = document.querySelector("#prod-name");
+     const productPrice = document.querySelector("#prod-price");
+     const productDescription = document.querySelector(".prod-description");
+
+     productName.innerText = product.prodname;
+     productPrice.innerText = product.prodprice;
+     productDescription.innerText = product.proddesc;
+     console.log(product);
+
+
+     productName.scrollIntoView(0)
 };
 
 const closeModalEscKey = $modalProduct => {

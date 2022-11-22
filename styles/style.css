@@ -442,13 +442,14 @@ button img {
      column-gap: 20px;
      row-gap: 20px;
      display: grid;
-     grid-template-columns: auto 1fr;
+     grid-template-columns: 60% 30%;
      grid-template-rows: repeat(9, auto);
      margin-bottom: 20px;
 }
 
 .images {
      display: flex;
+     max-width: 100%;
      gap: 8px;
      grid-row-start: 1;
      grid-row-end: 9;
@@ -581,20 +582,30 @@ button img {
 }
 
 #product-shipping-cep {
-     height: 40px;
-     padding: 0 10px;
+     height: 37px;
+     width: 160px;
+     padding-left: 15px;
      border: 1px solid var(--lightGrey);
      outline: none;
      font-size: 1rem;
 }
 
 .calc-shipping button {
-     height: 39px;
+     height: 37px;
      padding: 0 10px;
-     outline: none;
+     /* outline: none; */
      border: none;
      cursor: pointer;
      font-size: 0.9rem;
+}
+
+.prod-description {
+     margin-bottom: 40px;
+     padding: 20px;
+}
+
+.prod-description {
+     text-align: left;
 }
 
 /* PRODUCT LINE CAROUSEL*/
@@ -754,7 +765,7 @@ footer {
 .modal-product {
      background-color: #fff;
      overflow-y: scroll;
-     position: relative;
+     position: absolute;
      width: 92%;
      height: 82%;
      border: 0;
@@ -765,8 +776,8 @@ footer {
 
 .btn-close-modal {
      position: fixed;
-     right: 50px;
-     top: 50px;
+     right: 40px;
+     /* top: 0px; */
      border: none;
      padding: 20px;
      outline: none;

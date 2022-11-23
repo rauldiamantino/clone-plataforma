@@ -123,10 +123,7 @@ const closeRespMenu = (button, categoriesMenu) => {
 
 /* GET PRODUCTS, AND MODAL WITH THE PRODUCT PAGE*/
 const $products = document.querySelectorAll(".product");
-const clickedProduct = product =>
-     product.addEventListener("click", () => {
-          openModal(product);
-     });
+const clickedProduct = product => product.addEventListener("click", () => openModal(product));
 
 $products.forEach(clickedProduct);
 
@@ -151,10 +148,8 @@ const setProductData = product => {
      productName.innerText = product.prodname;
      productPrice.innerText = product.prodprice;
      productDescription.innerText = product.proddesc;
-     console.log(product);
 
-
-     productName.scrollIntoView(0)
+     productName.scrollIntoView(0);
 };
 
 const closeModalEscKey = $modalProduct => {

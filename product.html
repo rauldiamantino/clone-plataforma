@@ -243,93 +243,92 @@
       <!-- MODAL PRODUCT -->
       <div class="background-modal-product">
          <div class="modal-product">
-            <div>
-               <button class="btn-close-modal"><img src="images/close.svg"></button>
-               <!-- PRODUCT PAGE -->
-               <section class="product-page general-margin-padding">
-                  <!-- box images -->
-                  <div class="images">
-                     <div class="secondary-images">
-                        <div class="box-small-image">
-                           <img src="./images/pexels-monstera-6311251.jpg" alt="Foto Produto" class="product-img">
-                        </div>
-                        <div class="box-small-image">
-                           <img src="./images/pexels-monstera-6311141.jpg" alt="Foto Produto" class="product-img">
-                        </div>
-                        <!-- <div class="box-small-image">
-                              <img src="./images/pexels-monstera-6311251.jpg" alt="Foto Produto" class="product-img">
-                           </div>
-                           <div class="box-small-image">
-                              <img src="./images/pexels-monstera-6311251.jpg" alt="Foto Produto" class="product-img">
-                           </div> -->
+            <button class="btn-close-modal"><img src="images/close.svg"></button>
+            <!-- PRODUCT PAGE -->
+            <section class="product-page general-margin-padding">
+               <!-- box images -->
+               <div class="images">
+                  <div class="secondary-images">
+                     <div class="box-small-image">
+                        <img src="./images/pexels-monstera-6311251.jpg" alt="Foto Produto" class="product-img">
                      </div>
-                     <div class="main-image">
-                        <img src="./images/pexels-monstera-6311251.jpg" alt="Foto Produto">
+                     <div class="box-small-image">
+                        <img src="./images/pexels-monstera-6311141.jpg" alt="Foto Produto" class="product-img">
                      </div>
                   </div>
-                  <!-- box description -->
-                  <div class="product-name">
-                     <h2 id="prod-name">Nome do Produto</h2>
-                     <h5>Código: 0000 | Ref. 000000</h5>
+                  <div class="main-image">
+                     <img src="./images/pexels-monstera-6311251.jpg" alt="Foto Produto">
                   </div>
-                  <div class="product-payment">
-                     <h2 id="prod-price">R$ 0</h2>
-                     <a href="#">Ver parcelamentos</a>
+               </div>
+               <!-- box description -->
+               <div class="product-name">
+                  <h2 id="prod-name">Nome do Produto</h2>
+                  <h5>Código: 0000 | Ref. 000000</h5>
+               </div>
+               <div class="product-payment">
+                  <h2 id="prod-price">R$ 0</h2>
+                  <a href="#">Ver parcelamentos</a>
+               </div>
+               <!-- box variations -->
+               <div class="variations">
+                  <div class="first-variation">
+                     <h4>Cor: Branco</h4>
+                     <button>Branco</button>
                   </div>
-                  <!-- box variations -->
-                  <div class="variations">
-                     <div class="first-variation">
-                        <h4>Cor: Branco</h4>
-                        <button>Branco</button>
-                     </div>
-                     <div class="second-variation">
-                        <h4>Tamanho: M</h3>
-                           <button>P</button>
-                           <button>M</button>
-                           <button>G</button>
-                     </div>
+                  <div class="second-variation">
+                     <h4>Tamanho: M</h3>
+                        <button>P</button>
+                        <button>M</button>
+                        <button>G</button>
                   </div>
-                  <div class="product-quantity-box">
-                     <label for="product-quantity">Quantidade:</label>
-                     <input type="number" id="product-quantity" value="1">
+               </div>
+               <div class="product-quantity-box">
+                  <label for="product-quantity">Quantidade:</label>
+                  <input type="number" id="product-quantity" value="1">
+               </div>
+               <button id="product-purchase">COMPRAR</button>
+               <h5 id="product-add-wishlist">+ Adicionar à lista de desejos</h5>
+               <div class="product-shipping">
+                  <label for="product-shipping-cep">Simule o frete para sua região</label>
+                  <div class="calc-shipping">
+                     <input type="text" id="product-shipping-cep" placeholder="Digite seu CEP">
+                     <button>Calcular Frete</button>
                   </div>
-                  <button id="product-purchase">COMPRAR</button>
-                  <h5 id="product-add-wishlist">+ Adicionar à lista de desejos</h5>
-                  <div class="product-shipping">
-                     <label for="product-shipping-cep">Simule o frete para sua região</label>
-                     <div class="calc-shipping">
-                        <input type="number" id="product-shipping-cep" placeholder="Digite seu CEP">
-                        <button>Calcular Frete</button>
-                     </div>
+               </div>
+            </section>
+
+            <section class="product-box general-margin-padding">
+               <h2>DESCRIÇÃO</h2>
+               <div class="prod-description"></div>
+            </section>
+
+            <!-- PRODUCT LIST -->
+            <section class="product-box general-margin-padding">
+               <h2>PRODUTOS RELACIONADOS</h2>
+               <div class="product-list">
+                  <div class="product" data-prodName="Camiseta Básica" data-prodPrice="100,20" data-prodDesc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio fugiat iusto quae saepe excepturi tempore iure magni accusamus recusandae officiis. Laboriosam, natus corporis. Possimus, et repellat corrupti dolorem voluptas voluptatibus.">
+                     <div class="img-product"><img src="./images/pexels-monstera-6311251.jpg" alt="Produto"></div>
+                     <h3>Camiseta Básica de Algodão</h3>
+                     <h4>R$ 100,20</h4>
                   </div>
-               </section>
-               <!-- PRODUCT LIST -->
-               <section class="product-box general-margin-padding">
-                  <h2>PRODUTOS RELACIONADOS</h2>
-                  <div class="product-list">
-                     <div class="product" data-prodName="Camiseta Básica" data-prodPrice="100,20" data-prodDesc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio fugiat iusto quae saepe excepturi tempore iure magni accusamus recusandae officiis. Laboriosam, natus corporis. Possimus, et repellat corrupti dolorem voluptas voluptatibus.">
-                        <div class="img-product"><img src="./images/pexels-monstera-6311251.jpg" alt="Produto"></div>
-                        <h3>Camiseta Básica de Algodão</h3>
-                        <h4>R$ 100,20</h4>
-                     </div>
-                     <div class="product" data-prodName="Camiseta Básica de AlgotãoT" data-prodPrice="107.9T" data-prodDesc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio fugiat iusto quae saepe excepturi tempore iure magni accusamus recusandae officiis. Laboriosam, natus corporis. Possimus, et repellat corrupti dolorem voluptas voluptatibus.">
-                        <div class="img-product"><img src="./images/pexels-monstera-6311251.jpg" alt="Produto"></div>
-                        <h3>Camiseta Básica de Algodão</h3>
-                        <h4>R$ 107,90</h4>
-                     </div>
-                     <div class="product" data-prodName="Camiseta Básica de AlgotãoT" data-prodPrice="107.9T" data-prodDesc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio fugiat iusto quae saepe excepturi tempore iure magni accusamus recusandae officiis. Laboriosam, natus corporis. Possimus, et repellat corrupti dolorem voluptas voluptatibus.">
-                        <div class="img-product"><img src="./images/pexels-monstera-6311251.jpg" alt="Produto"></div>
-                        <h3>Camiseta Básica de Algodão</h3>
-                        <h4>R$ 107,90</h4>
-                     </div>
-                     <div class="product" data-prodName="Camiseta Básica de AlgotãoT" data-prodPrice="107.9T" data-prodDesc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio fugiat iusto quae saepe excepturi tempore iure magni accusamus recusandae officiis. Laboriosam, natus corporis. Possimus, et repellat corrupti dolorem voluptas voluptatibus.">
-                        <div class="img-product"><img src="./images/pexels-monstera-6311251.jpg" alt="Produto"></div>
-                        <h3>Camiseta Básica de Algodão</h3>
-                        <h4>R$ 107,90</h4>
-                     </div>
+                  <div class="product" data-prodName="Camiseta Básica de AlgotãoT" data-prodPrice="107.9T" data-prodDesc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio fugiat iusto quae saepe excepturi tempore iure magni accusamus recusandae officiis. Laboriosam, natus corporis. Possimus, et repellat corrupti dolorem voluptas voluptatibus.">
+                     <div class="img-product"><img src="./images/pexels-monstera-6311251.jpg" alt="Produto"></div>
+                     <h3>Camiseta Básica de Algodão</h3>
+                     <h4>R$ 107,90</h4>
                   </div>
-               </section>
-            </div>
+                  <div class="product" data-prodName="Camiseta Básica de AlgotãoT" data-prodPrice="107.9T" data-prodDesc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio fugiat iusto quae saepe excepturi tempore iure magni accusamus recusandae officiis. Laboriosam, natus corporis. Possimus, et repellat corrupti dolorem voluptas voluptatibus.">
+                     <div class="img-product"><img src="./images/pexels-monstera-6311251.jpg" alt="Produto"></div>
+                     <h3>Camiseta Básica de Algodão</h3>
+                     <h4>R$ 107,90</h4>
+                  </div>
+                  <div class="product" data-prodName="Camiseta Básica de AlgotãoT" data-prodPrice="107.9T" data-prodDesc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio fugiat iusto quae saepe excepturi tempore iure magni accusamus recusandae officiis. Laboriosam, natus corporis. Possimus, et repellat corrupti dolorem voluptas voluptatibus.">
+                     <div class="img-product"><img src="./images/pexels-monstera-6311251.jpg" alt="Produto"></div>
+                     <h3>Camiseta Básica de Algodão</h3>
+                     <h4>R$ 107,90</h4>
+                  </div>
+               </div>
+            </section>
+
          </div>
       </div>
 

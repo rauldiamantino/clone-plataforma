@@ -1,4 +1,6 @@
-/* GET BUTTONS */
+/* - GET BUTTONS 
+-------------------------------------------------------------------------*/
+
 const $buttons = document.querySelectorAll("button");
 
 const clickedButton = button => {
@@ -12,7 +14,9 @@ const clickedButton = button => {
 
 $buttons.forEach(clickedButton);
 
-/* CHANGE MANUAL AND AUTO ROTATE BANNER */
+/* - CHANGE MANUAL AND AUTO ROTATE BANNER
+-------------------------------------------------------------------------*/
+
 const $banners = document.querySelectorAll(".item");
 let currentBanner = 0;
 
@@ -21,45 +25,64 @@ const changeBanner = currentBanner => {
      const styleTranslateDefinition = `translateX(${-currentBanner * 100}%)`;
 
      // verify if $mainBanner exists in the page, and set style transform
-     $mainBanner ? ($mainBanner.style.transform = styleTranslateDefinition) : false;
+     if ($mainBanner) $mainBanner.style.transform = styleTranslateDefinition;
 };
 
-const changeBannerAuto = () => {
-     $buttons.forEach(button => {
-          const isLeft = button;
+/* - CALL THE FUNCTION TO CHANGE THE BANNER
+-------------------------------------------------------------------------*/
 
-          if (isLeft.classList.contains("btnLeft-m-banner")) {
-               setInterval(function () {
-                    currentBannerManipulation(isLeft);
-               }, 5000);
-          }
-     });
-};
-
-changeBannerAuto();
-
-/* CALL THE FUNCTION TO CHANGE THE BANNER */
 const currentBannerManipulation = button => {
      const isLeft = button.classList.contains("btnLeft-m-banner");
      const isRight = button.classList.contains("btnRight-m-banner");
      const maxBanners = $banners.length;
 
      /* manipulation current banner */
-     if (isLeft) {
-          currentBanner--;
-     }
-     if (isRight) {
-          currentBanner++;
-     }
-
-     currentBanner >= maxBanners ? (currentBanner = 0) : false;
-     currentBanner < 0 ? (currentBanner = maxBanners - 1) : false;
+     if (isLeft) currentBanner--;
+     if (isRight) currentBanner++;
+     if (currentBanner >= maxBanners) currentBanner = 0;
+     if (currentBanner < 0) currentBanner = maxBanners - 1;
 
      /* call the function to change the banner */
      changeBanner(currentBanner);
 };
 
-/* PRODUCT LINE CAROUSEL*/
+/* - CHANGE MAIN BANNER AUTOMATICALLY
+-------------------------------------------------------------------------*/
+
+let intervalForChangingBanner;
+
+const changeBannerAuto = () => {
+     intervalForChangingBanner = setInterval(() => {
+          nextBanner();
+     }, 5000);
+
+     return intervalForChangingBanner;
+};
+
+const nextBanner = () => {
+     $buttons.forEach(button => {
+          if (button.classList.contains("btnRight-m-banner")) currentBannerManipulation(button);
+     });
+};
+
+const stopBannerAuto = () => clearInterval(intervalForChangingBanner);
+
+const stopIfTheMouseEnters = () => {
+     const $mainBanner = document.querySelector(".containerMainBanner");
+
+     // If the mouse enters, so stop the banner change. If the mouse leaves, so return the banner change
+     // Verify too, if the $mainBanner exists in the current page
+     if ($mainBanner) $mainBanner.addEventListener("mouseover", () => stopBannerAuto());
+     if ($mainBanner) $mainBanner.addEventListener("mouseout", () => changeBannerAuto());
+};
+
+/* Call the functions for the start and stop banner rotation */
+changeBannerAuto();
+stopIfTheMouseEnters();
+
+/* - PRODUCT LINE CAROUSEL
+-------------------------------------------------------------------------*/
+
 const $prodCarousel = document.querySelector("#products-line");
 const $allProductsCarousel = document.querySelectorAll("#products-line .product");
 let counter = 0;
@@ -77,7 +100,7 @@ const manipulationCounterCarousel = (btnLeft, btnRight) => {
      if (counter <= 0) counter = 0;
      if (counter >= counterLimiter()) counter = counterLimiter();
 
-     $prodCarousel.style.transform = styleTranslateDefinition(counter);
+     if ($prodCarousel) $prodCarousel.style.transform = styleTranslateDefinition(counter);
 };
 
 const styleTranslateDefinition = counter => `translateX(${-counter * 100}%)`;
@@ -87,9 +110,7 @@ document.body.onresize = () => {
      if (document.body.clientWidth > 900) manipulationCounterCarousel((counter = 0));
 };
 
-const counterLimiter = () => {
-     return limiter(carouselXProductsPixels());
-};
+const counterLimiter = () => limiter(carouselXProductsPixels());
 
 const limiter = carouselXProductsPixels => {
      // verify if $prodCarousel exists in the page, and get width
@@ -101,13 +122,16 @@ const limiter = carouselXProductsPixels => {
 const roundResult = number => number.toFixed(0);
 
 const carouselXProductsPixels = () => {
-     const widthProducts = $allProductsCarousel[0].offsetWidth;
+     // verify if $allProductsCarousel exists in the page, and get width
+     const widthProducts = $allProductsCarousel[0] ? $allProductsCarousel[0].offsetWidth : false;
      const result = $allProductsCarousel.length * widthProducts;
 
      return result;
 };
 
-/* MENU RESPONSIVE */
+/* - MENU RESPONSIVE
+-------------------------------------------------------------------------*/
+
 const openResponsiveMenu = button => {
      const isRespButtonToOpen = button.classList.contains("button-responsive");
      const categoriesMenu = document.querySelector(".background-categories");
@@ -118,16 +142,20 @@ const openResponsiveMenu = button => {
 const closeRespMenu = (button, categoriesMenu) => {
      const isRespButtonToClose = button.classList.contains("button-responsive-close");
 
-     isRespButtonToClose ? categoriesMenu.classList.remove("open") : false;
+     if (isRespButtonToClose) categoriesMenu.classList.remove("open");
 };
 
-/* GET PRODUCTS, AND MODAL WITH THE PRODUCT PAGE*/
+/* - GET PRODUCTS, AND MODAL WITH THE PRODUCT PAGE
+-------------------------------------------------------------------------*/
+
 const $products = document.querySelectorAll(".product");
 const clickedProduct = product => product.addEventListener("click", () => openModal(product));
 
 $products.forEach(clickedProduct);
 
-/* MODAL */
+/* - MODAL
+-------------------------------------------------------------------------*/
+
 const removeBackgroundScroll = () => (document.documentElement.style.overflow = "hidden");
 const addBackgroundScroll = () => (document.documentElement.style.overflow = "inherit");
 
@@ -149,6 +177,7 @@ const setProductData = product => {
      productPrice.innerText = product.prodprice;
      productDescription.innerText = product.proddesc;
 
+     // Page scroll to top, when product is clicked
      productName.scrollIntoView(0);
 };
 
@@ -165,8 +194,5 @@ const closeModal = button => {
      const $modalProduct = document.querySelector(".background-modal-product");
      const isCloseModal = button.classList.contains("btn-close-modal");
 
-     if (isCloseModal) {
-          $modalProduct.style.display = "none";
-          addBackgroundScroll();
-     }
+     if (isCloseModal) ($modalProduct.style.display = "none"), addBackgroundScroll();
 };

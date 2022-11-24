@@ -11,6 +11,7 @@
      --grey: #9e9e9e;
      --lightGrey: #e0dddd;
      --lightGrey2: #fafafa;
+     --lightGrey3: #f1f1f1;
      --darkGrey: #494949;
 }
 
@@ -180,7 +181,7 @@ header {
 
 .menu-categories {
      width: 100%;
-     border-top: 1px solid var(--lightGrey);
+     border-top: 1px solid var(--lightGrey3);
      /* border-bottom: 1px solid var(--lightGrey); */
      position: relative;
      z-index: 2;
@@ -294,16 +295,21 @@ button img {
 
 /* MAIN BANNER */
 #main-banner {
+     max-width: 100%;
      height: auto;
      display: flex;
      transition: 0.4s;
 }
 
 #main-banner img {
-     min-width: 100%;
      width: 100%;
-     height: auto;
+     height: 100%;
      object-fit: cover;
+}
+
+#main-banner a {
+     min-width: 100%;
+     min-height: 100%;
 }
 
 /* CATEGORIES BANNER */
@@ -330,6 +336,7 @@ button img {
 .categories-banner img {
      width: 100%;
      height: 400px;
+     object-fit: cover;
 }
 
 /* SHIPPING BANNER */
@@ -374,6 +381,7 @@ button img {
      width: 100%;
      height: 100%;
      transition: 0.3s;
+     object-fit: cover;
 }
 
 .secondary-banner-col img:hover {
@@ -451,9 +459,32 @@ button img {
 .images {
      display: flex;
      max-width: 100%;
+     max-height: auto;
      gap: 8px;
      grid-row-start: 1;
      grid-row-end: 9;
+}
+
+.main-image {
+     max-width: 100%;
+     height: auto;
+     overflow-x: hidden;
+     border: 1px solid var(--lightGrey);
+}
+
+.product-images {
+     
+     
+     display: flex;
+     gap: 3px;
+}
+
+.product-images img {
+     min-width: 100%;
+     height: auto;
+     padding: 3px;
+     object-fit: cover;
+     object-position: center 10%;
 }
 
 .secondary-images {
@@ -476,23 +507,6 @@ button img {
      width: 100%;
      height: 100%;
      object-fit: cover;
-}
-
-.main-image {
-     width: 100%;
-     height: 646px;
-     object-fit: cover;
-     object-position: 50% 75%;
-     padding: 3px;
-     cursor: pointer;
-     border: 1px solid var(--lightGrey);
-}
-
-.main-image img {
-     width: 100%;
-     height: 100%;
-     object-fit: cover;
-     object-position: top center;
 }
 
 .product-name h2 {
@@ -564,7 +578,6 @@ button img {
      text-align: center;
 }
 
-
 #product-purchase {
      height: 50px;
      border: 0;
@@ -607,12 +620,10 @@ button img {
 }
 
 .prod-description {
-     margin-bottom: 40px;
+     width: 100%;
      padding: 20px;
-}
-
-.prod-description {
      text-align: left;
+     margin-bottom: 40px;
 }
 
 /* PRODUCT LINE CAROUSEL*/
@@ -981,9 +992,6 @@ footer {
 
      #main-banner img {
           height: 60vh;
-     }
-
-     #main-banner img {
           object-fit: cover;
      }
 
@@ -1093,6 +1101,11 @@ footer {
 
      .main-image {
           width: 100%;
+          height: auto;
+     }
+
+     .product-images img {
+          max-width: 100%;
           height: auto;
      }
 

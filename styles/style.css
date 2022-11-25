@@ -231,11 +231,14 @@ header {
      padding: 5px;
 }
 
-.menu-categories li:hover ul {
-     position: absolute;
-     top: 100%;
-     width: 200px;
-     display: block;
+@media (min-width: 1024px) {
+     .menu-categories li:hover ul {
+          position: absolute;
+          top: 100%;
+          width: 200px;
+          display: block;
+          cursor: pointer;
+     }
 }
 
 .menu-categories li ul a:hover {
@@ -451,7 +454,7 @@ button img {
      row-gap: 20px;
      display: grid;
      grid-template-columns: 60% 40%;
-     grid-template-rows: repeat(8, auto);
+     grid-template-rows: repeat(9, auto);
      margin-bottom: 20px;
      padding-right: 20px;
 }
@@ -506,13 +509,13 @@ button img {
 .product-images {
      display: flex;
      max-height: 100%;
-     transition: 0.6s;
+     transition: 0.2s;
 }
 
 .product-images img {
      min-width: 100%;
      height: 700px;
-     padding: 4px;
+     /* margin: 3px; */
      object-fit: cover;
      object-position: center 10%;
 }
@@ -527,7 +530,7 @@ button img {
 
 .box-small-image {
      width: 50px;
-     height: 50px;
+     height: 70px;
      padding: 3px;
      cursor: pointer;
      border: 1px solid var(--lightGrey);
@@ -536,7 +539,7 @@ button img {
 .box-small-image img {
      width: 100%;
      height: 100%;
-     object-fit: cover;
+     object-fit: contain;
 }
 
 .product-name h2 {
@@ -970,7 +973,7 @@ footer {
      }
 
      .titleMenu button {
-          position: absolute;
+          position: fixed;
           background-color: transparent;
           border: none;
           top: 0;
@@ -981,6 +984,11 @@ footer {
      .titleMenu button img {
           height: 45px;
           width: 45px;
+     }
+
+     .menu-categories {
+          width: 100%;
+          overflow-y: scroll;
      }
 
      .menu-categories ul {
@@ -1003,6 +1011,10 @@ footer {
      .menu-categories ul a:hover {
           background-color: #fff;
           color: var(--darkGrey);
+     }
+
+     .categories-a {
+          pointer-events: none;
      }
 
      .menu-categories li:hover ul {

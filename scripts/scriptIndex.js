@@ -289,3 +289,11 @@ const removeCurrentImages = () => {
 
 /* - CATEGORIES NAVBAR
 -------------------------------------------------------------------------*/
+
+const categoriesMenu = document.querySelectorAll(".categories-a");
+console.log(categoriesMenu);
+categoriesMenu.forEach(categorie => {
+     categorie.addEventListener("click", () => {
+          return false;
+     });
+});

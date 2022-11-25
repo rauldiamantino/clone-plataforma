@@ -1013,9 +1013,13 @@ footer {
           color: var(--darkGrey);
      }
 
-     .categories-a {
+     /* .categories-a {
           pointer-events: none;
      }
+
+     .yes-link {
+          pointer-events: auto;
+     } */
 
      .menu-categories li:hover ul {
           position: initial;

@@ -9,6 +9,7 @@ const clickedButton = button => {
           openResponsiveMenu(button);
           currentBannerManipulation(button);
           verifyCarouselButton(button, "left-btn-prod", "right-btn-prod");
+          currentImageManipulation(button);
      });
 };
 
@@ -196,3 +197,59 @@ const closeModal = button => {
 
      if (isCloseModal) ($modalProduct.style.display = "none"), addBackgroundScroll();
 };
+
+/* - MODAL - IMAGES OF THE PRODUCTS
+-------------------------------------------------------------------------*/
+const $productImages = document.querySelectorAll(".product-images > img");
+let currentImage = 0;
+
+const currentImageManipulation = button => {
+     const isLeft = button.classList.contains("btnModal-left");
+     const isRight = button.classList.contains("btnModal-right");
+     const maxImages = $secondaryImages.length - 1;
+
+     /* manipulation current image */
+     if (isLeft) currentImage--;
+     if (isRight) currentImage++;
+     if (currentImage >= maxImages) currentImage = maxImages;
+     if (currentImage < 0) currentImage = 0;
+
+     /* call the function to change the image */
+     changeProductImage(currentImage);
+};
+
+/* - CHANGE PRODUCT IMAGE
+-------------------------------------------------------------------------*/
+var $mainProductImage = document.querySelector(".product-images");
+
+const changeProductImage = currentImage => {
+     const maxImages = $secondaryImages.length - 1;
+
+     if (currentImage >= maxImages) currentImage = maxImages;
+     if (currentImage < 0) currentImage = 0;
+     const styleTranslateDefinition = `translateX(${-currentImage * 100}%)`;
+
+     // verify if $mainBanner exists in the page, and set style transform
+     if ($mainProductImage) $mainProductImage.style.transform = styleTranslateDefinition;
+};
+
+/* verify secondary image and view as main image */
+const $secondaryImages = document.querySelectorAll(".product-img");
+
+const setMainProductImages = image => {
+     const productImage = document.createElement("img");
+
+     productImage.src = image;
+     $mainProductImage.appendChild(productImage);
+};
+
+$secondaryImages.forEach((image, index) => {
+     setMainProductImages(image.src);
+
+     image.addEventListener("click", () => {
+          currentImage = index;
+          changeProductImage(currentImage);
+     });
+});
+
+console.log($mainProductImage);

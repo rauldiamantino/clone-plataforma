@@ -451,7 +451,7 @@ button img {
      row-gap: 20px;
      display: grid;
      grid-template-columns: 60% 40%;
-     grid-template-rows: repeat(9, auto);
+     grid-template-rows: repeat(8, auto);
      margin-bottom: 20px;
      padding-right: 20px;
 }
@@ -459,30 +459,60 @@ button img {
 .images {
      display: flex;
      max-width: 100%;
-     max-height: auto;
+     max-height: 100%;
      gap: 8px;
      grid-row-start: 1;
      grid-row-end: 9;
 }
 
 .main-image {
+     width: 800px;
      max-width: 100%;
      height: auto;
      overflow-x: hidden;
      border: 1px solid var(--lightGrey);
+     position: relative;
+}
+
+.btnModal-left,
+.btnModal-right {
+     width: 30px;
+     height: 30px;
+     display: flex;
+     cursor: pointer;
+     border-radius: 50%;
+     position: absolute;
+     z-index: 1;
+     left: 12px;
+     right: auto;
+     bottom: 50%;
+     transform: translateY(50%);
+     align-items: center;
+     justify-content: center;
+     background-color: transparent;
+     border: 1px solid var(--lightGrey);
+}
+
+.btnModal-right {
+     left: auto;
+     right: 12px;
+}
+
+.btnModal-left img,
+.btnModal-right img {
+     width: 20px;
 }
 
 .product-images {
-     
-     
      display: flex;
-     gap: 3px;
+     max-height: 100%;
+     transition: 0.6s;
 }
 
 .product-images img {
      min-width: 100%;
-     height: auto;
-     padding: 3px;
+     height: 700px;
+     padding: 4px;
      object-fit: cover;
      object-position: center 10%;
 }
@@ -794,6 +824,7 @@ footer {
 
 .btn-close-modal {
      position: fixed;
+     z-index: 3;
      right: 60px;
      /* top: 0px; */
      border: none;

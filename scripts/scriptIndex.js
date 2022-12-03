@@ -155,6 +155,7 @@ const clickedProduct = product => product.addEventListener("click", () => openMo
 $products.forEach(clickedProduct);
 
 /* - MODAL
+I am learning and using datalists to get the products data, so the code is still too bad.
 -------------------------------------------------------------------------*/
 
 const removeBackgroundScroll = () => (document.documentElement.style.overflow = "hidden");

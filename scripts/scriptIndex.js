@@ -151,6 +151,7 @@ const closeRespMenu = (button, categoriesMenu) => {
 
 const $products = document.querySelectorAll(".product");
 const clickedProduct = product => product.addEventListener("click", () => openModal(product));
+const $productImgs = document.querySelectorAll(".produto-source-img");
 
 $products.forEach(clickedProduct);
 
@@ -161,19 +162,18 @@ I am learning and using datalists to get the products data, so the code is still
 const removeBackgroundScroll = () => (document.documentElement.style.overflow = "hidden");
 const addBackgroundScroll = () => (document.documentElement.style.overflow = "inherit");
 
-const openModal = product => {
+const openModal = $product => {
      const $modalProduct = document.querySelector(".background-modal-product");
 
      $modalProduct.style.display = "flex";
      removeBackgroundScroll();
      closeModalEscKey($modalProduct);
-     setProductData(product.dataset);
+     setProductData($product.dataset);
+
+     setProductTexts($product.dataset);
 };
 
-const setProductData = product => {
-     const $productName = document.querySelector("#prod-name");
-     const $productPrice = document.querySelector("#prod-price");
-     const $productDescription = document.querySelector(".prod-description");
+const setProductData = $product => {
      const $secondaryImagesBox = document.querySelector(".secondary-images");
      const boxSmallImage1 = document.createElement("div");
      const boxSmallImage2 = document.createElement("div");
@@ -184,8 +184,8 @@ const setProductData = product => {
      removeCurrentImages();
 
      // set secondary images
-     productImg1.src = product.img1;
-     productImg2.src = product.img2;
+     productImg1.src = $product.img1;
+     productImg2.src = $product.img2;
      $secondaryImagesBox.innerHTML = "";
      productImg1.classList.add("product-img");
      productImg2.classList.add("product-img");
@@ -196,16 +196,21 @@ const setProductData = product => {
      $secondaryImagesBox.appendChild(boxSmallImage1);
      $secondaryImagesBox.appendChild(boxSmallImage2);
 
-     // set product texts
-     $productName.innerText = product.prodname;
-     $productPrice.innerText = product.prodprice;
-     $productDescription.innerText = product.proddesc;
+     // set secondary images as main image
+     setMainImage();
+};
+
+const setProductTexts = $product => {
+     const $productName = document.querySelector("#prod-name");
+     const $productPrice = document.querySelector("#prod-price");
+     const $productDescription = document.querySelector(".prod-description");
+
+     $productName.innerText = $product.prodname;
+     $productPrice.innerText = $product.prodprice;
+     $productDescription.innerText = $product.proddesc;
 
      // Page scroll to top, when product is clicked
      $productName.scrollIntoView(0);
-
-     // set secondary images as main image
-     setMainImage();
 };
 
 const closeModalEscKey = $modalProduct => {
@@ -292,7 +297,6 @@ const removeCurrentImages = () => {
 -------------------------------------------------------------------------*/
 
 const categoriesMenu = document.querySelectorAll(".categories-a");
-console.log(categoriesMenu);
 categoriesMenu.forEach(categorie => {
      categorie.addEventListener("click", () => {
           return false;

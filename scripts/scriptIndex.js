@@ -150,8 +150,7 @@ const closeRespMenu = (button, categoriesMenu) => {
 -------------------------------------------------------------------------*/
 
 const $products = document.querySelectorAll(".product");
-const clickedProduct = product => product.addEventListener("click", () => openModal(product));
-const $productImgs = document.querySelectorAll(".produto-source-img");
+const clickedProduct = $product => $product.addEventListener("click", () => openModal($product));
 
 $products.forEach(clickedProduct);
 
@@ -164,40 +163,13 @@ const addBackgroundScroll = () => (document.documentElement.style.overflow = "in
 
 const openModal = $product => {
      const $modalProduct = document.querySelector(".background-modal-product");
+     const $productImgs = $product.querySelectorAll(".product-source-img");
 
      $modalProduct.style.display = "flex";
      removeBackgroundScroll();
      closeModalEscKey($modalProduct);
-     setProductData($product.dataset);
-
      setProductTexts($product.dataset);
-};
-
-const setProductData = $product => {
-     const $secondaryImagesBox = document.querySelector(".secondary-images");
-     const boxSmallImage1 = document.createElement("div");
-     const boxSmallImage2 = document.createElement("div");
-     const productImg1 = document.createElement("img");
-     const productImg2 = document.createElement("img");
-
-     // delet previous images
-     removeCurrentImages();
-
-     // set secondary images
-     productImg1.src = $product.img1;
-     productImg2.src = $product.img2;
-     $secondaryImagesBox.innerHTML = "";
-     productImg1.classList.add("product-img");
-     productImg2.classList.add("product-img");
-     boxSmallImage1.appendChild(productImg1);
-     boxSmallImage2.appendChild(productImg2);
-     boxSmallImage1.classList.add("box-small-image");
-     boxSmallImage2.classList.add("box-small-image");
-     $secondaryImagesBox.appendChild(boxSmallImage1);
-     $secondaryImagesBox.appendChild(boxSmallImage2);
-
-     // set secondary images as main image
-     setMainImage();
+     setProductImages($productImgs);
 };
 
 const setProductTexts = $product => {
@@ -211,6 +183,56 @@ const setProductTexts = $product => {
 
      // Page scroll to top, when product is clicked
      $productName.scrollIntoView(0);
+};
+
+/* get images in the data-set and set in the product modal */
+const setProductImages = $productImgs => {
+     removeCurrentImages();
+     appendProductImg($productImgs);
+     setMainImage();
+};
+
+const appendProductImg = $productImgs => {
+     const $secondaryImagesBox = document.querySelector(".secondary-images");
+
+     $productImgs.forEach($img => {
+          const $productImgUrl = $img.dataset.img;
+          const htmlProductImg = `<div class="box-small-image"><img src="${$productImgUrl}" class="product-img"></div>`;
+
+          $secondaryImagesBox.innerHTML += htmlProductImg;
+     });
+};
+
+/* verify secondary image and set as main image */
+const setMainImage = () => {
+     const $secondaryImages = document.querySelectorAll(".product-img");
+     const secondaryImagesLength = $secondaryImages.length - 1;
+
+     if ($mainProductImage.childNodes.length == 0) {
+          $secondaryImages.forEach((image, index) => {
+               setMainProductImages(image.src);
+
+               image.addEventListener("click", () => {
+                    currentImage = index;
+                    changeProductImage(currentImage);
+               });
+          });
+          return secondaryImagesLength;
+     }
+};
+
+const setMainProductImages = image => {
+     const productImage = document.createElement("img");
+     productImage.src = image;
+
+     $mainProductImage.appendChild(productImage);
+};
+
+const removeCurrentImages = () => {
+     const $secondaryImagesBox = document.querySelector(".secondary-images");
+
+     $secondaryImagesBox.innerHTML = "";
+     $mainProductImage.innerHTML = "";
 };
 
 const closeModalEscKey = $modalProduct => {
@@ -262,35 +284,6 @@ const changeProductImage = currentImage => {
 
      // verify if $mainBanner exists in the page, and set style transform
      if ($mainProductImage) $mainProductImage.style.transform = styleTranslateDefinition;
-};
-
-/* verify secondary image and set as main image */
-
-const setMainImage = () => {
-     const $secondaryImages = document.querySelectorAll(".product-img");
-     const secondaryImagesLength = $secondaryImages.length - 1;
-     if ($mainProductImage.childNodes.length == 0) {
-          $secondaryImages.forEach((image, index) => {
-               setMainProductImages(image.src);
-
-               image.addEventListener("click", () => {
-                    currentImage = index;
-                    changeProductImage(currentImage);
-               });
-          });
-          return secondaryImagesLength;
-     }
-};
-
-const setMainProductImages = image => {
-     const productImage = document.createElement("img");
-     productImage.src = image;
-
-     $mainProductImage.appendChild(productImage);
-};
-
-const removeCurrentImages = () => {
-     $mainProductImage.innerHTML = "";
 };
 
 /* - CATEGORIES NAVBAR

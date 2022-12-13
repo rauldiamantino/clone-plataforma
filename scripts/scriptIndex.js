@@ -216,6 +216,8 @@ const setMainImage = () => {
      if ($mainProductImage.childNodes.length == 0) {
           $secondaryImages.forEach((image, index) => {
                setMainProductImages(image.src);
+               currentImageProduct = 0;
+               changeProductImage();
 
                image.addEventListener("click", () => {
                     currentImageProduct = index;

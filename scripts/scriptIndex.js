@@ -185,6 +185,11 @@ const setProductTexts = $product => {
      $productName.scrollIntoView(0);
 };
 
+/* - MODAL - IMAGES OF THE PRODUCTS
+-------------------------------------------------------------------------*/
+const $productImages = document.querySelectorAll(".product-images > img");
+let currentImageProduct = 0;
+
 /* get images in the data-set and set in the product modal */
 const setProductImages = $productImgs => {
      removeCurrentImages();
@@ -213,12 +218,13 @@ const setMainImage = () => {
                setMainProductImages(image.src);
 
                image.addEventListener("click", () => {
-                    currentImage = index;
-                    changeProductImage(currentImage);
+                    currentImageProduct = index;
+                    changeProductImage();
                });
           });
-          return secondaryImagesLength;
      }
+
+     return secondaryImagesLength;
 };
 
 const setMainProductImages = image => {
@@ -235,6 +241,36 @@ const removeCurrentImages = () => {
      $mainProductImage.innerHTML = "";
 };
 
+const currentImageManipulation = button => {
+     const isLeft = button.classList.contains("btnModal-left");
+     const isRight = button.classList.contains("btnModal-right");
+     const maxImages = setMainImage();
+
+     /* manipulation current image */
+     if (isLeft) currentImageProduct--;
+     if (isRight) currentImageProduct++;
+     if (currentImageProduct >= maxImages) currentImageProduct = maxImages;
+     if (currentImageProduct < 0) currentImageProduct = 0;
+
+     /* call the function to change the image */
+     changeProductImage();
+};
+
+/* - CHANGE PRODUCT IMAGE
+-------------------------------------------------------------------------*/
+var $mainProductImage = document.querySelector(".product-images");
+
+const changeProductImage = () => {
+     const maxImages = setMainImage();
+
+     if (currentImageProduct >= maxImages) currentImageProduct = maxImages;
+     if (currentImageProduct < 0) currentImageProduct = 0;
+     const styleTranslateDefinition = `translateX(${-currentImageProduct * 100}%)`;
+
+     // verify if $mainBanner exists in the page, and set style transform
+     if ($mainProductImage) $mainProductImage.style.transform = styleTranslateDefinition;
+};
+
 const closeModalEscKey = $modalProduct => {
      document.addEventListener("keydown", e => {
           if (e.key === "Escape") {
@@ -249,41 +285,6 @@ const closeModal = button => {
      const isCloseModal = button.classList.contains("btn-close-modal");
 
      if (isCloseModal) ($modalProduct.style.display = "none"), addBackgroundScroll();
-};
-
-/* - MODAL - IMAGES OF THE PRODUCTS
--------------------------------------------------------------------------*/
-const $productImages = document.querySelectorAll(".product-images > img");
-
-const currentImageManipulation = button => {
-     const isLeft = button.classList.contains("btnModal-left");
-     const isRight = button.classList.contains("btnModal-right");
-     const maxImages = setMainImage();
-     let currentImage = 0;
-
-     /* manipulation current image */
-     if (isLeft) currentImage--;
-     if (isRight) currentImage++;
-     if (currentImage >= maxImages) currentImage = maxImages;
-     if (currentImage < 0) currentImage = 0;
-
-     /* call the function to change the image */
-     changeProductImage(currentImage);
-};
-
-/* - CHANGE PRODUCT IMAGE
--------------------------------------------------------------------------*/
-var $mainProductImage = document.querySelector(".product-images");
-
-const changeProductImage = currentImage => {
-     const maxImages = setMainImage();
-
-     if (currentImage >= maxImages) currentImage = maxImages;
-     if (currentImage < 0) currentImage = 0;
-     const styleTranslateDefinition = `translateX(${-currentImage * 100}%)`;
-
-     // verify if $mainBanner exists in the page, and set style transform
-     if ($mainProductImage) $mainProductImage.style.transform = styleTranslateDefinition;
 };
 
 /* - CATEGORIES NAVBAR

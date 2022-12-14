@@ -20,7 +20,7 @@
      }
 
      .menu-categories-close {
-          @apply -translate-x-150% transition duration-300;
+          @apply -translate-x-translate-150% transition duration-300;
      }
 
      .inactivate-link {

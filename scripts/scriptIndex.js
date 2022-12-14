@@ -137,13 +137,34 @@ const openResponsiveMenu = button => {
      const isRespButtonToOpen = button.classList.contains("button-responsive");
      const categoriesMenu = document.querySelector(".background-categories");
 
-     isRespButtonToOpen ? categoriesMenu.classList.add("open") : closeRespMenu(button, categoriesMenu);
+     if (isRespButtonToOpen) {
+          categoriesMenu.classList.add("menu-categories-open");
+          categoriesMenu.classList.remove("menu-categories-close");
+     } else {
+          closeRespMenu(button, categoriesMenu);
+     }
 };
 
 const closeRespMenu = (button, categoriesMenu) => {
      const isRespButtonToClose = button.classList.contains("button-responsive-close");
 
-     if (isRespButtonToClose) categoriesMenu.classList.remove("open");
+     if (isRespButtonToClose) {
+          categoriesMenu.classList.add("menu-categories-close");
+          categoriesMenu.classList.remove("menu-categories-open");
+     }
+};
+
+const $menuCategorieItems = document.querySelectorAll(".inactivate-link");
+
+$menuCategorieItems.forEach($item => {
+     $item.addEventListener("click", () => {
+          openSubcategories($item.parentNode.lastElementChild);
+          $item.remove();
+     });
+});
+
+const openSubcategories = $item => {
+     $item.classList.remove("hidden");
 };
 
 /* - GET PRODUCTS, AND MODAL WITH THE PRODUCT PAGE

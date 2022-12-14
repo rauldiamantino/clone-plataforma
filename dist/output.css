@@ -609,7 +609,7 @@ video {
   top: 0px;
   height: 100%;
   width: 100%;
-  background-color: rgb(0 0 0 / 0.5);
+  background-color: transparent;
 }
 
 .sr-only {
@@ -826,6 +826,10 @@ video {
   display: none;
 }
 
+.h-10 {
+  height: 2.5rem;
+}
+
 .h-screen {
   height: 100vh;
 }
@@ -834,16 +838,12 @@ video {
   height: 100%;
 }
 
-.h-10 {
-  height: 2.5rem;
+.w-10 {
+  width: 2.5rem;
 }
 
 .w-52 {
   width: 13rem;
-}
-
-.w-10 {
-  width: 2.5rem;
 }
 
 .flex-shrink {

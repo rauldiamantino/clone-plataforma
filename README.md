@@ -25,8 +25,8 @@ O site se assemelha a uma loja real, no futuro você poderá fazer login, criar 
 <h2 id="como">Como executar o aplicativo</h2>
 
 <ol>
-  <li>Clone o repositório em sua máquina</li>
-  <li>Abra o terminal, acesse o diretório clone-plataforma e execute o comando <b><i>node server</i></b></li>
+  <li>Abra o Git Bash e digite: <i>git clone https://github.com/rauldiamantino/clone-plataforma.git</i></li>
+  <li>Acesse o diretório digitando: <i>cd clone-plataforma</i> e execute o comando <i>node server</i></li>
   <li>Abra o seu navegador e acesse <a href="http://localhost:8080">localhost:8080</a></li>
 </ol>
 

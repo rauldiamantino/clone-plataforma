@@ -1,7 +1,6 @@
 # clone-ecommerce - em desenvolvimento
 Criei um clone da plataforma de Ecommerce que trabalho, conteúdo EXCLUSIVAMENTE para fins educativos. <br>
-
-Estou focado neste projeto, fazendo constantes refatorações para atualizar o código com meus conhecimentos atuais.
+- Estou focado neste projeto, fazendo constantes refatorações com meus novos conhecimentos.
 
 <a href="https://rauldiamantino.github.io/clone-plataforma/">Clique para Acessar o Projeto</a>
 

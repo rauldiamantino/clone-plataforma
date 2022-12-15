@@ -1,25 +1,55 @@
-# clone-ecommerce - em desenvolvimento
-Criei um clone da plataforma de Ecommerce que trabalho, conteúdo EXCLUSIVAMENTE para fins educativos. <br>
-- Estou focado neste projeto, fazendo constantes refatorações com meus novos conhecimentos.
+## SOMENTE PARA FINS EDUCATIVOS
 
-<a href="https://rauldiamantino.github.io/clone-plataforma/">Clique para Acessar o Projeto</a>
+Este é o clone da <a href="https://braavo.com.br">plataforma de ecommerce Braavo!</a>, na qual eu trabalho como Analista de Suporte Técnico. Iniciei este projeto em 19/10/2022 com conhecimentos básicos em HTML e CSS, e ao longo deste período venho introduzindo novas tecnologias de acordo com minha evolução como Desenvolvedor Web.
 
-# Preview 
+<h2>Índice</h2>
 
-* Desktop *
+* <a href="#demo">Demonstração</a>
+* <a href="#como">Como executar o aplicativo</a>
+* <a href="#tech">Tecnologias Utilizadas</a>
+* <a href="#func">Recursos e Funcionalidades</a>
 
-![image](https://user-images.githubusercontent.com/100098231/203445611-5ce10420-367f-42ac-97fe-a4b9d62d1ed4.png)
+<h2 id="demo">Demonstração</h2>
 
-![image](https://user-images.githubusercontent.com/100098231/203445648-49e867ec-ed6f-4ed6-bc24-ec1604669543.png)
+O site se assemelha a uma loja real, no futuro você poderá fazer login, criar uma nova conta, adicionar produtos ao carrinho e pagar virtualmente por eles.
 
-![image](https://user-images.githubusercontent.com/100098231/203445671-baa3c77b-3f12-4258-a50d-cd6285caf4db.png)
+![image](https://user-images.githubusercontent.com/100098231/207989217-4c5e57f0-e4af-4022-becd-ebba28988ca6.png)
 
-![image](https://user-images.githubusercontent.com/100098231/203445691-77c8d268-a977-41a8-8f7e-d8eafbce1e77.png)
+![image](https://user-images.githubusercontent.com/100098231/207989237-070a3e24-5c2e-4cfa-b9b6-effbe40c1d53.png)
 
-![image](https://user-images.githubusercontent.com/100098231/203445715-8d0d07be-49d4-4aba-86de-a0c27d7b19f9.png)
+![image](https://user-images.githubusercontent.com/100098231/207989250-99bc07cd-8e54-4e6b-a611-d9f8097ef59e.png)
+
+![image](https://user-images.githubusercontent.com/100098231/207989297-99437c74-da3c-43ca-b10e-30b6d3e30eee.png)
 
 
-* Mobile *
+<h2 id="como">Como executar o aplicativo</h2>
 
-![Untitled](https://user-images.githubusercontent.com/100098231/203446642-bf80d7c3-1982-4793-8d02-05922599a539.png)
+<ol>
+  <li>Clone o repositório em sua máquina</li>
+  <li>Abra o terminal, acesse o diretório clone-plataforma e execute o comando <b><i>node server</i></b></li>
+  <li>Abra o seu navegador e acesse <a href="http://localhost:8080">localhost:8080</a></li>
+</ol>
 
+<h2 id="tech">Tecnologias Utilizadas</h2>
+
+<ul>
+  <li>JavaScript</li>
+  <li>TailwindCSS 3.2.4</li>
+  <li>Node.js 16.16.0</li>
+  <li>EJS 3.1.8</li>
+  <li>Express v4.18.2</li>
+  <li>HTML5</li>
+  <li>CSS3</li>
+</ul>
+
+
+
+<h2 id="func">Recursos e Funcionalidades</h2>
+
+<ul>
+  <li>Menu responsivo de categorias</li>
+  <li>Carrossel de banners (automático e manual)</li>
+  <li>Carrossel de produtos</li>
+  <li>Modal de produto (informações vindas do dataset de cada produto)</li>
+  <li>Páginas dinâmicas</li>
+</ul>

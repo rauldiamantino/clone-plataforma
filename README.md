@@ -37,7 +37,7 @@ O site se assemelha a uma loja real, no futuro você poderá fazer login, criar 
   <li>TailwindCSS 3.2.4</li>
   <li>Node.js 16.16.0</li>
   <li>EJS 3.1.8</li>
-  <li>Express v4.18.2</li>
+  <li>Express 4.18.2</li>
   <li>HTML5</li>
   <li>CSS3</li>
 </ul>

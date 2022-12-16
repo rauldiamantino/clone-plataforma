@@ -25,7 +25,7 @@ O site se assemelha a uma loja real, no futuro você poderá fazer login, criar 
 
 <ol>
   <li>Abra o Git Bash e digite: <i>git clone https://github.com/rauldiamantino/clone-plataforma.git</i></li>
-  <li>Acesse o diretório digitando: <i>cd clone-plataforma</i> e execute o comando <i>node server</i></li>
+  <li>Acesse o diretório digitando: <i>cd clone-plataforma</i></li>
   <li>Em seguida acesse: <i>cd src</i> e execute o comando <i>npm start</i></li>
   <li>Abra o seu navegador e acesse <a href="http://localhost:8080">localhost:8080</a></li>
 </ol>

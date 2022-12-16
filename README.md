@@ -4,10 +4,10 @@ Este é o clone da <a href="https://braavo.com.br" target="_blank">plataforma de
 
 <h2>Índice</h2>
 
-* <a href="#demo">Demonstração</a>
-* <a href="#como">Como executar o aplicativo</a>
-* <a href="#tech">Tecnologias Utilizadas</a>
-* <a href="#func">Recursos e Funcionalidades</a>
+-    <a href="#demo">Demonstração</a>
+-    <a href="#como">Como executar o aplicativo</a>
+-    <a href="#tech">Tecnologias Utilizadas</a>
+-    <a href="#func">Recursos e Funcionalidades</a>
 
 <h2 id="demo">Demonstração</h2>
 
@@ -21,12 +21,12 @@ O site se assemelha a uma loja real, no futuro você poderá fazer login, criar 
 
 ![image](https://user-images.githubusercontent.com/100098231/207989297-99437c74-da3c-43ca-b10e-30b6d3e30eee.png)
 
-
 <h2 id="como">Como executar o aplicativo</h2>
 
 <ol>
   <li>Abra o Git Bash e digite: <i>git clone https://github.com/rauldiamantino/clone-plataforma.git</i></li>
   <li>Acesse o diretório digitando: <i>cd clone-plataforma</i> e execute o comando <i>node server</i></li>
+  <li>Em seguida acesse: <i>cd src</i> e execute o comando <i>npm start</i></li>
   <li>Abra o seu navegador e acesse <a href="http://localhost:8080">localhost:8080</a></li>
 </ol>
 
@@ -41,8 +41,6 @@ O site se assemelha a uma loja real, no futuro você poderá fazer login, criar 
   <li>HTML5</li>
   <li>CSS3</li>
 </ul>
-
-
 
 <h2 id="func">Recursos e Funcionalidades</h2>
 

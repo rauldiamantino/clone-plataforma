@@ -8,7 +8,7 @@ const clickedButton = $button => {
           closeModal($button);
           openResponsiveMenu($button);
           verifyBannerCarouselButton($button);
-          verifyCarouselButton($button);
+          verifyProductCarouselButton($button);
           currentImageManipulation($button);
      });
 };
@@ -29,10 +29,10 @@ const changeBanner = (currentBanner, $classCarousel) => {
      if ($mainBanner) $mainBanner.style.transform = styleTranslate;
 };
 
-const verifyBannerCarouselButton = button => {
-     const isLeft = button.classList.contains("left-btn");
-     const isRight = button.classList.contains("right-btn");
-     const $classCarousel = button.parentNode.lastElementChild.lastElementChild.className;
+const verifyBannerCarouselButton = $button => {
+     const isLeft = $button.classList.contains("left-btn");
+     const isRight = $button.classList.contains("right-btn");
+     const $classCarousel = $button.parentNode.lastElementChild.lastElementChild.className;
 
      if (isLeft || isRight) {
           $banners = document.querySelectorAll(`.${$classCarousel} .item`);
@@ -93,9 +93,13 @@ let $prodCarousel;
 let $allProductsCarousel = document.querySelectorAll("#products-line .product");
 let counter = 0;
 
-const setPropertiesOfProductCarousels = ($classCarousel, $currentCarousel) => {
-     $allProductsCarousel = document.querySelectorAll(`.${$classCarousel} .product`);
-     $prodCarousel = $currentCarousel;
+const verifyProductCarouselButton = $button => {
+     const $currentCarousel = document.querySelector(`.${getCarouselButtonClass($button)}`);
+
+     if (verifyIfExistsInThePage($currentCarousel)) {
+          setPropertiesOfProductCarousels(getCarouselButtonClass($button), $currentCarousel);
+          manipulationCounterCarousel($button);
+     }
 };
 
 const getCarouselButtonClass = $button => {
@@ -108,15 +112,12 @@ const getCarouselButtonClass = $button => {
      }
 };
 
-const verifyCarouselButton = $button => {
-     const $currentCarousel = document.querySelector(`.${getCarouselButtonClass($button)}`);
+const verifyIfExistsInThePage = $currentCarousel =>
+     $currentCarousel && $currentCarousel.parentNode.className ? true : false;
 
-     if ($currentCarousel) {
-          if ($currentCarousel.parentNode.className) {
-               setPropertiesOfProductCarousels(getCarouselButtonClass($button), $currentCarousel);
-               manipulationCounterCarousel($button);
-          }
-     }
+const setPropertiesOfProductCarousels = ($classCarousel, $currentCarousel) => {
+     $allProductsCarousel = document.querySelectorAll(`.${$classCarousel} .product`);
+     $prodCarousel = $currentCarousel;
 };
 
 const manipulationCounterCarousel = $button => {
@@ -128,15 +129,10 @@ const manipulationCounterCarousel = $button => {
      if (counter <= 0) counter = 0;
      if (counter >= counterLimiter()) counter = counterLimiter();
 
-     $prodCarousel.style.transform = styleTranslateDefinition(counter);
+     if ($prodCarousel) $prodCarousel.style.transform = styleTranslateDefinition(counter);
 };
 
 const styleTranslateDefinition = counter => `translateX(${-counter * 100}%)`;
-
-/* call the function if resize the screen */
-document.body.onresize = () => {
-     if (document.body.clientWidth > 900) manipulationCounterCarousel((counter = 0));
-};
 
 const counterLimiter = () => limiter(carouselXProductsPixels());
 
@@ -155,6 +151,16 @@ const carouselXProductsPixels = () => {
      const result = $allProductsCarousel.length * widthProducts;
 
      return result;
+};
+
+/* call the function if resize the screen */
+document.body.onresize = () => {
+     if (document.body.clientWidth > 900) {
+          counter = 0;
+          $buttons.forEach($button => {
+               if ($button.classList.contains("left-btn")) manipulationCounterCarousel($button);
+          });
+     }
 };
 
 /* - MENU RESPONSIVE

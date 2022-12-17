@@ -7,7 +7,7 @@ const clickedButton = button => {
      button.addEventListener("click", event => {
           closeModal(button);
           openResponsiveMenu(button);
-          currentBannerManipulation(button);
+          verifyBannerCarouselButton(button);
           verifyCarouselButton(button);
           currentImageManipulation(button);
      });
@@ -18,25 +18,31 @@ $buttons.forEach(clickedButton);
 /* - CHANGE MANUAL AND AUTO ROTATE BANNER
 -------------------------------------------------------------------------*/
 
-const $banners = document.querySelectorAll(".item");
+let $banners = document.querySelectorAll(".item");
 let currentBanner = 0;
 
-const changeBanner = currentBanner => {
-     const $mainBanner = document.querySelector("#main-banner");
-     const styleTranslateDefinition = `translateX(${-currentBanner * 100}%)`;
+const changeBanner = (currentBanner, $classCarousel) => {
+     const $mainBanner = document.querySelector(`.${$classCarousel}`);
+     const styleTranslate = `translateX(${-currentBanner * 100}%)`;
 
      // verify if $mainBanner exists in the page, and set style transform
-     if ($mainBanner) $mainBanner.style.transform = styleTranslateDefinition;
+     if ($mainBanner) $mainBanner.style.transform = styleTranslate;
 };
 
-/* - CALL THE FUNCTION TO CHANGE THE BANNER
--------------------------------------------------------------------------*/
+const verifyBannerCarouselButton = button => {
+     const isLeft = button.classList.contains("left-btn");
+     const isRight = button.classList.contains("right-btn");
+     const $classCarousel = button.parentNode.lastElementChild.lastElementChild.className;
 
-const currentBannerManipulation = button => {
-     const isLeft = button.classList.contains("btnLeft-m-banner");
-     const isRight = button.classList.contains("btnRight-m-banner");
-     const maxBanners = $banners.length;
+     if (isLeft || isRight) {
+          $banners = document.querySelectorAll(`.${$classCarousel} .item`);
+          const maxBanners = $banners.length;
 
+          currentBannerManipulation(isLeft, isRight, maxBanners, $classCarousel);
+     }
+};
+
+const currentBannerManipulation = (isLeft, isRight, maxBanners, $classCarousel) => {
      /* manipulation current banner */
      if (isLeft) currentBanner--;
      if (isRight) currentBanner++;
@@ -44,7 +50,7 @@ const currentBannerManipulation = button => {
      if (currentBanner < 0) currentBanner = maxBanners - 1;
 
      /* call the function to change the banner */
-     changeBanner(currentBanner);
+     changeBanner(currentBanner, $classCarousel);
 };
 
 /* - CHANGE MAIN BANNER AUTOMATICALLY
@@ -55,14 +61,14 @@ let intervalForChangingBanner;
 const changeBannerAuto = () => {
      intervalForChangingBanner = setInterval(() => {
           nextBanner();
-     }, 5000);
+     }, 500);
 
      return intervalForChangingBanner;
 };
 
 const nextBanner = () => {
      $buttons.forEach(button => {
-          if (button.classList.contains("btnRight-m-banner")) currentBannerManipulation(button);
+          if (button.classList.contains("right-btn")) verifyBannerCarouselButton(button);
      });
 };
 
@@ -78,32 +84,28 @@ const stopIfTheMouseEnters = () => {
 };
 
 /* Call the functions for the start and stop banner rotation */
-changeBannerAuto();
-stopIfTheMouseEnters();
+// changeBannerAuto();
+// stopIfTheMouseEnters();
 
 /* - PRODUCT LINE CAROUSEL
 -------------------------------------------------------------------------*/
-
-// const $prodCarousel = document.querySelector("#products-line");
+let $prodCarousel;
 let $allProductsCarousel = document.querySelectorAll("#products-line .product");
 let counter = 0;
 
-const getProductLine = $classCarousel => {
-     const $prodCarousel = document.querySelector(`.${$classCarousel}`);
-     // $prodCarousel.style.transform = styleTranslateDefinition(counter);
-     console.log($prodCarousel);
-};
-
 const verifyCarouselButton = button => {
-     const isLeft = button.classList.contains("left-btn-prod");
-     const isRight = button.classList.contains("right-btn-prod");
+     const isLeft = button.classList.contains("left-btn");
+     const isRight = button.classList.contains("right-btn");
      const $classCarousel = button.parentNode.lastElementChild.lastElementChild.className;
+     const $currentCarousel = document.querySelector(`.${$classCarousel}`);
 
-     if (isLeft || isRight) {
-          const $currentCarousel = document.querySelector(`.${$classCarousel}`);
-          $allProductsCarousel = document.querySelectorAll(`.${$classCarousel} .product`);
-          $prodCarousel = $currentCarousel;
-          manipulationCounterCarousel(isLeft, isRight);
+     if ($currentCarousel.parentNode.className) {
+          if (isLeft || isRight) {
+               $allProductsCarousel = document.querySelectorAll(`.${$classCarousel} .product`);
+               $prodCarousel = $currentCarousel;
+
+               manipulationCounterCarousel(isLeft, isRight);
+          }
      }
 };
 

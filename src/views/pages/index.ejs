@@ -15,7 +15,7 @@
                <button class="left-btn btnLeft-m-banner"><img src="./images/arrow-left.png"></button>
                <button class="right-btn btnRight-m-banner"><img src="./images/arrow-right.png"></button>
                <div id="carousel">
-                  <div id="main-banner">
+                  <div id="main-banner" class="index-banner-carousel-1">
                      <a href="/categories"><img src="./images/banner1.jpg" class="item"></a>
                      <a href="/categories"><img src="./images/banner2.jpg" class="item"></a>
                      <!-- <a href="/categories"><img src="./images/banner3.jpg" class="item"></a> -->
@@ -69,7 +69,7 @@
             </section>
 
             <!-- PRODUCT CAROUSEL --->
-            <%- include('../partials/carousel-product', {classCarousel: 'index-carousel-1', titleCarousel: 'LANÇAMENTOS'}); %>
+            <%- include('../partials/carousel-product', {classCarousel: 'index-prod-carousel-1', titleCarousel: 'LANÇAMENTOS'}); %>
 
             <!-- SECONDARY BANNER -->
             <section class="secondary-banners general-margin-padding">
@@ -85,7 +85,7 @@
             </section>
 
             <!-- PRODUCT CAROUSEL-->
-            <%- include('../partials/carousel-product', {classCarousel: 'index-carousel-2', titleCarousel: 'MAIS VENDIDOS'}); %>
+            <%- include('../partials/carousel-product', {classCarousel: 'index-prod-carousel-2', titleCarousel: 'MAIS VENDIDOS'}); %>
 
             <!-- MODAL -->
             <%- include('../partials/modal'); %>

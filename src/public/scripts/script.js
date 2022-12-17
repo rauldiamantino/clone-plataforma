@@ -97,10 +97,11 @@ const verifyCarouselButton = button => {
      const isLeft = button.classList.contains("left-btn");
      const isRight = button.classList.contains("right-btn");
      const $classCarousel = button.parentNode.lastElementChild.lastElementChild.className;
-     const $currentCarousel = document.querySelector(`.${$classCarousel}`);
 
-     if ($currentCarousel.parentNode.className) {
-          if (isLeft || isRight) {
+     if (isLeft || isRight) {
+          const $currentCarousel = document.querySelector(`.${$classCarousel}`);
+
+          if ($currentCarousel.parentNode.className) {
                $allProductsCarousel = document.querySelectorAll(`.${$classCarousel} .product`);
                $prodCarousel = $currentCarousel;
 

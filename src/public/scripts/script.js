@@ -128,7 +128,6 @@ const manipulationCounterCarousel = $button => {
      if (isRight) counter++;
      if (counter <= 0) counter = 0;
      if (counter >= counterLimiter()) counter = counterLimiter();
-
      if ($prodCarousel) $prodCarousel.style.transform = styleTranslateDefinition(counter);
 };
 

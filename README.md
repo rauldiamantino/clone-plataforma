@@ -1,6 +1,6 @@
 ## SOMENTE PARA FINS EDUCATIVOS
 
-Este é o clone da <a href="https://braavo.com.br" target="_blank">plataforma de ecommerce Braavo!</a>, na qual eu trabalho como Analista de Suporte Técnico. Iniciei este projeto em 19/10/2022 com conhecimentos básicos em HTML e CSS, e ao longo deste período venho introduzindo novas tecnologias de acordo com minha evolução como Desenvolvedor Web.
+Este é o clone da plataforma de ecommerce na qual eu trabalho como Analista de Suporte Técnico. Iniciei este projeto em 19/10/2022 com conhecimentos básicos em HTML e CSS, e ao longo deste período venho introduzindo novas tecnologias de acordo com minha evolução como Desenvolvedor Web.
 
 <h2>Índice</h2>
 

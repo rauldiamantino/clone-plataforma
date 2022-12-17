@@ -3,13 +3,13 @@
 
 const $buttons = document.querySelectorAll("button");
 
-const clickedButton = button => {
-     button.addEventListener("click", event => {
-          closeModal(button);
-          openResponsiveMenu(button);
-          verifyBannerCarouselButton(button);
-          verifyCarouselButton(button);
-          currentImageManipulation(button);
+const clickedButton = $button => {
+     $button.addEventListener("click", event => {
+          closeModal($button);
+          openResponsiveMenu($button);
+          verifyBannerCarouselButton($button);
+          verifyCarouselButton($button);
+          currentImageManipulation($button);
      });
 };
 
@@ -98,24 +98,33 @@ const setPropertiesOfProductCarousels = ($classCarousel, $currentCarousel) => {
      $prodCarousel = $currentCarousel;
 };
 
-const verifyCarouselButton = button => {
-     const isLeft = button.classList.contains("left-btn");
-     const isRight = button.classList.contains("right-btn");
-     const $classCarousel = button.parentNode.lastElementChild.lastElementChild.className;
+const getCarouselButtonClass = $button => {
+     const isLeft = $button.classList.contains("left-btn");
+     const isRight = $button.classList.contains("right-btn");
+     const $classCarousel = $button.parentNode.lastElementChild.lastElementChild.className;
 
      if (isLeft || isRight) {
-          const $currentCarousel = document.querySelector(`.${$classCarousel}`);
+          return $classCarousel;
+     }
+};
 
+const verifyCarouselButton = $button => {
+     const $currentCarousel = document.querySelector(`.${getCarouselButtonClass($button)}`);
+
+     if ($currentCarousel) {
           if ($currentCarousel.parentNode.className) {
-               setPropertiesOfProductCarousels($classCarousel, $currentCarousel);
-               manipulationCounterCarousel(isLeft, isRight);
+               setPropertiesOfProductCarousels(getCarouselButtonClass($button), $currentCarousel);
+               manipulationCounterCarousel($button);
           }
      }
 };
 
-const manipulationCounterCarousel = (btnLeft, btnRight) => {
-     if (btnLeft) counter--;
-     if (btnRight) counter++;
+const manipulationCounterCarousel = $button => {
+     const isLeft = $button.classList.contains("left-btn");
+     const isRight = $button.classList.contains("right-btn");
+
+     if (isLeft) counter--;
+     if (isRight) counter++;
      if (counter <= 0) counter = 0;
      if (counter >= counterLimiter()) counter = counterLimiter();
 

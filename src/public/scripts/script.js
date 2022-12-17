@@ -93,6 +93,11 @@ let $prodCarousel;
 let $allProductsCarousel = document.querySelectorAll("#products-line .product");
 let counter = 0;
 
+const setPropertiesOfProductCarousels = ($classCarousel, $currentCarousel) => {
+     $allProductsCarousel = document.querySelectorAll(`.${$classCarousel} .product`);
+     $prodCarousel = $currentCarousel;
+};
+
 const verifyCarouselButton = button => {
      const isLeft = button.classList.contains("left-btn");
      const isRight = button.classList.contains("right-btn");
@@ -102,9 +107,7 @@ const verifyCarouselButton = button => {
           const $currentCarousel = document.querySelector(`.${$classCarousel}`);
 
           if ($currentCarousel.parentNode.className) {
-               $allProductsCarousel = document.querySelectorAll(`.${$classCarousel} .product`);
-               $prodCarousel = $currentCarousel;
-
+               setPropertiesOfProductCarousels($classCarousel, $currentCarousel);
                manipulationCounterCarousel(isLeft, isRight);
           }
      }

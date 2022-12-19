@@ -4,7 +4,7 @@
 const $buttons = document.querySelectorAll("button");
 
 const clickedButton = $button => {
-     $button.addEventListener("click", event => {
+     $button.addEventListener("click", () => {
           closeModal($button);
           openResponsiveMenu($button);
           verifyBannerCarouselButton($button);
@@ -61,14 +61,19 @@ let intervalForChangingBanner;
 const changeBannerAuto = () => {
      intervalForChangingBanner = setInterval(() => {
           nextBanner();
-     }, 500);
+     }, 5000);
 
      return intervalForChangingBanner;
 };
 
 const nextBanner = () => {
-     $buttons.forEach(button => {
-          if (button.classList.contains("right-btn")) verifyBannerCarouselButton(button);
+     $buttons.forEach($button => {
+          const $containerBanner = $button.parentNode.className == "containerMainBanner";
+          const $isRight = $button.classList.contains("right-btn");
+
+          if ($containerBanner && $isRight) {
+               verifyBannerCarouselButton($button);
+          }
      });
 };
 
@@ -77,28 +82,27 @@ const stopBannerAuto = () => clearInterval(intervalForChangingBanner);
 const stopIfTheMouseEnters = () => {
      const $mainBanner = document.querySelector(".containerMainBanner");
 
-     // If the mouse enters, so stop the banner change. If the mouse leaves, so return the banner change
-     // Verify too, if the $mainBanner exists in the current page
-     if ($mainBanner) $mainBanner.addEventListener("mouseover", () => stopBannerAuto());
-     if ($mainBanner) $mainBanner.addEventListener("mouseout", () => changeBannerAuto());
+     if ($mainBanner) {
+          $mainBanner.addEventListener("mouseover", () => stopBannerAuto());
+          $mainBanner.addEventListener("mouseout", () => changeBannerAuto());
+     }
 };
 
 /* Call the functions for the start and stop banner rotation */
-// changeBannerAuto();
-// stopIfTheMouseEnters();
+changeBannerAuto();
+stopIfTheMouseEnters();
 
 /* - PRODUCT LINE CAROUSEL
 -------------------------------------------------------------------------*/
 let $prodCarousel;
 let $allProductsCarousel = document.querySelectorAll("#products-line .product");
-let counter = 0;
 
 const verifyProductCarouselButton = $button => {
      const $currentCarousel = document.querySelector(`.${getCarouselButtonClass($button)}`);
 
      if (verifyIfExistsInThePage($currentCarousel)) {
           setPropertiesOfProductCarousels(getCarouselButtonClass($button), $currentCarousel);
-          manipulationCounterCarousel($button);
+          manipulationCounterCarousel($button, $currentCarousel);
      }
 };
 
@@ -120,15 +124,19 @@ const setPropertiesOfProductCarousels = ($classCarousel, $currentCarousel) => {
      $prodCarousel = $currentCarousel;
 };
 
-const manipulationCounterCarousel = $button => {
+const manipulationCounterCarousel = ($button, $currentCarousel) => {
      const isLeft = $button.classList.contains("left-btn");
      const isRight = $button.classList.contains("right-btn");
+     const $carousel = $currentCarousel.parentNode.parentNode;
+     let counterCarousel = $carousel.id;
 
-     if (isLeft) counter--;
-     if (isRight) counter++;
-     if (counter <= 0) counter = 0;
-     if (counter >= counterLimiter()) counter = counterLimiter();
-     if ($prodCarousel) $prodCarousel.style.transform = styleTranslateDefinition(counter);
+     if (isLeft) counterCarousel--;
+     if (isRight) counterCarousel++;
+     if (counterCarousel <= 0) counterCarousel = 0;
+     if (counterCarousel >= counterLimiter()) counterCarousel = counterLimiter();
+     if ($prodCarousel) $prodCarousel.style.transform = styleTranslateDefinition(counterCarousel);
+
+     $carousel.setAttribute("id", counterCarousel);
 };
 
 const styleTranslateDefinition = counter => `translateX(${-counter * 100}%)`;
@@ -155,9 +163,11 @@ const carouselXProductsPixels = () => {
 /* call the function if resize the screen */
 document.body.onresize = () => {
      if (document.body.clientWidth > 900) {
-          counter = 0;
           $buttons.forEach($button => {
-               if ($button.classList.contains("left-btn")) manipulationCounterCarousel($button);
+               if ($button.classList.contains("left-btn")) {
+                    const $currentCarousel = document.querySelector(`.${getCarouselButtonClass($button)}`);
+                    manipulationCounterCarousel($button, $currentCarousel);
+               }
           });
      }
 };

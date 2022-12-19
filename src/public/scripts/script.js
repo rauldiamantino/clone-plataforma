@@ -164,7 +164,10 @@ const carouselXProductsPixels = () => {
 document.body.onresize = () => {
      if (document.body.clientWidth > 900) {
           $buttons.forEach($button => {
-               if ($button.classList.contains("left-btn")) {
+               const $isProductsCarousel = $button.parentNode.className == "container-products-carousel";
+               const $isLeft = $button.classList.contains("left-btn");
+
+               if ($isLeft && $isProductsCarousel) {
                     const $currentCarousel = document.querySelector(`.${getCarouselButtonClass($button)}`);
                     manipulationCounterCarousel($button, $currentCarousel);
                }

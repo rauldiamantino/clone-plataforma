@@ -236,7 +236,7 @@ const openModal = $product => {
      $modalProduct.style.display = "flex";
      removeBackgroundScroll();
      closeModalEscKey($modalProduct);
-     setProductTexts($product.dataset);
+     setProductTexts($product);
      setProductImages($productImgs);
      resetProductsCarouselPosition($modalProduct);
 };
@@ -260,9 +260,9 @@ const setProductTexts = $product => {
      const $productPrice = document.querySelector("#prod-price");
      const $productDescription = document.querySelector(".prod-description");
 
-     $productName.innerText = $product.prodname;
-     $productPrice.innerText = $product.prodprice;
-     $productDescription.innerText = $product.proddesc;
+     $productName.innerText = $product.querySelector(".prod-carousel-prodName").innerText;
+     $productPrice.innerText = $product.querySelector(".prod-carousel-prodPrice").innerText;
+     $productDescription.innerText = $product.dataset.proddesc;
 
      // Page scroll to top, when product is clicked
      $productName.scrollIntoView(0);

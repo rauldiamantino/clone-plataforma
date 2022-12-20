@@ -68,23 +68,25 @@ button img {
      position: relative;
 }
 
-.main-banner-title {
+.main-banner-texts {
      position: absolute;
      top: 50%;
      left: 50%;
-     transform: translate(-50%,-50%);
-     line-height: 50px;
-     padding: 0 40px;
-     height: 50px;
+     transform: translate(-50%, -50%);
      text-align: center;
      font-size: 1rem;
-     color: white;
-     border: 1px solid white;
      visibility: hidden;
      font-weight: normal;
+     padding: 20px;
+     display: flex;
+     gap: 20px;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     color: white;
 }
 
-.containerMainBanner:hover .main-banner-title {
+.containerMainBanner:hover .main-banner-texts {
      visibility: visible;
 }
 
@@ -97,8 +99,18 @@ button img {
      filter: brightness(70%);
 }
 
-.main-banner-title:hover {
+.main-banner-title {
+     font-size: 1.6rem;
+}
+
+.main-banner-subtitle {
+     padding: 8px 50px;
+     border: 1px solid white;
+}
+
+.main-banner-subtitle:hover {
      color: black;
+
      background-color: white;
 }
 

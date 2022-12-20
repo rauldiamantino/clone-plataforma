@@ -42,7 +42,7 @@ button img {
 
 .left-btn:hover,
 .right-btn:hover {
-     background-color: rgba(0, 0, 0, 0.253);
+     background-color: rgba(0, 0, 0, 0.363);
 }
 
 /* MAIN BANNER */
@@ -64,28 +64,43 @@ button img {
      min-height: 100%;
 }
 
+.main-banner a {
+     position: relative;
+}
+
 .main-banner-title {
      position: absolute;
      top: 50%;
-     right: 50%;
-     transform: translate(50%);
-     padding: 5px 20px;
+     left: 50%;
+     transform: translate(-50%,-50%);
+     line-height: 50px;
+     padding: 0 40px;
+     height: 50px;
      text-align: center;
-     font-size: 1.4rem;
+     font-size: 1rem;
      color: white;
      border: 1px solid white;
      visibility: hidden;
+     font-weight: normal;
 }
 
-.main-banner-title-visible {
+.containerMainBanner:hover .main-banner-title {
      visibility: visible;
 }
 
-/* .main-banner-title:hover {
-     visibility: visible;
+.item {
+     transition: 0.3s;
+}
+
+.containerMainBanner:hover .item {
+     background-color: black;
+     filter: brightness(70%);
+}
+
+.main-banner-title:hover {
      color: black;
      background-color: white;
-} */
+}
 
 /* CATEGORIES BANNER */
 .categories-banner {

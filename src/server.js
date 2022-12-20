@@ -16,8 +16,8 @@ app.get("/lancamentos", function (req, res) {
      res.render("pages/lancamentos");
 });
 
-app.get("/colecoes", function (req, res) {
-     res.render("pages/colecoes");
+app.get("/sale", function (req, res) {
+     res.render("pages/sale");
 });
 
 app.listen(8080); //charge all the express

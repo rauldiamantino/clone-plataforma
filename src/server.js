@@ -8,8 +8,16 @@ app.get("/", function (req, res) {
      res.render("pages/index");
 }); //create a route
 
-app.get("/categories", function (req, res) {
-     res.render("pages/categories");
+app.get("/mais-vendidos", function (req, res) {
+     res.render("pages/mais-vendidos");
+});
+
+app.get("/lancamentos", function (req, res) {
+     res.render("pages/lancamentos");
+});
+
+app.get("/colecoes", function (req, res) {
+     res.render("pages/colecoes");
 });
 
 app.listen(8080); //charge all the express

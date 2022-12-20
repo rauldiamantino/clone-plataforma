@@ -83,7 +83,9 @@ const stopIfTheMouseEnters = () => {
      const $mainBanner = document.querySelector(".containerMainBanner");
 
      if ($mainBanner) {
-          $mainBanner.addEventListener("mouseover", () => stopBannerAuto());
+          $mainBanner.addEventListener("mouseover", () => {
+               stopBannerAuto();
+          });
           $mainBanner.addEventListener("mouseout", () => changeBannerAuto());
      }
 };
@@ -245,9 +247,9 @@ const resetProductsCarouselPosition = $modalProduct => {
 
      $buttons.forEach($button => {
           const $containerProductsCarousel = $button.parentNode.className == "container-products-carousel";
-          const $isRight = $button.classList.contains("right-btn");
+          const $isLeft = $button.classList.contains("left-btn");
 
-          if ($containerProductsCarousel && $isRight) {
+          if ($containerProductsCarousel && $isLeft) {
                verifyProductCarouselButton($button);
           }
      });

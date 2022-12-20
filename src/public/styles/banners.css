@@ -46,23 +46,46 @@ button img {
 }
 
 /* MAIN BANNER */
-#main-banner {
+.main-banner {
      max-width: 100%;
      height: auto;
      display: flex;
      transition: 0.4s;
 }
 
-#main-banner img {
+.main-banner img {
      width: 100%;
      height: 100%;
      object-fit: cover;
 }
 
-#main-banner a {
+.main-banner a {
      min-width: 100%;
      min-height: 100%;
 }
+
+.main-banner-title {
+     position: absolute;
+     top: 50%;
+     right: 50%;
+     transform: translate(50%);
+     padding: 5px 20px;
+     text-align: center;
+     font-size: 1.4rem;
+     color: white;
+     border: 1px solid white;
+     visibility: hidden;
+}
+
+.main-banner-title-visible {
+     visibility: visible;
+}
+
+/* .main-banner-title:hover {
+     visibility: visible;
+     color: black;
+     background-color: white;
+} */
 
 /* CATEGORIES BANNER */
 .categories-banner {
@@ -87,8 +110,9 @@ button img {
 
 .categories-banner img {
      width: 100%;
-     height: 400px;
+
      object-fit: cover;
+     object-position: center top;
 }
 
 /* SHIPPING BANNER */
@@ -132,18 +156,35 @@ button img {
 .secondary-banner-col img {
      width: 100%;
      height: 100%;
-     transition: 0.3s;
+     transition: 0.2s;
      object-fit: cover;
 }
 
-.secondary-banner-col img:hover {
+.secondary-banner-col:hover img {
      background-color: black;
      filter: brightness(50%);
-     /* transform: scale(1.1); */
+     transform: scale(1.1);
+}
+
+.secondary-banner-col-title {
+     position: absolute;
+     top: 50%;
+     right: 50%;
+     transform: translate(50%);
+     padding: 5px 10px;
+     text-align: center;
+     font-size: 1.4rem;
+     color: white;
+     border: 1px solid white;
+     visibility: hidden;
+}
+
+.secondary-banner-col:hover .secondary-banner-col-title {
+     visibility: visible;
 }
 
 @media (max-width: 1024px) {
-     #main-banner img {
+     .main-banner img {
           height: 60vh;
           object-fit: cover;
      }

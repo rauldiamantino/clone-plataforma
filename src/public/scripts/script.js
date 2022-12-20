@@ -236,6 +236,21 @@ const openModal = $product => {
      closeModalEscKey($modalProduct);
      setProductTexts($product.dataset);
      setProductImages($productImgs);
+     resetProductsCarouselPosition($modalProduct);
+};
+
+const resetProductsCarouselPosition = $modalProduct => {
+     const $productsCarousel = $modalProduct.querySelector(".container-products-carousel");
+     $productsCarousel.setAttribute("id", 0);
+
+     $buttons.forEach($button => {
+          const $containerProductsCarousel = $button.parentNode.className == "container-products-carousel";
+          const $isRight = $button.classList.contains("right-btn");
+
+          if ($containerProductsCarousel && $isRight) {
+               verifyProductCarouselButton($button);
+          }
+     });
 };
 
 const setProductTexts = $product => {

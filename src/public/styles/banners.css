@@ -14,11 +14,6 @@
      display: none;
 }
 
-button img {
-     width: 30px;
-     height: 55px;
-}
-
 .left-btn,
 .right-btn {
      border: none;
@@ -33,6 +28,9 @@ button img {
      cursor: pointer;
      transition: all 600ms;
      background-color: transparent;
+     display: flex;
+     justify-content: center;
+     align-items: center;
 }
 
 .right-btn {
@@ -43,6 +41,11 @@ button img {
 .left-btn:hover,
 .right-btn:hover {
      background-color: rgba(0, 0, 0, 0.363);
+}
+
+button img {
+     width: 30px;
+     height: 55px;
 }
 
 /* MAIN BANNER */

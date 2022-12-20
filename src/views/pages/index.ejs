@@ -56,28 +56,13 @@
 
             <!-- SECONDARY BANNER -->
             <section class="secondary-banners general-margin-padding">
-               <div class="secondary-banner-col">
-                  <a href="/lancamentos">
-                     <img src="./images/pexels-arayik-manukyan-9629406.jpg" alt="Banner" class="imagens-sec-banner">
-                     <p class="secondary-banner-col-title">LANÇAMENTOS</p>
-                  </a>
-               </div>
-               <div class="secondary-banner-col">
-                  <a href="/mais-vendidos">
-                     <img src="./images/pexels-av-raw-12479472.jpg" alt="Banner" class="zoom">
-                     <p class="secondary-banner-col-title">+VENDIDOS</p>
-                  </a>
-               </div>
-               <div class="secondary-banner-col">
-                  <a href="/sale">
-                     <img src="./images/pexels-kenan-almokdad-5366614.jpg" alt="Banner">
-                     <p class="secondary-banner-col-title">SALE</p>
-                  </a>
-               </div>
+               <%- include('../partials/secondary-banners/banner-001') -%>
+               <%- include('../partials/secondary-banners/banner-002') -%>
+               <%- include('../partials/secondary-banners/banner-003') -%>
             </section>
 
             <!-- PRODUCT CAROUSEL --->
-            <%- include('../partials/carousel-product', {classCarousel: 'index-prod-carousel-1', titleCarousel: 'LANÇAMENTOS'}); %>
+            <%- include('../partials/product-line/carousels/carousel-product-1', {classCarousel: 'index-prod-carousel-1', titleCarousel: 'LANÇAMENTOS'}); %>
 
             <!-- MODAL -->
             <%- include('../partials/modal'); %>

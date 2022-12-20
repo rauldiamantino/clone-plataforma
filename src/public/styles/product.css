@@ -275,8 +275,8 @@
 /* PRODUCT CAROUSEL */
 .product.prod-carousel {
      gap: 10px;
-     min-width: 23%;
-     margin-left: 1%;
+     min-width: 24%;
+     margin-left: 0%;
      display: flex;
      flex-direction: column;
      align-items: center;
@@ -284,6 +284,10 @@
      cursor: pointer;
      border: 1px solid transparent;
      padding-bottom: 12px;
+}
+
+.product.prod-carousel:hover {
+     border: 1px solid var(--lightGrey);
 }
 
 button.left-btn-prod img,
@@ -316,6 +320,7 @@ button.right-btn-prod img {
 
 #carousel #products-line {
      display: flex;
+
      max-width: 100%;
      transition: 0.5s;
      gap: 1%;
@@ -375,12 +380,12 @@ button.right-btn-prod img {
      }
 
      .product-list {
-          gap: 10px;
+          gap: 0px;
           flex-wrap: wrap;
           justify-content: space-around;
      }
 
-     .product {
+     .product-list.general-margin-padding .product {
           max-width: 48%;
      }
 

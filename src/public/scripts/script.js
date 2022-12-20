@@ -18,7 +18,8 @@ $buttons.forEach(clickedButton);
 /* - CHANGE MANUAL AND AUTO ROTATE BANNER
 -------------------------------------------------------------------------*/
 
-let $banners = document.querySelectorAll(".item");
+// let $banners = document.querySelectorAll(".item");
+let $banners;
 let currentBanner = 0;
 
 const changeBanner = (currentBanner, $classCarousel) => {
@@ -183,10 +184,19 @@ document.body.onresize = () => {
 const openResponsiveMenu = button => {
      const isRespButtonToOpen = button.classList.contains("button-responsive");
      const categoriesMenu = document.querySelector(".background-categories");
+     const $menuCategorieItems = document.querySelectorAll(".inactivate-link");
 
      if (isRespButtonToOpen) {
           categoriesMenu.classList.add("menu-categories-open");
           categoriesMenu.classList.remove("menu-categories-close");
+
+          $menuCategorieItems.forEach($item => {
+               const $hasNoSubcategorie = $item.parentNode.lastElementChild.childNodes.length;
+
+               if ($hasNoSubcategorie == 1) {
+                    $item.remove();
+               }
+          });
      } else {
           closeRespMenu(button, categoriesMenu);
      }

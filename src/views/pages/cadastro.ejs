@@ -9,8 +9,17 @@
 
        <!-- MAIN -->
        <main>
+        <div class="empty-login-error-message bg-yellow-400 text-yellow-800 rounded-md mx-2.5 lg:mx-auto lg:w-9/12 leading-4 p-2 hidden">
+            <h2>ATENÇÃO</h2>
+            <p class="pb-1">Preencha todas os campos</p>
+        </div>
+        <div class="validate-login-error-message bg-yellow-400 text-yellow-800 rounded-md mx-2.5 leading-4 p-2 hidden">
+            <h2>ATENÇÃO</h2>
+            <p class="pb-1">E-mail ou senha inválidos</p>
+        </div>
+        
         <div class="register-top-button w-full px-4 mt-9 lg:w-1/2 lg:mx-auto">
-            <a href="/" class="hover:no-underline">
+            <a href="/login" class="hover:no-underline">
                 <button class="py-2 px-3 self-start mb-4 bg-neutral-100 hover:bg-neutral-200 text-xs lg:text-sm font-bold rounded-md flex items-center gap-1">
                     <img src="./images/arrow-back.svg" class="w-5 h-5">
                     Voltar
@@ -22,15 +31,15 @@
             <h1 class="text-center text-xl pb-2">CRIAR CONTA</h1>
             <div class="register-form-radio flex gap-2 lg:my-4">
                 <input type="radio" name="register-form-radio-type" id="register-form-radio-physical-person" checked>
-                <label for="physical-person" class="pr-2">Pessoa Física</label>
+                <label for="register-form-radio-physical-person" class="pr-2">Pessoa Física</label>
                 <input type="radio" name="register-form-radio-type" id="register-form-radio-legal-person">
-                <label for="legal-person">Pessoa Jurídica</label>            
+                <label for="register-form-radio-legal-person">Pessoa Jurídica</label>            
             </div>
 
             <div class="register-form-personal-data pb-9 border-b border-neutral-300 border-dashed lg:grid lg:grid-cols-2 lg:gap-4">
                 <div class="register-form-col">
                     <label for="physicalPerson">Nome Completo</label>
-                    <input type="text" name="register-form-personal-name" id="register-form-personal-name-full-name" class="register-form-col-input">
+                    <input type="text" name="register-form-personal-name" id="register-form-personal-name-full-name" class="register-form-col-input" autofocus>
                 </div>
                 <div class="register-form-col">
                     <label for="register-form-personal-email">Email</label>
@@ -44,10 +53,10 @@
                     <label for="register-form-personal-cell">Celular</label>
                     <input type="text" name="register-form-personal-cell" id="register-form-personal-cell" class="register-form-col-input">
                 </div>
-                <div class="register-form-col">
+                <!-- <div class="register-form-col">
                     <label for="register-form-personal-other-phone">Outro Telefone</label>
                     <input type="text" name="register-form-personal-other-phone" id="register-form-personal-other-phone" class="register-form-col-input">
-                </div>
+                </div> -->
                 <div class="register-form-col">
                     <label for="register-form-personal-birth-date">Nascimento</label>
                     <input type="text" name="register-form-personal-birth-date" id="register-form-personal-birth-date"  class="register-form-col-input" placeholder="dd/mm/aaaa">
@@ -56,14 +65,14 @@
                         <label for="register-form-personal-no-birth-date">Não quero informar</label>
                     </div>
                 </div>          
-                <div class="register-form-col">
+                <!-- <div class="register-form-col">
                     <label for="register-form-personal-genre">Gênero</label>
                     <select name="register-form-personal-genre" id="register-form-personal-genre" class="register-form-col-input w-min">
                         <option value="not">Não quero informar</option>
                         <option value="masculine">Masculino</option>
                         <option value="feminine">Feminino</option>
                     </select>
-                </div>
+                </div> -->
             </div>
 
             <div class="register-form-personal-password pb-9 border-b border-neutral-300 border-dashed">
@@ -77,7 +86,7 @@
                 </div>
             </div>
 
-            <div class="register-form-personal-address pb-9 border-b border-neutral-300 border-dashed lg:grid lg:grid-cols-2 lg:gap-4">
+            <!-- <div class="register-form-personal-address pb-9 border-b border-neutral-300 border-dashed lg:grid lg:grid-cols-2 lg:gap-4">
                 <div class="register-form-col">
                     <label for="register-form-cep">CEP <span class=" text-xs text-neutral-400">Não sabe seu CEP? <a class="underline">clique aqui</a></span></label>
                     <input type="text" name="register-form-cep" id="register-form-cep" class="register-form-col-input">
@@ -137,9 +146,9 @@
                         <option value="distrito-federal">Distrito Federal</option>
                     </select>
                 </div>
-            </div>
+            </div> -->
 
-            <div class="register-form-personal-address-favorite pb-9 border-b border-neutral-300 border-dashed">
+            <!-- <div class="register-form-personal-address-favorite pb-9 border-b border-neutral-300 border-dashed">
                 <div class="register-form-col">
                     <label for="register-form-address-favorite">Favoritar como</label>
                     <select name="register-form-address-favorite" id="register-form-address-favorite" class="register-form-col-input w-min">
@@ -153,7 +162,7 @@
                     <label for="register-form-address-full-name">Nome e Sobrenome</label>
                     <input type="text" name="register-form-address-full-name" id="register-form-address-full-name" class="register-form-col-input">
                 </div>
-            </div>
+            </div> -->
 
             <div class="register-form-notifications">
                 <div class="flex flex-col gap-3">
@@ -171,7 +180,7 @@
                         <label for="register-form-personal-notifications-promotions">Desejo receber e-mails com promoções</label>
                     </div>
 
-                    <button class="bg-black text-white text-sm py-2.5 mt-8 w-full border-1 border-black rounded-md">Gravar</button>
+                    <button class="register-button bg-black text-white text-sm py-2.5 mt-8 w-full border-1 border-black rounded-md">Gravar</button>
                 </div> 
             </div>
         </form>

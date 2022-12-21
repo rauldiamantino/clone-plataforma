@@ -10,12 +10,17 @@
 
          <!--MAIN -->
          <main>
-            <%- include('../partials/current-page', {pagina: 'Lançamentos'}); %>
+            <%- include('../partials/current-page', {
+               pagina: 'Lançamentos', 
+               paginaLink: 'lancamentos'
+            }); %>
+
+            <h2 class="categories-title general-margin-padding">LANÇAMENTOS</h2>
 
             <!-- CATEGORIE BANNER -->
-            <section class="categories-banner general-margin-padding">
-               <!-- <img src="./images/banner-categorie-cart.jpg" alt="Banner Principal"> -->
-            </section>
+            <!-- <section class="categories-banner general-margin-padding">
+               <img src="./images/banner-categorie-cart.jpg" alt="Banner Principal">
+            </section> -->
 
             <!-- PRODUCT LIST -->
             <div class="product-list general-margin-padding">

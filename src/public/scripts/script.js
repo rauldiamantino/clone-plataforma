@@ -1,20 +1,80 @@
+/* - SCROLL - ALERT MESSAGE
+-------------------------------------------------------------------------*/
+const $alertMessage = document.querySelector("#header-alert-message");
+
+const hiddenScroll =() => {
+     if (window.scrollY > 147) {
+          $alertMessage.classList.add('absolute');
+     }
+     if (window.scrollY < 147) {
+          $alertMessage.classList.remove('absolute');
+     }
+}
+
+document.addEventListener("scroll", hiddenScroll);
+
 /* - GET BUTTONS 
 -------------------------------------------------------------------------*/
-
 const $buttons = document.querySelectorAll("button");
 
 const clickedButton = $button => {
-     $button.addEventListener("click", () => {
+     $button.addEventListener("click", e => {
           closeModal($button);
           openResponsiveMenu($button);
           verifyBannerCarouselButton($button);
           verifyProductCarouselButton($button);
           currentImageManipulation($button);
+          submitLogin($button, e);
+          submitRegister($button, e);
      });
 };
 
 $buttons.forEach(clickedButton);
 
+/* - LOGIN PAGE
+-------------------------------------------------------------------------*/
+const submitLogin = ($button, e) => {
+     const $isBtnLogin = $button.classList.contains("login-login");
+     const $loginInputs = document.querySelectorAll(".login-formulary-inputs input");
+
+     if ($isBtnLogin) getValueInputs($loginInputs, e);
+};
+
+/* - REGISTER PAGE
+-------------------------------------------------------------------------*/
+
+const submitRegister = ($button, e) => {
+     const $isBtnRegister = $button.classList.contains("register-button");
+     const $loginInputs = document.querySelectorAll(".register-form input");
+
+     if ($isBtnRegister) getValueInputs($loginInputs, e);
+};
+
+/* - ERROR MESSAGES - LOGIN AND REGISTER PAGES
+-------------------------------------------------------------------------*/
+const addPrintErrorMessageLogin = $loginErrorMessage => {
+     $loginErrorMessage.classList.remove("hidden");
+
+     document.documentElement.scrollTop = 0;
+
+     removePrintErrorMessageLogin($loginErrorMessage);
+};
+
+const removePrintErrorMessageLogin = $loginErrorMessage => {
+     setTimeout(() => {
+          $loginErrorMessage.classList.add("hidden");
+     }, 3000);
+};
+
+const getValueInputs = ($loginInputs, e) => {
+     $loginInputs.forEach($input => {
+          if ($input.value == 0) {
+               const $emptyErrorMessage = document.querySelector(".empty-login-error-message");
+               e.preventDefault();
+               addPrintErrorMessageLogin($emptyErrorMessage);
+          }
+     });
+};
 /* - CHANGE MANUAL AND AUTO ROTATE BANNER
 -------------------------------------------------------------------------*/
 
@@ -33,9 +93,9 @@ const changeBanner = (currentBanner, $classCarousel) => {
 const verifyBannerCarouselButton = $button => {
      const isLeft = $button.classList.contains("left-btn");
      const isRight = $button.classList.contains("right-btn");
-     const $classCarousel = $button.parentNode.lastElementChild.lastElementChild.className;
 
      if (isLeft || isRight) {
+          const $classCarousel = $button.parentNode.lastElementChild.lastElementChild.className;
           $banners = document.querySelectorAll(`.${$classCarousel} .item`);
           const maxBanners = $banners.length;
 
@@ -112,9 +172,9 @@ const verifyProductCarouselButton = $button => {
 const getCarouselButtonClass = $button => {
      const isLeft = $button.classList.contains("left-btn");
      const isRight = $button.classList.contains("right-btn");
-     const $classCarousel = $button.parentNode.lastElementChild.lastElementChild.className;
 
      if (isLeft || isRight) {
+          const $classCarousel = $button.parentNode.lastElementChild.lastElementChild.className;
           return $classCarousel;
      }
 };
@@ -270,8 +330,8 @@ const setProductTexts = $product => {
      const $productPrice = document.querySelector("#prod-price");
      const $productDescription = document.querySelector(".prod-description");
 
-     $productName.innerText = $product.querySelector(".prod-carousel-prodName").innerText;
-     $productPrice.innerText = $product.querySelector(".prod-carousel-prodPrice").innerText;
+     $productName.innerText = $product.querySelector(".product-box-text .prod-carousel-prodName").innerText;
+     $productPrice.innerText = $product.querySelector(".product-box-text .prod-carousel-prodPrice").innerText;
      $productDescription.innerText = $product.dataset.proddesc;
 
      // Page scroll to top, when product is clicked
@@ -287,6 +347,7 @@ let currentImageProduct = 0;
 const setProductImages = $productImgs => {
      removeCurrentImages();
      appendProductImg($productImgs);
+
      setMainImage();
 };
 
@@ -306,7 +367,7 @@ const setMainImage = () => {
      const $secondaryImages = document.querySelectorAll(".product-img");
      const secondaryImagesLength = $secondaryImages.length - 1;
 
-     if ($mainProductImage.childNodes.length == 0) {
+     if ($mainProductImage && $mainProductImage.childNodes.length == 0) {
           $secondaryImages.forEach((image, index) => {
                setMainProductImages(image.src);
                currentImageProduct = 0;

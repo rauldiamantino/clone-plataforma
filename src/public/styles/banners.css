@@ -87,6 +87,7 @@ button img {
      justify-content: center;
      align-items: center;
      color: white;
+     width: max-content;
 }
 
 .containerMainBanner:hover .main-banner-texts {
@@ -140,7 +141,6 @@ button img {
 
 .categories-banner img {
      width: 100%;
-
      object-fit: cover;
      object-position: center top;
 }
@@ -217,6 +217,14 @@ button img {
      .main-banner img {
           height: 60vh;
           object-fit: cover;
+     }
+
+     .main-banner-title {
+          display: none;
+     }
+
+     .main-banner-subtitle {
+          display: none;
      }
 
      .shipping-banner {

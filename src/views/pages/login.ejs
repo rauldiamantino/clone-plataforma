@@ -9,21 +9,29 @@
 
        <!-- MAIN -->
        <main>
+        <div class="empty-login-error-message bg-yellow-400 text-yellow-800 rounded-md mx-2.5 lg:mx-auto lg:w-9/12 leading-4 p-2 hidden">
+            <h2>ATENÇÃO</h2>
+            <p class="pb-1">Preencha todas os campos</p>
+        </div>
+        <div class="validate-login-error-message bg-yellow-400 text-yellow-800 rounded-md mx-2.5 leading-4 p-2 hidden">
+            <h2>ATENÇÃO</h2>
+            <p class="pb-1">E-mail ou senha inválidos</p>
+        </div>
         <h1 class="text-center text-xl pt-9 pb-7">IDENTIFICAÇÃO</h1>
-        <form action="" class="login-formulary w-full h-min mx-auto flex flex-col gap-2 items-center px-2.5 lg:px-1 lg:w-5/12 lg:border lg:border-neutral-300 lg:py-2 lg:rounded-md">
+        <form action="" id="form" class="login-formulary w-full h-min mx-auto flex flex-col gap-2 items-center px-2.5 lg:px-1 lg:w-5/12 lg:border lg:border-neutral-300 lg:py-2 lg:rounded-md">
 
-         <div class="login-formulary-inputs w-screen flex flex-col text-sm px-1.5 lg:w-full lg:px-0">
+         <div class="login-formulary-inputs w-screen flex flex-col text-sm px-4 lg:w-full lg:px-0">
              <div class="lg:hover:bg-yellow-100 flex flex-col p-1 pt-2 lg:rounded-md">
                  <label for="login-formulary-email">E-mail</label>
-                 <input type="email" id="login-formulary-email" class="py-2.5 lg:py-2 px-3 rounded-md border border-neutral-300">
+                 <input type="email" id="login-formulary-email" autofocus class="py-2.5 lg:py-2 px-3 rounded-md border border-neutral-300">
              </div>
              <div class="lg:hover:bg-yellow-100 flex flex-col p-1 pt-2 lg:rounded-md">
                  <label for="login-formulary-senha">Senha</label>
-                <input type="email" id="login-formulary-senha" class="py-2.5 lg:py-2 px-3 rounded-md border border-neutral-300">
+                <input type="password" id="login-formulary-senha" class="py-2.5 lg:py-2 px-3 rounded-md border border-neutral-300">
                 <p><a class="text-xs mt-1 cursor-pointer">Esqueceu sua senha?</a></p>
             </div>
          </div>
-         <button class="bg-gradient-to-b from-black to-black/80 text-white text-sm py-2.5 w-full border-1 border-black rounded-md lg:w-7/12 lg:py-3.5">Entrar</button>
+         <button class="login-login bg-gradient-to-b from-black to-black/80 text-white text-sm py-2.5 w-full border-1 border-black rounded-md lg:w-7/12 lg:py-3.5">Entrar</button>
          <p class="text-xs text-neutral-500 text-center mt-8 lg:w-8/12 mb-2">Este site é protegido pelo reCAPTCHA Enterprise e pelo Google <a class="text-blue-600 cursor-pointer">Política de Privacidade</a> e <a class="text-blue-600 cursor-pointer">Termos de Serviço</a> se aplicam.</p>
         </form>
 
@@ -33,7 +41,7 @@
                 <h2 class="text-sm font-bold pb-1 pt-3">Quero me cadastrar</h2>
                 Ao criar uma conta, você concorda com nossos termos de uso, condições, política de privacidade e que tem pelo menos 16 anos de idade.
             </div>
-            <a href="/register"><button class="bg-gradient-to-t from-black/10 to-white text-black text-sm py-2.5 mt-4 w-full border rounded-md lg:w-7/12 lg:py-3.5">Criar Conta</button></a>
+            <a href="/cadastro"><button class="bg-gradient-to-t from-black/10 to-white text-black text-sm py-2.5 mt-4 w-full border rounded-md lg:w-7/12 lg:py-3.5">Criar Conta</button></a>
         </div>
 
 

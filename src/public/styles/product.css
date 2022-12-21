@@ -28,28 +28,34 @@
      align-items: center;
      justify-content: center;
      cursor: pointer;
-     border: 1px solid transparent;
      padding-bottom: 12px;
 }
 
 .img-product {
      width: 100%;
+     height: 80%;
      position: relative;
      overflow: hidden;
+}
+
+.product-box-text {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     width: 100%;
+     height: 20%;
 }
 
 .product img {
      width: 100%;
      height: 100%;
+     object-fit: cover;
      transition: 0.2s;
 }
 
 .product img:hover {
      transform: scale(1.1);
-}
-
-.product:hover {
-     border: 1px solid var(--lightGrey);
 }
 
 /* PRODUCT PAGE */
@@ -282,8 +288,9 @@
      align-items: center;
      justify-content: center;
      cursor: pointer;
-     border: 1px solid transparent;
+     border: 1px solid white;
      padding-bottom: 12px;
+     margin-bottom: 10px;
 }
 
 .product.prod-carousel:hover {

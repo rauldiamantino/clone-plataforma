@@ -7,7 +7,7 @@ Este é o clone da plataforma de ecommerce na qual eu trabalho como Analista de 
 -    <a href="#demo">Demonstração</a>
 -    <a href="#como">Como executar o aplicativo</a>
 -    <a href="#tech">Tecnologias Utilizadas</a>
--    <a href="#func">Recursos e Funcionalidades</a>
+-    <a href="#func">Atualizações, Recursos e Funcionalidades</a>
 
 <h2 id="demo">Demonstração</h2>
 
@@ -42,7 +42,7 @@ O site se assemelha a uma loja real, no futuro você poderá fazer login, criar 
   <li>CSS3</li>
 </ul>
 
-<h2 id="func">Recursos e Funcionalidades</h2>
+<h2 id="func">Atualizações, Recursos e Funcionalidades</h2>
 
 <ul>
   <li>Menu responsivo de categorias</li>

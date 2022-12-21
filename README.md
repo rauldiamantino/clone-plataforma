@@ -50,5 +50,6 @@ O site se assemelha a uma loja real, no futuro você poderá fazer login, criar 
   <li>Carrossel de produtos</li>
   <li>Modal de produto (informações vindas do dataset de cada produto)</li>
   <li>Páginas dinâmicas</li>
-  <li>20/12/2022 - Hovers individuais no Banner Principal</li>
+  <li>19/12/2022 - Hovers individuais no Banner Principal</li>
+  <li>20/12/2022 - Páginas de Login e Cadastro</li>
 </ul>

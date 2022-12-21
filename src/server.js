@@ -20,5 +20,13 @@ app.get("/sale", function (req, res) {
      res.render("pages/sale");
 });
 
+app.get("/login", function (req, res) {
+     res.render("pages/login");
+});
+
+app.get("/register", function (req, res) {
+     res.render("pages/register");
+});
+
 app.listen(8080); //charge all the express
 console.log("Server ON");

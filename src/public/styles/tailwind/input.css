@@ -26,4 +26,12 @@
      .inactivate-link {
           @apply w-full h-full absolute left-0 top-0 bg-transparent;
      }
+
+     .register-form-col {
+          @apply flex flex-col gap-1 py-3 lg:p-1 text-sm lg:hover:bg-yellow-100 rounded-md;
+     }
+
+     .register-form-col-input {
+          @apply p-2.5 border border-neutral-300 rounded-md;
+     }
 }

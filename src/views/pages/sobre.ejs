@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<!-- HEAD EJS -->
+<%- include('../partials/head', {title: 'Sale'}); %>
+
+   <body>
+      <!-- HEADER EJS-->
+      <%- include('../partials/header') ;%>
+
+         <!--MAIN -->
+         <main>
+            <%- include('../partials/current-page', {pagina: 'Sobre', paginaLink: 'sobre'}); %>
+            
+            <h2 class="page-title general-margin-padding">SOBRE</h2>
+
+    
+         </main>
+
+         <!-- FOOTER EJS-->
+         <%- include('../partials/footer'); %>
+
+         <!-- SCRIPTS EJS -->
+         <%- include('../partials/scripts'); %>
+   </body>
+
+</html>

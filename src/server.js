@@ -28,5 +28,17 @@ app.get("/cadastro", function (req, res) {
      res.render("pages/cadastro");
 });
 
+app.get("/sobre", function (req, res) {
+     res.render("pages/sobre");
+});
+
+app.get("/duvidas", function (req, res) {
+     res.render("pages/duvidas");
+});
+
+app.get("/contato", function (req, res) {
+     res.render("pages/contato");
+});
+
 app.listen(8080); //charge all the express
 console.log("Server ON");

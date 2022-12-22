@@ -52,4 +52,5 @@ O site se assemelha a uma loja real, no futuro você poderá fazer login, criar 
   <li>Páginas dinâmicas</li>
   <li>19/12/2022 - Hovers individuais no Banner Principal</li>
   <li>20/12/2022 - Páginas de Login e Cadastro</li>
+  <li>21/12/2022 - Oculta aviso urgente ao rolar a página</li>
 </ul>

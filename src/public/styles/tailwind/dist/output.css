@@ -640,24 +640,20 @@ video {
   position: absolute;
 }
 
+.sticky {
+  position: sticky;
+}
+
+.-top-full {
+  top: -100%;
+}
+
 .top-0 {
   top: 0px;
 }
 
 .-right-9 {
   right: -2.25rem;
-}
-
-.top-auto {
-  top: auto;
-}
-
-.top-full {
-  top: 100%;
-}
-
-.-top-full {
-  top: -100%;
 }
 
 .z-50 {
@@ -768,26 +764,6 @@ video {
 
 .w-52 {
   width: 13rem;
-}
-
-.translate-y-full {
-  --tw-translate-y: 100%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.-translate-y-full {
-  --tw-translate-y: -100%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.translate-y-1\/2 {
-  --tw-translate-y: 50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.-translate-y-1\/2 {
-  --tw-translate-y: -50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .cursor-pointer {
@@ -930,10 +906,6 @@ video {
 
 .p-1 {
   padding: 0.25rem;
-}
-
-.p-4 {
-  padding: 1rem;
 }
 
 .px-4 {
@@ -1087,20 +1059,12 @@ video {
   text-decoration-line: underline;
 }
 
-.transition {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
 .duration-300 {
   transition-duration: 300ms;
 }
 
-.duration-500 {
-  transition-duration: 500ms;
+.duration-700 {
+  transition-duration: 700ms;
 }
 
 .hover\:bg-neutral-200:hover {
@@ -1290,11 +1254,6 @@ video {
   .lg\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
-  }
-
-  .lg\:text-base {
-    font-size: 1rem;
-    line-height: 1.5rem;
   }
 
   .lg\:hover\:bg-yellow-100:hover {

@@ -2,14 +2,14 @@
 -------------------------------------------------------------------------*/
 const $alertMessage = document.querySelector("#header-alert-message");
 
-const hiddenScroll =() => {
+const hiddenScroll = () => {
      if (window.scrollY > 147) {
-          $alertMessage.classList.add('absolute');
+          $alertMessage.classList.add("absolute");
      }
      if (window.scrollY < 147) {
-          $alertMessage.classList.remove('absolute');
+          $alertMessage.classList.remove("absolute");
      }
-}
+};
 
 document.addEventListener("scroll", hiddenScroll);
 
@@ -20,6 +20,7 @@ const $buttons = document.querySelectorAll("button");
 const clickedButton = $button => {
      $button.addEventListener("click", e => {
           closeModal($button);
+          closeParcelsModal($button);
           openResponsiveMenu($button);
           verifyBannerCarouselButton($button);
           verifyProductCarouselButton($button);
@@ -303,7 +304,7 @@ const openModal = $product => {
      const $modalProduct = document.querySelector(".background-modal-product");
      const $productImgs = $product.querySelectorAll(".product-source-img");
 
-     $modalProduct.style.display = "flex";
+     $modalProduct.classList.remove("hidden");
      removeBackgroundScroll();
      closeModalEscKey($modalProduct);
      setProductTexts($product);
@@ -326,12 +327,16 @@ const resetProductsCarouselPosition = $modalProduct => {
 };
 
 const setProductTexts = $product => {
+     const $productCode = document.querySelector(".modal-product-code");
+     const $productRef = document.querySelector(".modal-product-ref");
      const $productName = document.querySelector("#prod-name");
      const $productPrice = document.querySelector("#prod-price");
      const $productDescription = document.querySelector(".prod-description");
 
      $productName.innerText = $product.querySelector(".product-box-text .prod-carousel-prodName").innerText;
      $productPrice.innerText = $product.querySelector(".product-box-text .prod-carousel-prodPrice").innerText;
+     $productCode.innerText = $product.dataset.prodcod;
+     $productRef.innerText = $product.dataset.prodref;
      $productDescription.innerText = $product.dataset.proddesc;
 
      // Page scroll to top, when product is clicked
@@ -428,9 +433,15 @@ const changeProductImage = () => {
 };
 
 const closeModalEscKey = $modalProduct => {
+     const isproductPaymentModalContent = $modalProduct.classList.contains("product-payment-internal-modal");
+
      document.addEventListener("keydown", e => {
           if (e.key === "Escape") {
-               $modalProduct.style.display = "none";
+               if (isproductPaymentModalContent) {
+                    closeModalContent($modalProduct);
+               } else {
+                    $modalProduct.classList.add("hidden");
+               }
           }
           addBackgroundScroll();
      });
@@ -440,7 +451,88 @@ const closeModal = button => {
      const $modalProduct = document.querySelector(".background-modal-product");
      const isCloseModal = button.classList.contains("btn-close-modal");
 
-     if (isCloseModal) ($modalProduct.style.display = "none"), addBackgroundScroll();
+     if (isCloseModal) {
+          $modalProduct.classList.add("hidden"), addBackgroundScroll();
+     }
+};
+
+/* - MODAL - see-parcels
+-------------------------------------------------------------------------*/
+const $btnSeeParcels = document.querySelector(".product-payment-see-parcels");
+$btnSeeParcels.addEventListener("click", () => openParcelsModal($btnSeeParcels));
+
+const openParcelsModal = $btnSeeParcels => {
+     const $productPrice = $btnSeeParcels.parentNode.querySelector("#prod-price").innerText;
+     const $productPaymentModalBackground = document.querySelector(".product-payment-modal-background");
+     const $productPaymentModalContent = document.querySelector(".product-payment-internal-modal");
+
+     $productPaymentModalBackground.classList.remove("hidden");
+     openModalContent($productPaymentModalContent);
+     closeModalEscKey($productPaymentModalBackground);
+     closeModalEscKey($productPaymentModalContent);
+     getProductPayments($productPrice, $productPaymentModalContent);
+};
+
+const getProductPayments = ($productPrice, $productPaymentModalContent) => {
+     const $productPaymentModalCredit = document.querySelector(".product-payment-credit");
+     const $productPaymentModalTicket = document.querySelector(".product-payment-ticket");
+
+     printProductCreditParcels($productPrice, $productPaymentModalCredit);
+     printProductTicket($productPrice, $productPaymentModalTicket);
+};
+
+const printProductCreditParcels = ($productPrice, $productPaymentModalCredit) => {
+     const maxParcels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+     $productPaymentModalCredit.innerHTML = "";
+     maxParcels.forEach((parcel, index) => {
+          const calculateParcel = formatNumber($productPrice / parcel);
+          const liContent = textParcel(index, calculateParcel);
+
+          $productPaymentModalCredit.appendChild(createElementLi(liContent));
+     });
+};
+
+const printProductTicket = ($productPrice, $productPaymentModalTicket) => {
+     const textDiscount = " (desconto de 5%)";
+     const calculateParcel = formatNumber($productPrice - (5 / 100) * $productPrice) + textDiscount;
+     const index = 0;
+     const liContent = textParcel(index, calculateParcel);
+
+     $productPaymentModalTicket.innerHTML = "";
+     $productPaymentModalTicket.appendChild(createElementLi(liContent));
+};
+
+const textParcel = (index, calculateParcel) => document.createTextNode(`${index + 1}x R$ ${calculateParcel}`);
+
+const createElementLi = liContent => {
+     const li = document.createElement("li");
+
+     li.appendChild(liContent);
+     return li;
+};
+
+const formatNumber = number => number.toFixed(2).replace(".", ",");
+
+const closeParcelsModal = button => {
+     const $productPaymentModalBackground = document.querySelector(".product-payment-modal-background");
+     const $productPaymentModalContent = document.querySelector(".product-payment-internal-modal");
+     const isCloseModal = button.classList.contains("btn-close-payment-modal");
+
+     if (isCloseModal) {
+          $productPaymentModalBackground.classList.add("hidden");
+          closeModalContent($productPaymentModalContent);
+     }
+};
+
+const closeModalContent = $productPaymentModalContent => {
+     $productPaymentModalContent.classList.add("scale-0", "duration-300");
+     $productPaymentModalContent.classList.remove("scale-100", "duration-300");
+};
+
+const openModalContent = $productPaymentModalContent => {
+     $productPaymentModalContent.classList.remove("scale-0", "duration-300");
+     $productPaymentModalContent.classList.add("scale-100", "duration-300");
 };
 
 /* - CATEGORIES NAVBAR

@@ -1,4 +1,4 @@
-<div class="background-modal-product">
+<div class="background-modal-product hidden">
     <div class="modal-product">
         <button class="btn-close-modal"><img src="images/close.svg"></button>
         <!-- PRODUCT PAGE -->
@@ -15,11 +15,23 @@
             <!-- box description -->
             <div class="product-name">
                 <h2 id="prod-name">Nome do Produto</h2>
-                <h5>Código: 0000 | Ref. 000000</h5>
+                <h5>Código: <span class="modal-product-code">0000</span> | Ref. <span class="modal-product-ref">000000</span></h5>
             </div>
             <div class="product-payment">
-                <h2 id="prod-price">R$ 0</h2>
-                <a href="#">Ver parcelamentos</a>
+                <h2 id="prod-price">0</h2>
+                <p class="product-payment-see-parcels">Ver parcelamentos</p>
+                <section class="product-payment-modal-background bg-black/95 w-full h-full fixed top-0 left-0 z-10 hidden">
+                </section>
+                <section class="product-payment-internal-modal scale-0 duration-300 bg-white w-max text-left lg:w-96 h-min p-9 fixed z-20 text-base -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                    <button class="btn-close-payment-modal absolute -top-4 -right-4 rounded-full bg-red-600 border-2"><img src="images/close-white.svg" class="w-5 h-5 m-1"></button>
+                    <p class="font-bold">Cartão de Crédito</p>
+                    <ul class="product-payment-credit">
+                    </ul>
+                    <p class="font-bold mt-4">Boleto</p>
+                    <ul class="product-payment-ticket">
+                        <li>1x R$ 104,50 (desconto de 5%)</li>
+                    </ul>
+                </section>
             </div>
             <!-- box variations -->
             <div class="variations">

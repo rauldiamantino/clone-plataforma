@@ -169,10 +169,11 @@
      font-size: 1.4rem;
 }
 
-.product-payment a {
+.product-payment-see-parcels {
      color: var(--darkGrey);
      text-decoration: underline;
      outline: 0;
+     cursor: pointer;
 }
 
 .variations h4 {
@@ -336,7 +337,7 @@ button.right-btn-prod img {
 /* Modal Product */
 
 .background-modal-product {
-     display: none;
+     display: flex;
      position: fixed;
      top: 0;
      width: 100vw;
@@ -350,6 +351,7 @@ button.right-btn-prod img {
 .modal-product {
      background-color: #fff;
      overflow-y: scroll;
+     /* overflow-x: inherit; */
      position: absolute;
      width: 92%;
      height: 82%;
@@ -403,6 +405,7 @@ button.right-btn-prod img {
           text-align: center;
           padding: 10px;
           margin: 0 10px;
+          max-width: 100%;
      }
 
      .product-name {
@@ -479,6 +482,10 @@ button.right-btn-prod img {
           padding: 0 20px;
           margin: auto;
           width: 97vw;
+     }
+
+     .modal-product .container-products-carousel {
+          width: 90vw;
      }
 
      .left-btn.left-btn-prod {

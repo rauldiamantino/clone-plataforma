@@ -243,6 +243,11 @@
      font-size: 1rem;
 }
 
+.calc-shipping {
+     display: flex;
+     align-items: center;
+}
+
 .calc-shipping button {
      height: 30px;
      width: 106px;
@@ -325,7 +330,6 @@ button.right-btn-prod img {
 }
 
 /* Modal Product */
-
 .modal-product-background {
      position: fixed;
      top: 0;
@@ -334,30 +338,7 @@ button.right-btn-prod img {
      justify-content: center;
      align-items: center;
      background-color: rgba(0, 0, 0, 0.767);
-}
-
-/* .modal-product-content {
-     display: flex;
-     position: fixed;
-     top: 0;
-     width: 100vw;
-     height: 100vh;
-     z-index: 2;
-     justify-content: center;
-     align-items: center;
-     background-color: rgba(0, 0, 0, 0.767);
-} */
-
-.modal-product-content {
-     /* background-color: #fff;
-     overflow-y: scroll;
-     position: absolute;
-     width: 92%;
-     height: 82%;
-     border: 0;
-     outline: 0;
-     border-top-left-radius: 6px;
-     border-bottom-left-radius: 6px; */
+     overflow-y: hidden;
 }
 
 .btn-close-modal {
@@ -443,22 +424,16 @@ button.right-btn-prod img {
           margin: auto;
      }
 
+     .calc-shipping {
+          justify-content: center;
+     }
+
      .product-shipping {
           margin: 20px 0 40px 0;
      }
 
      .product-list {
           margin: 20px 10px;
-     }
-
-     /* MODAL PRODUCT PAGE */
-     .modal-product-content {
-          min-height: 100vh;
-          min-width: 100vw;
-     }
-
-     .modal-product-content .product-page.general-margin-padding {
-          margin: 10px;
      }
 
      .btn-close-modal {
@@ -482,6 +457,16 @@ button.right-btn-prod img {
      .modal-product-content .container-products-carousel {
           margin: auto;
           width: 90vw;
+     }
+
+     .modal-product-content .product-box {
+          padding-bottom: 20px;
+     }
+
+     .modal-product-content .product {
+          font-size: 0.8rem;
+          padding-bottom: 10px;
+          text-align: center;
      }
 
      .left-btn.left-btn-prod {

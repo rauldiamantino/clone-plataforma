@@ -3,12 +3,7 @@
 const $alertMessage = document.querySelector("#header-alert-message");
 
 const hiddenScroll = () => {
-     if (window.scrollY > 147) {
-          $alertMessage.classList.add("absolute");
-     }
-     if (window.scrollY < 147) {
-          $alertMessage.classList.remove("absolute");
-     }
+     window.scrollY > 147 ? $alertMessage.classList.add("absolute") : $alertMessage.classList.remove("absolute");
 };
 
 document.addEventListener("scroll", hiddenScroll);
@@ -228,7 +223,7 @@ const carouselXProductsPixels = () => {
 document.body.onresize = () => {
      if (document.body.clientWidth > 900) {
           $buttons.forEach($button => {
-               const $isProductsCarousel = $button.parentNode.className == "container-products-carousel";
+               const $isProductsCarousel = $button.parentNode.classList.contains("container-products-carousel");
                const $isLeft = $button.classList.contains("left-btn");
 
                if ($isLeft && $isProductsCarousel) {
@@ -298,7 +293,7 @@ I am learning and using datalists to get the products data, so the code is still
 -------------------------------------------------------------------------*/
 
 const removeBackgroundScroll = () => (document.documentElement.style.overflow = "hidden");
-const addBackgroundScroll = () => (document.documentElement.style.overflow = "inherit");
+const addBackgroundScroll = () => (document.documentElement.style.overflow = "auto");
 
 const openModal = $product => {
      const $modalProduct = document.querySelector(".modal-product-content");
@@ -315,6 +310,7 @@ const openModal = $product => {
      setProductImages($productImgs);
      setProductVariations($product);
      resetProductsCarouselPosition($modalProduct);
+     $modalProduct.scrollTop = 0;
 };
 
 const resetProductsCarouselPosition = $modalProduct => {
@@ -322,7 +318,8 @@ const resetProductsCarouselPosition = $modalProduct => {
      $productsCarousel.setAttribute("id", 0);
 
      $buttons.forEach($button => {
-          const $containerProductsCarousel = $button.parentNode.className == "container-products-carousel";
+          const $containerProductsCarousel =
+               $button.parentNode.className == "container-products-carousel related-products";
           const $isLeft = $button.classList.contains("left-btn");
 
           if ($containerProductsCarousel && $isLeft) {
@@ -334,51 +331,93 @@ const resetProductsCarouselPosition = $modalProduct => {
 /* - MODAL - variations
 -------------------------------------------------------------------------*/
 const setProductVariations = $product => {
-     const $productVariations = $product.querySelectorAll(".prod-variations-color");
+     const $productColorVariation = $product.querySelectorAll(".prod-variations-color");
+     const $productSizeVariation = $product.querySelectorAll(".prod-variations-size");
      const $firstVariation = document.querySelector(".first-variation ul");
+     const $secondVariation = document.querySelector(".second-variation ul");
 
-     setSelectedVariation($productVariations);
+     setSelectedVariation($productColorVariation);
      $firstVariation.innerHTML = "";
-     setLiContent($productVariations, $firstVariation);
+     setLiContent($productColorVariation, $firstVariation);
      selectVariationModal($firstVariation);
+
+     setSelectedVariation($productSizeVariation);
+     $secondVariation.innerHTML = "";
+     setLiContent($productSizeVariation, $secondVariation);
+     selectVariationModal($secondVariation);
 };
 
-const selectVariationModal = $firstVariation => {
-     const $variations = $firstVariation.querySelectorAll("li");
-     const $selectedVariation = document.querySelector(".first-variation-selected");
+const selectVariationModal = $productVariation => {
+     const $variations = $productVariation.querySelectorAll("li");
 
-     console.log($selectedVariation.parentNode)
+     $variations.forEach($currentVariation => {
+          const isFirstVariation = $currentVariation.parentNode.parentNode.className == "first-variation";
 
-     $variations.forEach($variation => {
-          $variation.addEventListener("click", () => {
-               const variation = $variation.innerText;
-               $selectedVariation.innerText = variation;
+          if (isFirstVariation) {
+               const $selectedVariation = document.querySelector(".first-variation-selected");
+               addClassesSelectedVariation($variations[0]);
 
-               console.log($selectedVariation.parentNode)
-          });
+               $variations.forEach($variation => {
+                    $variation.addEventListener("click", () => {
+                         const variation = $variation.innerText;
+                         $selectedVariation.innerText = variation;
+
+                         removeAllClassesSelectedVariation($variations);
+                         addClassesSelectedVariation($variation);
+                    });
+               });
+          } else {
+               const $selectedVariation = document.querySelector(".second-variation-selected");
+               addClassesSelectedVariation($variations[0]);
+
+               $variations.forEach($variation => {
+                    $variation.addEventListener("click", () => {
+                         const variation = $variation.innerText;
+                         $selectedVariation.innerText = variation;
+
+                         removeAllClassesSelectedVariation($variations);
+                         addClassesSelectedVariation($variation);
+                    });
+               });
+          }
      });
 };
 
-const setLiContent = ($productVariations, $firstVariation) => {
+const setLiContent = ($productVariations, $modalVariation) => {
      $productVariations.forEach($variation => {
           const liContent = textVariation($variation);
-          addVariation($firstVariation, liContent);
+          addVariation($modalVariation, liContent);
      });
 };
 
-const addVariation = ($firstVariation, liContent) => {
-     addClassesVariation($firstVariation.appendChild(createElementLi(liContent)));
+const addVariation = ($modalVariation, liContent) => {
+     addClassesVariation($modalVariation.appendChild(createElementLi(liContent)));
 };
 
-const addClassesVariation = newVariation => newVariation.classList.add("border", "p-2", "cursor-pointer");
+const addClassesVariation = newVariation => newVariation.classList.add("border", "py-2", "px-4", "cursor-pointer");
+
+const addClassesSelectedVariation = newVariation => newVariation.classList.add("bg-c-dark-gray", "text-white");
+
+const removeAllClassesSelectedVariation = variations => {
+     variations.forEach(variation => {
+          variation.classList.remove("bg-c-dark-gray", "text-white");
+     });
+};
 
 const textVariation = $variation => document.createTextNode($variation.dataset.variation);
 
 const setSelectedVariation = $productVariations => {
-     const selectedVariation = $productVariations[0].dataset.variation;
-     const $selectedVariation = document.querySelector(".first-variation-selected");
-
-     $selectedVariation.innerText = selectedVariation;
+     $productVariations.forEach($currentVariation => {
+          if ($currentVariation.classList.contains("prod-variations-color")) {
+               const $selectedVariation = document.querySelector(".first-variation-selected");
+               const selectedVariation = $productVariations[0].dataset.variation;
+               $selectedVariation.innerText = selectedVariation;
+          } else {
+               const $selectedVariation = document.querySelector(".second-variation-selected");
+               const selectedVariation = $productVariations[0].dataset.variation;
+               $selectedVariation.innerText = selectedVariation;
+          }
+     });
 };
 
 const setProductTexts = $product => {
@@ -393,9 +432,6 @@ const setProductTexts = $product => {
      $productCode.innerText = $product.dataset.prodcod;
      $productRef.innerText = $product.dataset.prodref;
      $productDescription.innerText = $product.dataset.proddesc;
-
-     // Page scroll to top, when product is clicked
-     $productName.scrollIntoView(0);
 };
 
 /* - MODAL - IMAGES OF THE PRODUCTS

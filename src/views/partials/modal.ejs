@@ -34,10 +34,9 @@
                 </ul>
             </div>
             <div class="second-variation">
-                <h4>Tamanho: M</h3>
-                    <button>P</button>
-                    <button>M</button>
-                    <button>G</button>
+                <h4>Tamanho: <span class="second-variation-selected">M</span></h3>
+                    <ul class="flex gap-2 justify-center lg:justify-start">
+                    </ul>
             </div>
         </div>
         <div class="product-quantity-box">
@@ -62,7 +61,7 @@
     </section>
 
     <!-- PRODUCT CAROUSEL-->
-    <%- include('../partials/product-line/carousels/carousel-product-2', {classCarousel: 'modal-prod-carousel-1', titleCarousel: 'PRODUTOS RELACIONADOS'}); %>
+    <%- include('../partials/product-line/carousels/carousel-product-2', {classCarousel: 'modal-prod-carousel-1', titleCarousel: 'PRODUTOS RELACIONADOS', titleCarouselClass: 'related-products'}); %>
 
 </div>
 

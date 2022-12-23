@@ -5,7 +5,7 @@ Este é o clone da plataforma de ecommerce na qual eu trabalho como Analista de 
 <h2>Índice</h2>
 
 -    <a href="#demo">Demonstração</a>
--    <a href="#como">Como executar o aplicativo</a>
+-    <a href="#como">Como executar o servidor e abrir o site</a>
 -    <a href="#tech">Tecnologias Utilizadas</a>
 -    <a href="#func">Atualizações, Recursos e Funcionalidades</a>
 
@@ -21,9 +21,9 @@ O site se assemelha a uma loja real, no futuro você poderá fazer login, criar 
 
 ![image](https://user-images.githubusercontent.com/100098231/209251303-a9df300a-edd5-4efd-9ecc-acb2813d2df9.png)
 
-![image](https://user-images.githubusercontent.com/100098231/207989297-99437c74-da3c-43ca-b10e-30b6d3e30eee.png)
+![image](https://user-images.githubusercontent.com/100098231/209251693-1ab2d4ab-e442-46cc-96fd-98a47a08d2aa.png)
 
-<h2 id="como">Como executar o aplicativo</h2>
+<h2 id="como">Como executar o servidor e abrir o site</h2>
 
 <ol>
   <li>Abra o terminal e digite: <i>git clone https://github.com/rauldiamantino/clone-plataforma.git</i></li>

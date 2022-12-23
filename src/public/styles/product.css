@@ -140,8 +140,8 @@
 }
 
 .box-small-image {
-     width: 50px;
-     height: 70px;
+     width: 55px;
+     height: 75px;
      padding: 3px;
      cursor: pointer;
      border: 1px solid var(--lightGrey);
@@ -263,6 +263,7 @@
      border: none;
      cursor: pointer;
      font-size: 0.9rem;
+     background-color: #f3ece6;
 }
 
 .prod-description {

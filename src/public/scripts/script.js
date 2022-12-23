@@ -467,7 +467,7 @@ const closeModal = button => {
 /* - MODAL - see-parcels
 -------------------------------------------------------------------------*/
 const $btnSeeParcels = document.querySelector(".product-payment-see-parcels");
-$btnSeeParcels.addEventListener("click", () => openParcelsModal($btnSeeParcels));
+if ($btnSeeParcels) $btnSeeParcels.addEventListener("click", () => openParcelsModal($btnSeeParcels));
 
 const openParcelsModal = $btnSeeParcels => {
      const $productPrice = $btnSeeParcels.parentNode.querySelector("#prod-price").innerText;

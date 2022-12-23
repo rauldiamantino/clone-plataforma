@@ -301,12 +301,16 @@ const removeBackgroundScroll = () => (document.documentElement.style.overflow = 
 const addBackgroundScroll = () => (document.documentElement.style.overflow = "inherit");
 
 const openModal = $product => {
-     const $modalProduct = document.querySelector(".background-modal-product");
+     const $modalProduct = document.querySelector(".modal-product-content");
+     const $modalProductBackground = document.querySelector(".modal-product-background");
      const $productImgs = $product.querySelectorAll(".product-source-img");
 
-     $modalProduct.classList.remove("hidden");
+     $modalProductBackground.classList.remove("hidden");
+
+     openModalContent($modalProduct);
      removeBackgroundScroll();
      closeModalEscKey($modalProduct);
+     closeModalEscKey($modalProductBackground);
      setProductTexts($product);
      setProductImages($productImgs);
      resetProductsCarouselPosition($modalProduct);
@@ -434,10 +438,11 @@ const changeProductImage = () => {
 
 const closeModalEscKey = $modalProduct => {
      const isproductPaymentModalContent = $modalProduct.classList.contains("product-payment-internal-modal");
+     const isModalProductModalContent = $modalProduct.classList.contains("modal-product-content");
 
      document.addEventListener("keydown", e => {
           if (e.key === "Escape") {
-               if (isproductPaymentModalContent) {
+               if (isproductPaymentModalContent || isModalProductModalContent) {
                     closeModalContent($modalProduct);
                } else {
                     $modalProduct.classList.add("hidden");
@@ -448,11 +453,14 @@ const closeModalEscKey = $modalProduct => {
 };
 
 const closeModal = button => {
-     const $modalProduct = document.querySelector(".background-modal-product");
+     const $modalProductContent = document.querySelector(".modal-product-content");
+     const $modalProductBackground = document.querySelector(".modal-product-background");
      const isCloseModal = button.classList.contains("btn-close-modal");
 
      if (isCloseModal) {
-          $modalProduct.classList.add("hidden"), addBackgroundScroll();
+          closeModalContent($modalProductContent);
+          $modalProductBackground.classList.add("hidden");
+          addBackgroundScroll();
      }
 };
 
@@ -525,14 +533,14 @@ const closeParcelsModal = button => {
      }
 };
 
-const closeModalContent = $productPaymentModalContent => {
-     $productPaymentModalContent.classList.add("scale-0", "duration-300");
-     $productPaymentModalContent.classList.remove("scale-100", "duration-300");
+const closeModalContent = $modalContent => {
+     $modalContent.classList.add("scale-0", "duration-700");
+     $modalContent.classList.remove("scale-100", "duration-700");
 };
 
-const openModalContent = $productPaymentModalContent => {
-     $productPaymentModalContent.classList.remove("scale-0", "duration-300");
-     $productPaymentModalContent.classList.add("scale-100", "duration-300");
+const openModalContent = $modalContent => {
+     $modalContent.classList.remove("scale-0", "duration-700");
+     $modalContent.classList.add("scale-100", "duration-700");
 };
 
 /* - CATEGORIES NAVBAR

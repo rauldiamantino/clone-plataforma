@@ -1,73 +1,83 @@
-<div class="background-modal-product hidden">
-    <div class="modal-product">
-        <button class="btn-close-modal"><img src="images/close.svg"></button>
-        <!-- PRODUCT PAGE -->
-        <section class="product-page general-margin-padding">
-            <!-- box images -->
-            <div class="images">
-                <div class="secondary-images"></div>
-                <div class="main-image">
-                    <button class="btnModal-left"><img src="./images/chevron-left.svg"></button>
-                    <button class="btnModal-right"><img src="./images/chevron-right.svg"></button>
-                    <div class="product-images"></div>
-                </div>
-            </div>
-            <!-- box description -->
-            <div class="product-name">
-                <h2 id="prod-name">Nome do Produto</h2>
-                <h5>Código: <span class="modal-product-code">0000</span> | Ref. <span class="modal-product-ref">000000</span></h5>
-            </div>
-            <div class="product-payment">
-                <h2 id="prod-price">0</h2>
-                <p class="product-payment-see-parcels">Ver parcelamentos</p>
-                <section class="product-payment-modal-background bg-black/95 w-full h-full fixed top-0 left-0 z-10 hidden">
-                </section>
-                <section class="product-payment-internal-modal scale-0 duration-300 bg-white w-max text-left lg:w-96 h-min p-9 fixed z-20 text-base -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-                    <button class="btn-close-payment-modal absolute -top-4 -right-4 rounded-full bg-red-600 border-2"><img src="images/close-white.svg" class="w-5 h-5 m-1"></button>
-                    <p class="font-bold">Cartão de Crédito</p>
-                    <ul class="product-payment-credit">
-                    </ul>
-                    <p class="font-bold mt-4">Boleto</p>
-                    <ul class="product-payment-ticket">
-                        <li>1x R$ 104,50 (desconto de 5%)</li>
-                    </ul>
-                </section>
-            </div>
-            <!-- box variations -->
-            <div class="variations">
-                <div class="first-variation">
-                    <h4>Cor: Branco</h4>
-                    <button>Branco</button>
-                </div>
-                <div class="second-variation">
-                    <h4>Tamanho: M</h3>
-                        <button>P</button>
-                        <button>M</button>
-                        <button>G</button>
-                </div>
-            </div>
-            <div class="product-quantity-box">
-                <label for="product-quantity">Quantidade:</label>
-                <input type="number" id="product-quantity" value="1">
-            </div>
-            <button id="product-purchase">COMPRAR</button>
-            <h5 id="product-add-wishlist">+ Adicionar à lista de desejos</h5>
-            <div class="product-shipping">
-                <label for="product-shipping-cep">Simule o frete para sua região</label>
-                <div class="calc-shipping">
-                    <input type="text" id="product-shipping-cep" placeholder="Digite seu CEP">
-                    <button>Calcular Frete</button>
-                </div>
-            </div>
-        </section>
+<section class="modal-product-background hidden z-10">
+</section>
 
-        <section class="product-box general-margin-padding">
-            <h2>DESCRIÇÃO</h2>
-            <div class="prod-description"></div>
-        </section>
+<div class="modal-product-content bg-white overflow-y-scroll lg:p-6 w-screen h-screen lg:w-11/12 lg:h-5/6 fixed -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 rounded-l-lg scale-0 z-10">
 
-        <!-- PRODUCT CAROUSEL-->
-        <%- include('../partials/product-line/carousels/carousel-product-2', {classCarousel: 'modal-prod-carousel-1', titleCarousel: 'PRODUTOS RELACIONADOS'}); %>
+    <button class="btn-close-modal"><img src="images/close.svg"></button>
 
-    </div>
+    <!-- PRODUCT PAGE -->
+    <section class="product-page">
+        <!-- box images -->
+        <div class="images">
+            <div class="secondary-images"></div>
+            <div class="main-image">
+                <button class="btnModal-left"><img src="./images/chevron-left.svg"></button>
+                <button class="btnModal-right"><img src="./images/chevron-right.svg"></button>
+                <div class="product-images"></div>
+            </div>
+        </div>
+        <!-- box description -->
+        <div class="product-name">
+            <h2 id="prod-name">Nome do Produto</h2>
+            <h5>Código: <span class="modal-product-code">0000</span> | Ref. <span class="modal-product-ref">000000</span></h5>
+        </div>
+        <div class="product-payment">
+            <h2 id="prod-price">0</h2>
+            <p class="product-payment-see-parcels">Ver parcelamentos</p>
+
+        </div>
+        <!-- box variations -->
+        <div class="variations">
+            <div class="first-variation">
+                <h4>Cor: Branco</h4>
+                <button>Branco</button>
+            </div>
+            <div class="second-variation">
+                <h4>Tamanho: M</h3>
+                    <button>P</button>
+                    <button>M</button>
+                    <button>G</button>
+            </div>
+        </div>
+        <div class="product-quantity-box">
+            <label for="product-quantity">Quantidade:</label>
+            <input type="number" id="product-quantity" value="1">
+        </div>
+        <button id="product-purchase">COMPRAR</button>
+        <h5 id="product-add-wishlist">+ Adicionar à lista de desejos</h5>
+        <div class="product-shipping">
+            <label for="product-shipping-cep">Simule o frete para sua região</label>
+            <div class="calc-shipping">
+                <input type="text" id="product-shipping-cep" placeholder="Digite seu CEP">
+                <button>Calcular Frete</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-box general-margin-padding">
+        <h2>DESCRIÇÃO</h2>
+        <div class="prod-description"></div>
+    </section>
+
+    <!-- PRODUCT CAROUSEL-->
+    <%- include('../partials/product-line/carousels/carousel-product-2', {classCarousel: 'modal-prod-carousel-1', titleCarousel: 'PRODUTOS RELACIONADOS'}); %>
+
 </div>
+
+<!-- MODAL - PAYMENT -->
+
+<section class="product-payment-modal-background bg-black/95 min-w-full min-h-full fixed top-0 left-0 hidden z-20">
+</section>
+
+<section class="product-payment-internal-modal scale-0 bg-white w-max text-left lg:w-96 h-min p-9 fixed text-base -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 z-20">
+    <button class="btn-close-payment-modal absolute -top-4 -right-4 rounded-full bg-red-600 border-2"><img src="images/close-white.svg" class="w-5 h-5 m-1"></button>
+    <p class="font-bold">Cartão de Crédito</p>
+    <ul class="product-payment-credit">
+    </ul>
+    <p class="font-bold mt-4">Boleto</p>
+    <ul class="product-payment-ticket">
+        <li>1x R$ 104,50 (desconto de 5%)</li>
+    </ul>
+</section>
+
+<!-- background-modal-product  -->

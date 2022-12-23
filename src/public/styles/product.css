@@ -229,6 +229,7 @@
      outline: 0;
      font-size: 1.2rem;
      cursor: pointer;
+     background-color: #f3ece6;
 }
 
 #product-add-wishlist {
@@ -336,7 +337,17 @@ button.right-btn-prod img {
 
 /* Modal Product */
 
-.background-modal-product {
+.modal-product-background {
+     position: fixed;
+     top: 0;
+     width: 100vw;
+     height: 100vh;
+     justify-content: center;
+     align-items: center;
+     background-color: rgba(0, 0, 0, 0.767);
+}
+
+/* .modal-product-content {
      display: flex;
      position: fixed;
      top: 0;
@@ -346,26 +357,25 @@ button.right-btn-prod img {
      justify-content: center;
      align-items: center;
      background-color: rgba(0, 0, 0, 0.767);
-}
+} */
 
-.modal-product {
-     background-color: #fff;
+.modal-product-content {
+     /* background-color: #fff;
      overflow-y: scroll;
-     /* overflow-x: inherit; */
      position: absolute;
      width: 92%;
      height: 82%;
      border: 0;
      outline: 0;
      border-top-left-radius: 6px;
-     border-bottom-left-radius: 6px;
+     border-bottom-left-radius: 6px; */
 }
 
 .btn-close-modal {
      position: fixed;
-     z-index: 3;
-     right: 60px;
-     /* top: 0px; */
+     z-index: 1000;
+     right: 0;
+     top: 0px;
      border: none;
      padding: 20px;
      outline: none;
@@ -373,13 +383,9 @@ button.right-btn-prod img {
      background-color: transparent;
 }
 
-.modal-product .btn-close-modal img {
+.btn-close-modal img {
      width: 35px;
      height: 35px;
-}
-
-.modal-product .product-page.general-margin-padding {
-     margin: 30px 20px;
 }
 
 @media (max-width: 1024px) {
@@ -457,12 +463,12 @@ button.right-btn-prod img {
      }
 
      /* MODAL PRODUCT PAGE */
-     .modal-product {
+     .modal-product-content {
           min-height: 100vh;
           min-width: 100vw;
      }
 
-     .modal-product .product-page.general-margin-padding {
+     .modal-product-content .product-page.general-margin-padding {
           margin: 10px;
      }
 
@@ -484,7 +490,8 @@ button.right-btn-prod img {
           width: 97vw;
      }
 
-     .modal-product .container-products-carousel {
+     .modal-product-content .container-products-carousel {
+          margin: auto;
           width: 90vw;
      }
 

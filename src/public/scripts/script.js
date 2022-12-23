@@ -313,6 +313,7 @@ const openModal = $product => {
      closeModalEscKey($modalProductBackground);
      setProductTexts($product);
      setProductImages($productImgs);
+     setProductVariations($product);
      resetProductsCarouselPosition($modalProduct);
 };
 
@@ -328,6 +329,56 @@ const resetProductsCarouselPosition = $modalProduct => {
                verifyProductCarouselButton($button);
           }
      });
+};
+
+/* - MODAL - variations
+-------------------------------------------------------------------------*/
+const setProductVariations = $product => {
+     const $productVariations = $product.querySelectorAll(".prod-variations-color");
+     const $firstVariation = document.querySelector(".first-variation ul");
+
+     setSelectedVariation($productVariations);
+     $firstVariation.innerHTML = "";
+     setLiContent($productVariations, $firstVariation);
+     selectVariationModal($firstVariation);
+};
+
+const selectVariationModal = $firstVariation => {
+     const $variations = $firstVariation.querySelectorAll("li");
+     const $selectedVariation = document.querySelector(".first-variation-selected");
+
+     console.log($selectedVariation.parentNode)
+
+     $variations.forEach($variation => {
+          $variation.addEventListener("click", () => {
+               const variation = $variation.innerText;
+               $selectedVariation.innerText = variation;
+
+               console.log($selectedVariation.parentNode)
+          });
+     });
+};
+
+const setLiContent = ($productVariations, $firstVariation) => {
+     $productVariations.forEach($variation => {
+          const liContent = textVariation($variation);
+          addVariation($firstVariation, liContent);
+     });
+};
+
+const addVariation = ($firstVariation, liContent) => {
+     addClassesVariation($firstVariation.appendChild(createElementLi(liContent)));
+};
+
+const addClassesVariation = newVariation => newVariation.classList.add("border", "p-2", "cursor-pointer");
+
+const textVariation = $variation => document.createTextNode($variation.dataset.variation);
+
+const setSelectedVariation = $productVariations => {
+     const selectedVariation = $productVariations[0].dataset.variation;
+     const $selectedVariation = document.querySelector(".first-variation-selected");
+
+     $selectedVariation.innerText = selectedVariation;
 };
 
 const setProductTexts = $product => {

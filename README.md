@@ -56,4 +56,5 @@ O site se assemelha a uma loja real, no futuro você poderá fazer login, criar 
   <li>20/12/2022 - Páginas de Login e Cadastro</li>
   <li>21/12/2022 - Oculta aviso urgente ao rolar a página</li>
   <li>22/12/2022 - Popup de parcelamento na página do produto</li>
+  <li>23/12/2022 - Selecionando variações ao clicar sob elas</li>
 </ul>

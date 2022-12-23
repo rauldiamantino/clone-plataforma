@@ -185,18 +185,6 @@
      padding-bottom: 10px;
 }
 
-.first-variation button {
-     width: 80px;
-     height: 36px;
-     margin-top: 5px;
-     padding: 0 10px;
-     outline: 0;
-     background-color: #fff;
-     color: var(--darkGrey);
-     border: 1px solid var(--lightGrey);
-     cursor: pointer;
-}
-
 .second-variation button {
      width: 36px;
      height: 36px;

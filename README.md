@@ -13,11 +13,13 @@ Este é o clone da plataforma de ecommerce na qual eu trabalho como Analista de 
 
 O site se assemelha a uma loja real, no futuro você poderá fazer login, criar uma nova conta, adicionar produtos ao carrinho e pagar virtualmente por eles.
 
-![image](https://user-images.githubusercontent.com/100098231/207989217-4c5e57f0-e4af-4022-becd-ebba28988ca6.png)
+![image](https://user-images.githubusercontent.com/100098231/209251150-f47ddc3d-8af9-477e-8dec-b7094b0baefc.png)
 
-![image](https://user-images.githubusercontent.com/100098231/207989237-070a3e24-5c2e-4cfa-b9b6-effbe40c1d53.png)
+![image](https://user-images.githubusercontent.com/100098231/209251233-4af156ff-a254-4df5-840d-e14fc0ecb018.png)
 
-![image](https://user-images.githubusercontent.com/100098231/207989250-99bc07cd-8e54-4e6b-a611-d9f8097ef59e.png)
+![image](https://user-images.githubusercontent.com/100098231/209251328-be926952-ef84-497c-83da-eb221a89d399.png)
+
+![image](https://user-images.githubusercontent.com/100098231/209251303-a9df300a-edd5-4efd-9ecc-acb2813d2df9.png)
 
 ![image](https://user-images.githubusercontent.com/100098231/207989297-99437c74-da3c-43ca-b10e-30b6d3e30eee.png)
 

@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <!-- HEAD EJS -->
-<%- include('../partials/head', {title: 'Sale'}); %>
+<%- include('../partials/head', {title: 'Tênis Feminino'}); %>
 
    <body>
       <!-- HEADER EJS-->
@@ -10,21 +10,24 @@
 
          <!--MAIN -->
          <main>
-            <%- include('../partials/current-page', {pagina: 'Sale', paginaLink: 'sale'}); %>
-            
-            <h2 class="page-title general-margin-padding">SALE</h2>
+            <%- include('../partials/current-page', {
+               pagina: '/Tênis/Tênis Feminino', 
+               paginaLink: 'tenis-feminino'
+            }); %>
+
+            <h2 class="page-title general-margin-padding">TÊNIS MASCULINO</h2>
 
             <!-- CATEGORIE BANNER -->
             <!-- <section class="categories-banner general-margin-padding">
-               <img src="./images/banner-categorie-sale.jpg" alt="Banner Principal">
+               <img src="./images/banner-categorie-cart.jpg" alt="Banner Principal">
             </section> -->
 
             <!-- PRODUCT LIST -->
             <div class="product-list general-margin-padding">
-               <%- include('../partials/product-line/products/001') ;%>
-               <%- include('../partials/product-line/products/010') ;%>
-               <%- include('../partials/product-line/products/003') ;%>
-               <%- include('../partials/product-line/products/012') ;%>
+               <%- include('../partials/product-line/products/009') ;%>
+               <%- include('../partials/product-line/products/011') ;%>
+               <%- include('../partials/product-line/products/016') ;%>
+               <%- include('../partials/product-line/products/013') ;%>
             </div>
 
             <!-- MODAL EJS -->

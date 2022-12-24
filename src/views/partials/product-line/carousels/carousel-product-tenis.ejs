@@ -1,0 +1,28 @@
+<section class="product-box">
+    <h2><%- titleCarousel -%></h2>
+    <!-- CAROUSEL PRODUCT LINE -->
+    <section class="container-products-carousel <%= typeof titleCarouselClass != 'undefined' ? titleCarouselClass:''%>" id="0">
+        <button class="left-btn left-btn-prod"><img src="./images/navigate_before.svg"></button>
+        <button class="right-btn right-btn-prod"><img src="./images/navigate_next.svg"></button>
+        <div id="carousel" class="prod">
+            <div id="products-line" class="<%- classCarousel -%>">
+                <!-- PRODUCT LIST -->
+                <%- include('../products/009') ;%>
+                
+                <%- include('../products/010') ;%>
+                
+                <%- include('../products/011') ;%>
+
+                <%- include('../products/012') ;%>
+                
+                <%- include('../products/013') ;%>
+                
+                <%- include('../products/014') ;%>
+                
+                <%- include('../products/015') ;%>
+                
+                <%- include('../products/016') ;%>
+            </div>
+        </div>
+    </section>
+</section>

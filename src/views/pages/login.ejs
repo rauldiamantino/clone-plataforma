@@ -9,14 +9,8 @@
 
        <!-- MAIN -->
        <main>
-        <div class="empty-login-error-message bg-yellow-400 text-yellow-800 rounded-md mx-2.5 lg:mx-auto lg:w-9/12 leading-4 p-2 hidden">
-            <h2>ATENÇÃO</h2>
-            <p class="pb-1">Preencha todas os campos</p>
-        </div>
-        <div class="validate-login-error-message bg-yellow-400 text-yellow-800 rounded-md mx-2.5 leading-4 p-2 hidden">
-            <h2>ATENÇÃO</h2>
-            <p class="pb-1">E-mail ou senha inválidos</p>
-        </div>
+        <%- include('../partials/errorMessageEmptyInput');%>
+        
         <h1 class="text-center text-xl pt-9 pb-7">IDENTIFICAÇÃO</h1>
         <form action="" id="form" class="login-formulary w-full h-min mx-auto flex flex-col gap-2 items-center px-2.5 lg:px-1 lg:w-5/12 lg:border lg:border-neutral-300 lg:py-2 lg:rounded-md">
 

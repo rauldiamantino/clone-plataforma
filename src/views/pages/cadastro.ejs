@@ -9,14 +9,7 @@
 
        <!-- MAIN -->
        <main>
-        <div class="empty-login-error-message bg-yellow-400 text-yellow-800 rounded-md mx-2.5 lg:mx-auto lg:w-9/12 leading-4 p-2 hidden">
-            <h2>ATENÇÃO</h2>
-            <p class="pb-1">Preencha todas os campos</p>
-        </div>
-        <div class="validate-login-error-message bg-yellow-400 text-yellow-800 rounded-md mx-2.5 leading-4 p-2 hidden">
-            <h2>ATENÇÃO</h2>
-            <p class="pb-1">E-mail ou senha inválidos</p>
-        </div>
+        <%- include('../partials/errorMessageEmptyInput');%>
         
         <div class="register-top-button w-full px-4 mt-9 lg:w-1/2 lg:mx-auto">
             <a href="/login" class="hover:no-underline">
@@ -37,37 +30,37 @@
             </div>
 
             <div class="register-form-personal-data pb-9 border-b border-neutral-300 border-dashed lg:grid lg:grid-cols-2 lg:gap-4">
-                <div class="register-form-col">
+                <div class="form-col">
                     <label for="physicalPerson">Nome Completo</label>
-                    <input type="text" name="register-form-personal-name" id="register-form-personal-name-full-name" class="register-form-col-input" autofocus>
+                    <input type="text" name="register-form-personal-name" id="register-form-personal-name-full-name" class="form-col-input" autofocus>
                 </div>
-                <div class="register-form-col">
+                <div class="form-col">
                     <label for="register-form-personal-email">Email</label>
-                    <input type="email" name="register-form-personal-email" id="register-form-personal-email" class="register-form-col-input">
+                    <input type="email" name="register-form-personal-email" id="register-form-personal-email" class="form-col-input">
                 </div>
-                <div class="register-form-col">
+                <div class="form-col">
                     <label for="register-form-personal-cpf">CPF</label>
-                    <input type="text" name="register-form-personal-cpf" id="register-form-personal-cpf" class="register-form-col-input" placeholder="000.000.000-00">
+                    <input type="text" name="register-form-personal-cpf" id="register-form-personal-cpf" class="form-col-input" placeholder="000.000.000-00">
                 </div>
-                <div class="register-form-col">
+                <div class="form-col">
                     <label for="register-form-personal-cell">Celular</label>
-                    <input type="text" name="register-form-personal-cell" id="register-form-personal-cell" class="register-form-col-input">
+                    <input type="text" name="register-form-personal-cell" id="register-form-personal-cell" class="form-col-input">
                 </div>
-                <!-- <div class="register-form-col">
+                <!-- <div class="form-col">
                     <label for="register-form-personal-other-phone">Outro Telefone</label>
-                    <input type="text" name="register-form-personal-other-phone" id="register-form-personal-other-phone" class="register-form-col-input">
+                    <input type="text" name="register-form-personal-other-phone" id="register-form-personal-other-phone" class="form-col-input">
                 </div> -->
-                <div class="register-form-col">
+                <div class="form-col">
                     <label for="register-form-personal-birth-date">Nascimento</label>
-                    <input type="text" name="register-form-personal-birth-date" id="register-form-personal-birth-date"  class="register-form-col-input" placeholder="dd/mm/aaaa">
+                    <input type="text" name="register-form-personal-birth-date" id="register-form-personal-birth-date"  class="form-col-input" placeholder="dd/mm/aaaa">
                     <div class="pt-1">
                         <input type="checkbox" name="register-form-personal-no-birth-date" id="register-form-personal-no-birth-date">
                         <label for="register-form-personal-no-birth-date">Não quero informar</label>
                     </div>
                 </div>          
-                <!-- <div class="register-form-col">
+                <!-- <div class="form-col">
                     <label for="register-form-personal-genre">Gênero</label>
-                    <select name="register-form-personal-genre" id="register-form-personal-genre" class="register-form-col-input w-min">
+                    <select name="register-form-personal-genre" id="register-form-personal-genre" class="form-col-input w-min">
                         <option value="not">Não quero informar</option>
                         <option value="masculine">Masculino</option>
                         <option value="feminine">Feminino</option>
@@ -76,46 +69,46 @@
             </div>
 
             <div class="register-form-personal-password pb-9 border-b border-neutral-300 border-dashed">
-                <div class="register-form-col">
+                <div class="form-col">
                     <label for="register-form-passord">Senha</label>
-                    <input type="password" name="register-form-passord" id="register-form-passord" class="register-form-col-input">
+                    <input type="password" name="register-form-passord" id="register-form-passord" class="form-col-input">
                 </div>
-                <div class="register-form-col">
+                <div class="form-col">
                     <label for="register-form-passord-confirm">Confirmar Senha</label>
-                    <input type="password" name="register-form-passord-confirm" id="register-form-passord-confirm" class="register-form-col-input">
+                    <input type="password" name="register-form-passord-confirm" id="register-form-passord-confirm" class="form-col-input">
                 </div>
             </div>
 
             <!-- <div class="register-form-personal-address pb-9 border-b border-neutral-300 border-dashed lg:grid lg:grid-cols-2 lg:gap-4">
-                <div class="register-form-col">
+                <div class="form-col">
                     <label for="register-form-cep">CEP <span class=" text-xs text-neutral-400">Não sabe seu CEP? <a class="underline">clique aqui</a></span></label>
-                    <input type="text" name="register-form-cep" id="register-form-cep" class="register-form-col-input">
+                    <input type="text" name="register-form-cep" id="register-form-cep" class="form-col-input">
                 </div>
                 <div>
                 </div>
-                <div class="register-form-col">
+                <div class="form-col">
                     <label for="register-form-address">Endereço</label>
-                    <input type="text" name="register-form-address" id="register-form-address" class="register-form-col-input">
+                    <input type="text" name="register-form-address" id="register-form-address" class="form-col-input">
                 </div>
-                <div class="register-form-col">
+                <div class="form-col">
                     <label for="register-form-address-number">Número <span class="text-xs text-neutral-400"> use 0 para sem número</span></label>
-                    <input type="text" name="register-form-address-number" id="register-form-address-number" class="register-form-col-input">
+                    <input type="text" name="register-form-address-number" id="register-form-address-number" class="form-col-input">
                 </div>
-                <div class="register-form-col">
+                <div class="form-col">
                     <label for="register-form-address-complement">Complemento <span class="text-xs text-neutral-400"> opcional</span></label>
-                    <input type="text" name="register-form-address-complement" id="register-form-address-complement" class="register-form-col-input">
+                    <input type="text" name="register-form-address-complement" id="register-form-address-complement" class="form-col-input">
                 </div>
-                <div class="register-form-col">
+                <div class="form-col">
                     <label for="register-form-address-district">Bairro</label>
-                    <input type="text" name="register-form-address-district" id="register-form-address-district" class="register-form-col-input">
+                    <input type="text" name="register-form-address-district" id="register-form-address-district" class="form-col-input">
                 </div>
-                <div class="register-form-col">
+                <div class="form-col">
                     <label for="register-form-address-city">Cidade</label>
-                    <input type="text" name="register-form-address-city" id="register-form-address-city" class="register-form-col-input">
+                    <input type="text" name="register-form-address-city" id="register-form-address-city" class="form-col-input">
                 </div>
-                <div class="register-form-col">
+                <div class="form-col">
                     <label for="register-form-address-state">Estado</label>
-                    <select name="register-form-address-state" id="register-form-address-state" class="register-form-col-input w-min">
+                    <select name="register-form-address-state" id="register-form-address-state" class="form-col-input w-min">
                         <option value="select">Escolha o estado</option>
                         <option value="acre">Acre</option>
                         <option value="alagoas">Alagoas</option>
@@ -149,33 +142,33 @@
             </div> -->
 
             <!-- <div class="register-form-personal-address-favorite pb-9 border-b border-neutral-300 border-dashed">
-                <div class="register-form-col">
+                <div class="form-col">
                     <label for="register-form-address-favorite">Favoritar como</label>
-                    <select name="register-form-address-favorite" id="register-form-address-favorite" class="register-form-col-input w-min">
+                    <select name="register-form-address-favorite" id="register-form-address-favorite" class="form-col-input w-min">
                         <option value="home">Casa</option>
                         <option value="work">Trabalho</option>
                         <option value="other">Outro</option>
                     </select>
                 </div>
 
-                <div class="register-form-col">
+                <div class="form-col">
                     <label for="register-form-address-full-name">Nome e Sobrenome</label>
-                    <input type="text" name="register-form-address-full-name" id="register-form-address-full-name" class="register-form-col-input">
+                    <input type="text" name="register-form-address-full-name" id="register-form-address-full-name" class="form-col-input">
                 </div>
             </div> -->
 
             <div class="register-form-notifications">
                 <div class="flex flex-col gap-3">
                     <h3 class="font-bold text-base">Notificações</h3>
-                    <div class="register-form-col py-2 flex flex-row gap-2">
+                    <div class="form-col py-2 flex flex-row gap-2">
                         <input type="checkbox" name="register-form-notifications-sms" id="register-form-personal-notifications-sms">
                         <label for="register-form-personal-notifications-sms">Desejo receber alertas por SMS</label>
                     </div>
-                    <div class="register-form-col py-2 flex flex-row gap-2">
+                    <div class="form-col py-2 flex flex-row gap-2">
                         <input type="checkbox" name="register-form-notifications-status" id="register-form-personal-notifications-status">
                         <label for="register-form-personal-notifications-status">Desejo receber e-mails sobre meus pedidos (aprovação, envio, código de rastreio)</label>
                     </div>
-                    <div class="register-form-col py-2 flex flex-row gap-2">
+                    <div class="form-col py-2 flex flex-row gap-2">
                         <input type="checkbox" name="register-form-notifications-promotions" id="register-form-personal-notifications-promotions">
                         <label for="register-form-personal-notifications-promotions">Desejo receber e-mails com promoções</label>
                     </div>

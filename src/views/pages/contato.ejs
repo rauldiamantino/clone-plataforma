@@ -12,7 +12,55 @@
          <main>
             <%- include('../partials/current-page', {pagina: 'Contato', paginaLink: 'contato'}); %>
             
+            <%- include('../partials/errorMessageEmptyInput');%>
+
             <h2 class="page-title general-margin-padding">CONTATO</h2>
+
+            <form action="" class="contact-form flex flex-col gap-2 px-4 mt-6 lg:w-1/2 mx-auto">   
+               <div class="contact-form-personal-data">
+                   <div class="form-col">
+                       <label for="physicalPerson">Nome Completo</label>
+                       <input type="text" name="contact-form-personal-name" id="contact-form-personal-name-full-name" class="form-col-input" autofocus>
+                   </div>
+                   <div class="form-col">
+                       <label for="contact-form-personal-email">Email</label>
+                       <input type="email" name="contact-form-personal-email" id="contact-form-personal-email" class="form-col-input">
+                   </div>
+                   <div class="form-col">
+                       <label for="contact-form-personal-tel">Telefone</label>
+                       <input type="text" name="contact-form-personal-cell" id="contact-form-personal-tel" class="form-col-input">
+                   </div>        
+               </div>
+   
+               <div class="contact-form-personal-pedido">
+                   <div class="form-col">
+                       <label for="contact-form-pedido">Número Pedido</label>
+                       <input type="text" name="contact-form-pedido" id="contact-form-pedido" class="form-col-input" placeholder="(opcional)">
+                   </div>
+               </div>
+
+               <div class="form-col">
+                    <label for="register-form-personal-subject-matter">Assunto</label>
+                    <select name="register-form-personal-subject-matter" id="register-form-personal-subject-matter" class="form-col-input w-min">
+                        <option value="not">--</option>
+                        <option>Sugestões</option>
+                        <option>Elogios</option>
+                        <option>Reclamações</option>
+                        <option>Dúvidas</option>
+                        <option>Fornecedores</option>
+                        <option>Outros</option>
+                    </select>
+                </div>
+
+                <div class="contact-form-personal-message">
+                  <div class="form-col">
+                      <label for="contact-form-message">Mensagem</label>
+                      <textarea name="contact-form-message" id="contact-form-message" cols="30" rows="10" class="form-col-input"></textarea>
+                  </div>
+              </div>
+               
+               <button class="contact-button bg-gradient-to-b from-black to-black/80 text-white text-base py-2.5 px-6 mt-2 w-full lg:w-max rounded-md">Enviar</button>
+           </form>
 
     
          </main>

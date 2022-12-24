@@ -22,6 +22,7 @@ const clickedButton = $button => {
           currentImageManipulation($button);
           submitLogin($button, e);
           submitRegister($button, e);
+          submitContact($button, e);
      });
 };
 
@@ -34,6 +35,16 @@ const submitLogin = ($button, e) => {
      const $loginInputs = document.querySelectorAll(".login-formulary-inputs input");
 
      if ($isBtnLogin) getValueInputs($loginInputs, e);
+};
+
+/* - CONTACT PAGE
+-------------------------------------------------------------------------*/
+
+const submitContact = ($button, e) => {
+     const $isBtnContact = $button.classList.contains("contact-button");
+     const $loginInputs = document.querySelectorAll(".contact-form input");
+
+     if ($isBtnContact) getValueInputs($loginInputs, e);
 };
 
 /* - REGISTER PAGE
@@ -623,11 +634,15 @@ const closeParcelsModal = button => {
 const closeModalContent = $modalContent => {
      $modalContent.classList.add("scale-0", "duration-700");
      $modalContent.classList.remove("scale-100", "duration-700");
+
+     document.body.onresize = () => $modalContent.classList.remove("duration-700");
 };
 
 const openModalContent = $modalContent => {
      $modalContent.classList.remove("scale-0", "duration-700");
      $modalContent.classList.add("scale-100", "duration-700");
+
+     document.body.onresize = () => $modalContent.classList.remove("duration-700");
 };
 
 /* - CATEGORIES NAVBAR

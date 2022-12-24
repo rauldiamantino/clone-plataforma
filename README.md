@@ -13,11 +13,11 @@ Este é o clone da plataforma de ecommerce na qual eu trabalho como Analista de 
 
 O site se assemelha a uma loja real, no futuro você poderá fazer login, criar uma nova conta, adicionar produtos ao carrinho e pagar virtualmente por eles.
 
-![image](https://user-images.githubusercontent.com/100098231/209251150-f47ddc3d-8af9-477e-8dec-b7094b0baefc.png)
+![image](https://user-images.githubusercontent.com/100098231/209417771-6b5d62d6-8760-4169-8e57-3cfed3fe1349.png)
 
 ![image](https://user-images.githubusercontent.com/100098231/209251233-4af156ff-a254-4df5-840d-e14fc0ecb018.png)
 
-![image](https://user-images.githubusercontent.com/100098231/209251328-be926952-ef84-497c-83da-eb221a89d399.png)
+![Untitled](https://user-images.githubusercontent.com/100098231/209417726-772209e4-451a-49e3-9d4b-c514c3f7c611.png)
 
 ![image](https://user-images.githubusercontent.com/100098231/209251303-a9df300a-edd5-4efd-9ecc-acb2813d2df9.png)
 
@@ -56,6 +56,5 @@ O site se assemelha a uma loja real, no futuro você poderá fazer login, criar 
   <li>20/12/2022 - Páginas de Login e Cadastro</li>
   <li>21/12/2022 - Oculta aviso urgente ao rolar a página</li>
   <li>22/12/2022 - Popup de parcelamento na página do produto</li>
-  <li>23/12/2022 - Selecionando variações ao clicar sob elas</li>
-  <li>23/12/2022 - Página de Contato</li>
+  <li>23/12/2022 - Selecionando variações ao clicar sob elas, Páginas de Contato e Submenu do menu categorias</li>
 </ul>

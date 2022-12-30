@@ -254,7 +254,6 @@ const openResponsiveMenu = button => {
      const $menuCategorieItems = document.querySelectorAll(".inactivate-link");
 
      if (isRespButtonToOpen) {
-          categoriesMenu.classList.add("menu-categories-open");
           categoriesMenu.classList.remove("menu-categories-close");
 
           $menuCategorieItems.forEach($item => {
@@ -274,7 +273,6 @@ const closeRespMenu = (button, categoriesMenu) => {
 
      if (isRespButtonToClose) {
           categoriesMenu.classList.add("menu-categories-close");
-          categoriesMenu.classList.remove("menu-categories-open");
      }
 };
 

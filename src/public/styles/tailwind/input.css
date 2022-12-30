@@ -16,11 +16,11 @@
      }
 
      .menu-categories-open {
-          @apply translate-x-0 transition duration-300;
+          @apply translate-x-0;
      }
 
      .menu-categories-close {
-          @apply -translate-x-translate-150% transition duration-300;
+          @apply -translate-x-translate-150%;
      }
 
      .inactivate-link {

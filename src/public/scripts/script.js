@@ -250,11 +250,13 @@ document.body.onresize = () => {
 
 const openResponsiveMenu = button => {
      const isRespButtonToOpen = button.classList.contains("button-responsive");
-     const categoriesMenu = document.querySelector(".background-categories");
+     const $backgroundCategoriesMenu = document.querySelector(".background-categories");
+     const $categoriesMenu = document.querySelector(".content-categories");
      const $menuCategorieItems = document.querySelectorAll(".inactivate-link");
 
      if (isRespButtonToOpen) {
-          categoriesMenu.classList.remove("menu-categories-close");
+          $backgroundCategoriesMenu.classList.remove("hidden");
+          $categoriesMenu.classList.remove("menu-categories-close");
 
           $menuCategorieItems.forEach($item => {
                const $hasNoSubcategorie = $item.parentNode.lastElementChild.childNodes.length;
@@ -264,15 +266,16 @@ const openResponsiveMenu = button => {
                }
           });
      } else {
-          closeRespMenu(button, categoriesMenu);
+          closeRespMenu(button, $backgroundCategoriesMenu, $categoriesMenu);
      }
 };
 
-const closeRespMenu = (button, categoriesMenu) => {
+const closeRespMenu = (button, $backgroundCategoriesMenu, $categoriesMenu) => {
      const isRespButtonToClose = button.classList.contains("button-responsive-close");
 
      if (isRespButtonToClose) {
-          categoriesMenu.classList.add("menu-categories-close");
+          $backgroundCategoriesMenu.classList.add("hidden");
+          $categoriesMenu.classList.add("menu-categories-close");
      }
 };
 

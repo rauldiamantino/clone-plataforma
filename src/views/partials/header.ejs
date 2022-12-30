@@ -41,11 +41,11 @@
    </div>
 
    <!-- NAVBAR CATEGORIES -->
-   <div class=""></div>
-   <div class="background-categories absolute top-0 z-50 menu-categories-close duration-300 lg:menu-categories-open lg:static lg:w-full">
+   <div class="background-categories hidden lg:hidden bg-black/90 w-full h-screen fixed top-0"></div>
+   <div class="content-categories fixed top-0 menu-categories-close duration-700 lg:menu-categories-open lg:static lg:w-full">
       <button class="button-responsive-close absolute top-1 -right-9 lg:hidden"><img class="w-10 h-10" src="../images/closeCat.svg"></button>
-      <nav class="menu-categories bg-white w-52 h-screen lg:h-min overflow-y-auto lg:w-full">
-         <ul class="divide-gray-300 flex flex-col h-full divide-y lg:flex-row lg:justify-center lg:h-min lg:divide-y-0">
+      <nav class="menu-categories bg-white w-56 h-screen lg:h-min overflow-y-auto lg:w-full">
+         <ul class="divide-gray-200 flex flex-col h-full divide-y lg:flex-row lg:justify-center lg:h-min lg:divide-y-0">
             <li class="titleMenu menu-categories-items bg-c-dark-gray text-white lg:hidden">
                CATEGORIAS
             </li>
@@ -68,8 +68,8 @@
                <div class="inactivate-link lg:hidden"></div>
                <a class="menu-categories-items-link" href="/calcados">CALÇADOS</a>
                <ul class="hidden px-6 text-sm list-disc lg:list-none lg:menu-categories-items-hover-responsive">
-                  <li class="py-1 lg:w-full"><a href="/calcados/masculino">Masculino</a></li>
-                  <li class="py-1 lg:w-full"><a href="/calcados/feminino">Feminino</a></li>
+                  <li class="py-1 lg:w-full"><a href="/calcados/masculino" class="hover:no-underline lg:hover:underline">Masculino</a></li>
+                  <li class="py-1 lg:w-full"><a href="/calcados/feminino" class="hover:no-underline lg:hover:underline">Feminino</a></li>
                </ul>
             </li>
 

@@ -4,11 +4,15 @@
 
 @layer components {
      .menu-categories-items {
-          @apply px-2 py-3 lg:p-0 relative lg:static lg:hover:bg-c-dark-gray/10;
+          @apply px-2 py-3 lg:p-0 relative lg:static lg:hover:bg-c-dark-gray/10 cursor-pointer;
      }
 
      .menu-categories-items-link {
-          @apply flex lg:hover:no-underline lg:px-8 lg:py-2;
+          @apply flex lg:px-8 lg:py-2 hover:no-underline;
+     }
+
+     .menu-categories-items-link > a {
+          @apply hover:no-underline;
      }
 
      .menu-categories-items-hover-responsive {

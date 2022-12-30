@@ -50,6 +50,7 @@ O site se assemelha a uma loja real, no futuro você poderá fazer login, criar 
   <li>21/12/2022 - Oculta aviso urgente ao rolar a página</li>
   <li>22/12/2022 - Popup de parcelamento na página do produto</li>
   <li>23/12/2022 - Selecionando variações ao clicar sob elas, Páginas de Contato e Submenu do menu categorias</li>
+  <li>30/12/2022 - Páginas de Subcategorias</li>
 </ul>
 
 <h2 id="add">Imagens adicionais</h2>
@@ -79,6 +80,3 @@ O site se assemelha a uma loja real, no futuro você poderá fazer login, criar 
 ![image](https://user-images.githubusercontent.com/100098231/209417990-63bc2c92-f2a4-43fe-99aa-2c7a37c419aa.png)
 
 ![a445](https://user-images.githubusercontent.com/100098231/209418007-78855330-c7a9-4535-9cc8-59bbb18098db.png)
-
-
-

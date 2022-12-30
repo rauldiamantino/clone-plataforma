@@ -40,17 +40,17 @@ app.get("/contato", function (req, res) {
      res.render("pages/contato");
 });
 
-app.get("/tenis", function (req, res) {
-     res.render("pages/tenis");
+app.get("/calcados", function (req, res) {
+     res.render("pages/calcados/calcados");
 });
 
-app.get("/masculino", function (req, res) {
-     res.render("pages/tenis-masculino");
+app.get("/calcados/masculino", function (req, res) {
+     res.render("pages/calcados/masculino");
 });
 
-// app.get("/tenis/feminino", function (req, res) {
-//      res.render("pages/tenis-feminino");
-// });
+app.get("/calcados/feminino", function (req, res) {
+     res.render("pages/calcados/feminino");
+});
 
 app.listen(8080); //charge all the express
 console.log("Server ON");

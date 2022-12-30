@@ -1,4 +1,4 @@
 <section class="website-urls general-margin-padding">
-    <p>Você está em: <a href="/">Home</a> / <a href="/<%- paginaLink %>"><%- pagina %></a> </p>
-    <a href="/" class="website-urls-link">Voltar</a>
+    <p>Você está em: <a href="/">Home</a> / <%- page %> </p>
+    <a href="<%= typeof prevPage != 'undefined' ? prevPage:'/'%>" class="website-urls-link">Voltar</a>
 </section>

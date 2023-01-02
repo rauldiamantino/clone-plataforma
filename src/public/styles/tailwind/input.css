@@ -42,4 +42,12 @@
      .page-title {
           @apply text-xl text-center font-bold mb-5;
      }
+
+     .w-prod-2-4 {
+          @apply min-w-[49%] lg:min-w-[24%];
+     }
+
+     .w-prod-3-4 {
+          @apply min-w-[49%] lg:min-w-[24%];
+     }
 }

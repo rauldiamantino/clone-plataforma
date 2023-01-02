@@ -18,7 +18,8 @@ const clickedButton = $button => {
           closeParcelsModal($button);
           openResponsiveMenu($button);
           verifyBannerCarouselButton($button);
-          verifyProductCarouselButton($button);
+          // verifyProductCarouselButton($button);
+          getProductList($button);
           currentImageManipulation($button);
           submitLogin($button, e);
           submitRegister($button, e);

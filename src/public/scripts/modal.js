@@ -15,9 +15,10 @@ const openModal = $product => {
      const $modalProduct = document.querySelector(".modal-product-content");
      const $modalProductBackground = document.querySelector(".modal-product-background");
      const $productImgs = $product.querySelectorAll(".product-data-source-img");
+     const $ModalScrollTop = $modalProduct.querySelector(".modal-product-content-product-page");
 
+     $ModalScrollTop.scrollTop = 0;
      $modalProductBackground.classList.remove("hidden");
-
      openModalContent($modalProduct);
      removeBackgroundScroll();
      closeModalEscKey($modalProduct);
@@ -26,13 +27,12 @@ const openModal = $product => {
      setProductImages($productImgs);
      setProductVariations($product);
      resetProductsCarouselPosition($modalProduct);
-     $modalProduct.scrollTop = 0;
 };
 
 const resetProductsCarouselPosition = $modalProduct => {
      const $productsCarousel = $modalProduct.querySelector(".container-products-carousel");
 
-     $productsCarousel.setAttribute("id", 0);
+     if ($productsCarousel) $productsCarousel.setAttribute("id", 0);
 
      $buttons.forEach($button => {
           const $containerProductsCarousel =
@@ -68,10 +68,11 @@ const selectVariationModal = $productVariation => {
      const $variations = $productVariation.querySelectorAll("li");
 
      $variations.forEach($currentVariation => {
-          const isFirstVariation = $currentVariation.parentNode.parentNode.className == "first-variation";
+          const isFirstVariation = $currentVariation.parentNode.parentNode.classList.contains("first-variation");
 
           if (isFirstVariation) {
                const $selectedVariation = document.querySelector(".first-variation-selected");
+
                addClassesSelectedVariation($variations[0]);
 
                $variations.forEach($variation => {
@@ -173,7 +174,7 @@ const appendProductImg = $productImgs => {
           if ($img.dataset.img != "") {
                const $productImgUrl = $img.dataset.img;
                const htmlProductImg = `
-                    <div class="box-small-image p-1 cursor-pointer border border-gray-200 w-full h-12 bg-red-400">
+                    <div class="box-small-image p-1 cursor-pointer border border-gray-200 w-full h-12">
                          <img src="${$productImgUrl}" class="product-img">
                     </div>`;
                $secondaryImagesBox.innerHTML += htmlProductImg;

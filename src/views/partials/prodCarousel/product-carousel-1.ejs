@@ -1,0 +1,100 @@
+<section class="carousel w-full mx-auto mt-10 relative">
+   <button class="btn-left absolute top-1/2 left-0 lg:left-5 -translate-y-1/2 z-10">
+      <img class="w-10" src="./images/carousel-prod-left.svg">
+   </button>
+   <button class="btn-right absolute top-1/2 right-0 lg:right-5 -translate-y-1/2 z-10">
+      <img class="w-10" src="./images/carousel-prod-right.svg">
+   </button>
+
+   <section class="scroll w-10/12 lg:w-11/12 mx-auto overflow-x-hidden scrollbar-hide">
+      <div class="max-products hidden">
+         <div class="desktop" id="4"></div>
+         <div class="mobile" id="2"></div>
+      </div>
+      <div class="productList w-full flex duration-700" id="0">
+         <div class="product w-prod-2-4 mx-[0.5%]">
+            <%- include('../../partials/product', {
+                product: {
+                   code: 001, reference: "RSD0001", name: "Camiseta Básica New York", price: 299.90,
+                   description: "Camiseta básica masculina, confeccionada em algodão. Possui decote redondo, manga curta e  barra simples.",
+                   images: [ "../images/products/13.jpg", "../images/products/14.jpg" ],
+                   variations: { firstVariation: [ "Branco" ], secondVariation: [ "P", "M", "G" ], },
+                }
+             }) -%>
+          </div>
+          <div class="product w-prod-2-4 mx-[0.5%]">
+             <%- include('../../partials/product', {
+                product: {
+                   code: 002, reference: "RSD0002", name: "Camiseta Básica White Yes", price: 109.90,
+                   description: "Muito fresca e confortável, tem corte reto que dá a sensação de alongar o corpo, além evitar marcas de dobras e deixa seu corpo livre para o movimento.",
+                   images: [ "../images/products/29.jpg", "../images/products/30.jpg" ],
+                   variations: { firstVariation: [ "Preto", "Rosa" ], secondVariation: [ "G" ], },
+                }
+             }) -%>
+          </div>
+          
+          <div class="product w-prod-2-4 mx-[0.5%]">
+             <%- include('../../partials/product', {
+                product: {
+                   code: 003, reference: "RSD0003", name: "Camiseta Básica de Algodão", price: 107.99,
+                   description: "Versatilidade e estilo define essa camiseta. Produzida em algodão, ela proporciona maior conforto e suavidade no uso, dando uma sensação refrescante. Seu uso combina com qualquer outra peça de roupa, te proporcionando mais segurança.",
+                   images: [ "../images/products/28.jpg", "../images/products/27.jpg" ],
+                   variations: { firstVariation: [ "Preto", "Rosa" ], secondVariation: [ "G", "GG", "XG" ], },
+                }
+             }) -%>
+          </div>
+          <div class="product w-prod-2-4 mx-[0.5%]">
+             <%- include('../../partials/product', {
+                product: {
+                   code: 004, reference: "RSD0005", name: "Camiseta White Básica New", price: 99.80,
+                   description: "Camiseta Branca, Casual e Elegante, ideal para uso no dia-a-dia! Conforto e Praticidade! Tipo de peça indispensável no seu guarda-roupas, combina com tudo. Social, casual, básico formal e informal!",
+                   images: [ "../images/products/31.jpg", "../images/products/26.jpg" ],
+                   variations: { firstVariation: [ "Marrom", "Azul" ], secondVariation: [ "G1", "G2", "G3" ], },
+                }
+             }) -%>
+          </div>
+
+          <div class="product w-prod-2-4 mx-[0.5%]">
+             <%- include('../../partials/product', {
+                product: {
+                   code: 005, reference: "RSD0005", name: "Camiseta Básica Old Dollar", price: 100.20,
+                   description: "Camiseta básica masculina, confeccionada em algodão. Possui decote redondo, manga curta e  barra simples.",
+                   images: [ "../images/products/36.jpg", "../images/products/32.jpg", "../images/products/33.jpg" ],
+                   variations: { firstVariation: [ "Azul", "Preto", "Vermelho" ], secondVariation: [ "P", "M", "G" ], },
+                }
+             }) -%>
+          </div>
+          <div class="product w-prod-2-4 mx-[0.5%]">
+             <%- include('../../partials/product', {
+                product: {
+                   code: 006, reference: "RSD0006", name: "Camiseta Básica de Algodão", price: 107.99,
+                   description: "Versatilidade e estilo define essa camiseta. Produzida em algodão, ela proporciona maior conforto e suavidade no uso, dando uma sensação refrescante. Seu uso combina com qualquer outra peça de roupa, te proporcionando mais segurança.",
+                   images: [ "../images/products/47.jpg", "../images/products/46.jpg" ],
+                   variations: { firstVariation: [ "Branco", "Rosa" ], secondVariation: [ "M", "G" ], },
+                }
+             }) -%>
+          </div>
+          
+          <div class="product w-prod-2-4 mx-[0.5%]">
+             <%- include('../../partials/product', {
+                product: {
+                   code: 007, reference: "RSD0007", name: "Camiseta Básica White New Jersey", price: 10.99,
+                   description: "Muito fresca e confortável, tem corte reto que dá a sensação de alongar o corpo, além evitar marcas de dobras e deixa seu corpo livre para o movimento.",
+                   images: [ "../images/products/40.jpg", "../images/products/29.jpg" ],
+                   variations: { firstVariation: [ "Branco", "Preto" ], secondVariation: [ "P", "M", "G" ], },
+                }
+             }) -%>
+          </div>
+          <div class="product w-prod-2-4 mx-[0.5%]">
+             <%- include('../../partials/product', {
+                product: {
+                   code: 008, reference: "RSD0008", name: "Camiseta White Básica New Orleans", price: 99.80,
+                   description: "Camiseta Branca, Casual e Elegante, ideal para uso no dia-a-dia! Conforto e Praticidade! Tipo de peça indispensável no seu guarda-roupas, combina com tudo. Social, casual, básico formal e informal!",
+                   images: [ "../images/products/22.jpg", "../images/products/21.jpg" ],
+                   variations: { firstVariation: [ "Azul", "Verde", "Marrom", "Preto" ], secondVariation: [ "G" ], },
+                }
+             }) -%>
+          </div>
+        </div>
+    </section>
+ </section>

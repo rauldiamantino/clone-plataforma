@@ -2,33 +2,33 @@
 </section>
 
 
-<div class="modal-product-content bg-white overflow-y-scroll lg:p-6 w-screen h-screen lg:w-11/12 lg:h-5/6 fixed -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 rounded-l-lg scale-0 z-10">
+<div class="modal-product-content bg-white overflow-y-scroll lg:p-6 w-full h-screen lg:w-11/12 lg:h-5/6 fixed -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 rounded-l-lg scale-0 z-10">
 
-    <button class="btn-close-modal"><img src="../images/close.svg"></button>
+    <button class="btn-close-modal fixed right-0 top-0"><img src="../images/close.svg" class="w-9 h-9"></button>
 
     <div>
         <!-- PRODUCT PAGE -->
-        <section class="product-page">
+        <section class="modal-product-content-page grid p-2.5">
             <!-- box images -->
-            <div class="images">
-                <div class="secondary-images"></div>
-                <div class="main-image">
-                    <button class="btnModal-left"><img src="../images/chevron-left.svg"></button>
-                    <button class="btnModal-right"><img src="../images/chevron-right.svg"></button>
-                    <div class="product-images"></div>
+            <div class="modal-product-content-page-images flex flex-col lg:row-start-1 lg:row-end-9">
+                <div class="secondary-images flex row-start-2 gap-2 py-2 order-1 h-20"></div>
+                <div class="main-image max-w-full overflow-x-hidden relative">
+                    <button class="btn-modal-left absolute top-1/2 -translate-y-1/2 left-2 border rounded-full w-8 h-8 flex items-center justify-center z-10"><img src="../images/chevron-left.svg" class="w-10"></button>
+                    <button class="btn-modal-right absolute top-1/2 -translate-y-1/2 right-2 border rounded-full w-8 h-8 flex items-center justify-center z-10"><img src="../images/chevron-right.svg"></button>
+                    <div class="product-images flex duration-200"></div>
                 </div>
             </div>
             <!-- box description -->
-            <div class="product-name">
-                <h2 id="prod-name">Nome do Produto</h2>
-                <h5>Código: <span class="modal-product-code">0000</span> | Ref. <span class="modal-product-ref">000000</span></h5>
+            <div class="modal-product-content-page-product-name row-start-1">
+                <h2 id="prod-name" class="py-1">Nome do Produto</h2>
+                <h5 class="text-xs py-1">Código: <span class="modal-product-code">0000</span> | Ref. <span class="modal-product-ref">000000</span></h5>
             </div>
-            <div class="product-payment">
+            <div class="modal-product-content-page-product-payment">
                 <h2>R$ <span id="prod-price">0</span></h2>
                 <p class="product-payment-see-parcels">Ver parcelamentos</p>
             </div>
             <!-- box variations -->
-            <div class="variations">
+            <div class="modal-product-content-page-variations">
                 <div class="first-variation">
                     <h4>Cor: <span class="first-variation-selected"></span></h4>
                     <ul class="flex gap-2 justify-center lg:justify-start">
@@ -40,15 +40,15 @@
                         </ul>
                 </div>
             </div>
-            <div class="product-quantity-box">
+            <div class="modal-product-content-page-quantity-box">
                 <label for="product-quantity">Quantidade:</label>
                 <input type="number" id="product-quantity" value="1">
             </div>
             <button id="product-purchase">COMPRAR</button>
             <h5 id="product-add-wishlist">+ Adicionar à lista de desejos</h5>
-            <div class="product-shipping">
-                <label for="product-shipping-cep">Simule o frete para sua região</label>
-                <div class="calc-shipping">
+            <div class="modal-product-content-page-shipping">
+                <label for="shipping-cep">Simule o frete para sua região</label>
+                <div class="shipping-calc">
                     <input type="text" id="product-shipping-cep" placeholder="Digite seu CEP">
                     <button>Calcular Frete</button>
                 </div>
@@ -62,8 +62,6 @@
         <div class="prod-description"></div>
     </section>
 
-    <!-- PRODUCT CAROUSEL-->
-    <%- include('../partials/product-line/carousels/carousel-product-2', {classCarousel: 'modal-carousel-product-1', titleCarousel: 'PRODUTOS RELACIONADOS', titleCarouselClass: 'related-products'}); %>
 
 </div>
 

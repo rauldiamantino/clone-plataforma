@@ -1,0 +1,41 @@
+<section class="product border cursor-pointer border-white hover:border-gray-200 duration-300">
+    <section class="product-data hidden">
+
+        <section class="product-data-main" data-prodCod="<%- product.code %>" data-prodRef="<%- product.reference %>" data-prodDesc="<%- product.description %>"></section>
+
+        <section class="product-data-source">
+            <div class="product-data-source-img" data-img="<%=typeof product.images[0]!='undefined' ? product.images[0]:''%>"></div>
+            <div class="product-data-source-img" data-img="<%=typeof product.images[1]!='undefined' ? product.images[1]:''%>"></div>
+            <div class="product-data-source-img" data-img="<%=typeof product.images[2]!='undefined' ? product.images[2]:''%>"></div>
+            <div class="product-data-source-img" data-img="<%=typeof product.images[3]!='undefined' ? product.images[3]:''%>"></div>
+            <div class="product-data-source-img" data-img="<%=typeof product.images[4]!='undefined' ? product.images[4]:''%>"></div>
+        </section>
+
+        <section class="product-data-variations">
+            <section class="product-data-variations-first">
+                <div class="prod-variations-color border p-2 cursor-pointer" data-variation="<%= typeof product.variations.firstVariation[0]!= 'undefined' ? product.variations.firstVariation[0]:''%>"></div>
+                <div class="prod-variations-color border p-2 cursor-pointer" data-variation="<%= typeof product.variations.firstVariation[1]!= 'undefined' ? product.variations.firstVariation[1]:''%>"></div>
+                <div class="prod-variations-color border p-2 cursor-pointer" data-variation="<%= typeof product.variations.firstVariation[2]!= 'undefined' ? product.variations.firstVariation[2]:''%>"></div>
+                <div class="prod-variations-color border p-2 cursor-pointer" data-variation="<%= typeof product.variations.firstVariation[3]!= 'undefined' ? product.variations.firstVariation[3]:''%>"></div>
+                <div class="prod-variations-color border p-2 cursor-pointer" data-variation="<%= typeof product.variations.firstVariation[4]!= 'undefined' ? product.variations.firstVariation[4]:''%>"></div>
+            </section>
+            <section class="product-data-variations-second">
+                <div class="prod-variations-size border p-2 cursor-pointer" data-variation="<%= typeof product.variations.secondVariation[0]!= 'undefined' ? product.variations.secondVariation[0]:''%>"></div>
+                <div class="prod-variations-size border p-2 cursor-pointer" data-variation="<%= typeof product.variations.secondVariation[1]!= 'undefined' ? product.variations.secondVariation[1]:''%>"></div>
+                <div class="prod-variations-size border p-2 cursor-pointer" data-variation="<%= typeof product.variations.secondVariation[2]!= 'undefined' ? product.variations.secondVariation[2]:''%>"></div>
+                <div class="prod-variations-size border p-2 cursor-pointer" data-variation="<%= typeof product.variations.secondVariation[3]!= 'undefined' ? product.variations.secondVariation[3]:''%>"></div>
+                <div class="prod-variations-size border p-2 cursor-pointer" data-variation="<%= typeof product.variations.secondVariation[4]!= 'undefined' ? product.variations.secondVariation[4]:''%>"></div>
+            </section>
+        </section>
+
+    </section>
+
+    <section class="product-image overflow-hidden">
+        <img src="<%- product.images[0] %>" class="w-full hover:scale-125 duration-700">
+    </section>
+
+    <section class="product-text text-center p-2">
+        <h3 class="text-sm prod-name"><%- product.name %></h3>
+        <p class="font-bold prod-price"><%- product.price %></p>
+    </section>
+</section>

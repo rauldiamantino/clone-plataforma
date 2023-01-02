@@ -232,17 +232,14 @@ const carouselXProductsPixels = () => {
 
 /* call the function if resize the screen */
 document.body.onresize = () => {
-     if (document.body.clientWidth > 900) {
-          $buttons.forEach($button => {
-               const $isProductsCarousel = $button.parentNode.classList.contains("container-products-carousel");
-               const $isLeft = $button.classList.contains("left-btn");
+     $buttons.forEach($button => {
+          const $isProductsCarousel = $button.parentNode.classList.contains("container-products-carousel");
 
-               if ($isLeft && $isProductsCarousel) {
-                    const $currentCarousel = document.querySelector(`.${getCarouselButtonClass($button)}`);
-                    manipulationCounterCarousel($button, $currentCarousel);
-               }
-          });
-     }
+          if ($isProductsCarousel) {
+               const $currentCarousel = document.querySelector(`.${getCarouselButtonClass($button)}`);
+               manipulationCounterCarousel($button, $currentCarousel);
+          }
+     });
 };
 
 /* - MENU RESPONSIVE

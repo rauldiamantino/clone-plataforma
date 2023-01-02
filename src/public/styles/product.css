@@ -344,11 +344,11 @@ button.right-btn-prod img {
 .btn-close-modal {
      position: fixed;
      z-index: 1000;
-     right: 0;
-     top: 0px;
      border: none;
-     padding: 20px;
+     top: 0;
+     right: 0;
      outline: none;
+     padding: 10px;
      cursor: pointer;
      background-color: transparent;
 }

@@ -252,8 +252,10 @@ const changeProductImage = () => {
 };
 
 const addMainImageBorder = () => {
-     const $imgs = $mainProductImage.querySelectorAll("img");
-     $imgs.forEach($img => $img.classList.add("p-1", "object-cover", "w-full"));
+     if ($mainProductImage) {
+          const $imgs = $mainProductImage.querySelectorAll("img");
+          $imgs.forEach($img => $img.classList.add("p-1", "object-cover", "w-full"));
+     }
 };
 
 const closeModalEscKey = $modalProduct => {

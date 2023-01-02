@@ -9,15 +9,21 @@ const scrollReset = $button => {
 };
 
 const scrollResetLeft = $button => {
-     const $products = $button.parentNode.querySelector(".productList");
+     const $productLists = $button.parentNode.querySelectorAll(".productList");
 
      $buttons.forEach($button => {
           const $isBtnLeft = $button.classList.contains("btn-left");
-          if ($isBtnLeft) getProductList($button), removeTransitiionEffect($products);
+          if ($isBtnLeft) {
+               getProductList($button), removeTransitiionEffect($productLists);
+          }
      });
 };
 
-const removeTransitiionEffect = element => element.classList.remove("duration-700");
+const removeTransitiionEffect = $productLists => {
+     $productLists.forEach($list => {
+          if ($list != null) $list.classList.remove("duration-700");
+     });
+};
 
 document.body.onresize = () => {
      let sizeScreen = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
@@ -52,8 +58,6 @@ const increaseIdProductList = $productList => {
 
      $productList.id++;
      if ($productList.id > max) $productList.id = max;
-
-     console.log(max);
 
      return $productList.id * 100;
 };

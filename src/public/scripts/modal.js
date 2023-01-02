@@ -31,6 +31,7 @@ const openModal = $product => {
 
 const resetProductsCarouselPosition = $modalProduct => {
      const $productsCarousel = $modalProduct.querySelector(".container-products-carousel");
+
      $productsCarousel.setAttribute("id", 0);
 
      $buttons.forEach($button => {
@@ -101,8 +102,10 @@ const selectVariationModal = $productVariation => {
 
 const setLiContent = ($productVariations, $modalVariation) => {
      $productVariations.forEach($variation => {
-          const liContent = textVariation($variation);
-          addVariation($modalVariation, liContent);
+          if ($variation.dataset.variation != "") {
+               const liContent = textVariation($variation);
+               addVariation($modalVariation, liContent);
+          }
      });
 };
 

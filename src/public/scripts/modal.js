@@ -172,9 +172,12 @@ const appendProductImg = $productImgs => {
      $productImgs.forEach($img => {
           if ($img.dataset.img != "") {
                const $productImgUrl = $img.dataset.img;
-               const htmlProductImg = `<div class="box-small-image w-16 p-1 cursor-pointer border border-gray-200"><img src="${$productImgUrl}" class="product-img h-full object-cover"></div>`;
-
+               const htmlProductImg = `
+                    <div class="box-small-image p-1 cursor-pointer border border-gray-200 w-full h-12 bg-red-400">
+                         <img src="${$productImgUrl}" class="product-img">
+                    </div>`;
                $secondaryImagesBox.innerHTML += htmlProductImg;
+               $images = $secondaryImagesBox.querySelectorAll("img");
           }
      });
 };
@@ -249,7 +252,7 @@ const changeProductImage = () => {
 
 const addMainImageBorder = () => {
      const $imgs = $mainProductImage.querySelectorAll("img");
-     $imgs.forEach($img => $img.classList.add("p-1"));
+     $imgs.forEach($img => $img.classList.add("p-1", "object-cover", "w-full"));
 };
 
 const closeModalEscKey = $modalProduct => {

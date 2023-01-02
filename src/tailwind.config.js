@@ -11,6 +11,13 @@ module.exports = {
                translate: {
                     "translate-150%": "150%",
                },
+               width: {
+                    480: "480px",
+               },
+
+               gridTemplateColumns: {
+                    "grid-2col-product-page": "repeat(2, minmax(0, auto))",
+               },
           },
      },
      plugins: [],

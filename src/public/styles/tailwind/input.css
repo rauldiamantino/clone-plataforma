@@ -38,4 +38,8 @@
      .form-col-input {
           @apply p-2.5 border border-neutral-300 rounded-md;
      }
+
+     .page-title {
+          @apply text-xl text-center font-bold mb-5;
+     }
 }

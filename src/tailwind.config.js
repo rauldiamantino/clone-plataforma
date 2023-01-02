@@ -6,6 +6,7 @@ module.exports = {
           extend: {
                colors: {
                     "c-dark-gray": "#494949",
+                    "c-bg-button": "#f3ece6",
                },
                translate: {
                     "translate-150%": "150%",

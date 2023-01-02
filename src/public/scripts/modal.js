@@ -243,6 +243,13 @@ const changeProductImage = () => {
 
      // verify if $mainBanner exists in the page, and set style transform
      if ($mainProductImage) $mainProductImage.style.transform = styleTranslateDefinition;
+
+     addMainImageBorder();
+};
+
+const addMainImageBorder = () => {
+     const $imgs = $mainProductImage.querySelectorAll("img");
+     $imgs.forEach($img => $img.classList.add("p-1"));
 };
 
 const closeModalEscKey = $modalProduct => {

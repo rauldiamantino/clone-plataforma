@@ -11,11 +11,17 @@ $products.forEach(clickedProduct);
 const removeBackgroundScroll = () => (document.documentElement.style.overflow = "hidden");
 const addBackgroundScroll = () => (document.documentElement.style.overflow = "auto");
 
+const resetPositionProductCarousel = () => {
+     let sizeScreen = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+     sizeScreen > 1024 ? $buttons.forEach(scrollReset) : $buttons.forEach(scrollResetLeft);
+};
+
 const openModal = $product => {
      const $modalProduct = document.querySelector(".modal-product-content");
      const $modalProductBackground = document.querySelector(".modal-product-background");
      const $productImgs = $product.querySelectorAll(".product-data-source-img");
      const $ModalScrollTop = $modalProduct.querySelector(".modal-product-content-product-page");
+     const $relatedProdCarouselModal = $modalProduct.querySelector(".productList");
 
      $ModalScrollTop.scrollTop = 0;
      $modalProductBackground.classList.remove("hidden");
@@ -26,23 +32,23 @@ const openModal = $product => {
      setProductTexts($product);
      setProductImages($productImgs);
      setProductVariations($product);
-     resetProductsCarouselPosition($modalProduct);
+     resetPositionCarouselModal($relatedProdCarouselModal);
+
+     document.body.onresize = () => resetPositionProductCarousel();
 };
 
-const resetProductsCarouselPosition = $modalProduct => {
-     const $productsCarousel = $modalProduct.querySelector(".container-products-carousel");
-
-     if ($productsCarousel) $productsCarousel.setAttribute("id", 0);
+const resetPositionCarouselModal = $carousel => {
+     let $buttonLeft;
+     let $productLists;
+     $carousel.id = 0;
 
      $buttons.forEach($button => {
-          const $containerProductsCarousel =
-               $button.parentNode.className == "container-products-carousel related-products";
-          const $isLeft = $button.classList.contains("left-btn");
-
-          if ($containerProductsCarousel && $isLeft) {
-               verifyProductCarouselButton($button);
-          }
+          if ($button.classList.contains("btn-left")) $buttonLeft = $button;
      });
+
+     $productLists = $buttonLeft.parentNode.querySelectorAll(".productList");
+     carouselScroll($carousel, $buttonLeft);
+     removeTransitiionEffect($productLists);
 };
 
 /* - MODAL - variations
@@ -271,6 +277,8 @@ const closeModalEscKey = $modalProduct => {
                }
           }
           addBackgroundScroll();
+
+          document.body.onresize = () => resetPositionProductCarousel();
      });
 };
 
@@ -283,6 +291,8 @@ const closeModal = button => {
           closeModalContent($modalProductContent);
           $modalProductBackground.classList.add("hidden");
           addBackgroundScroll();
+
+          document.body.onresize = () => resetPositionProductCarousel();
      }
 };
 

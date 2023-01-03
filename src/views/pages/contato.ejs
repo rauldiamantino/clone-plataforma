@@ -10,7 +10,9 @@
 
          <!--MAIN -->
          <main>
-            <%- include('../partials/current-page', {pagina: 'Contato', paginaLink: 'contato'}); %>
+            <%- include('../partials/current-page', {
+                page: '<a href="/contato">Contato</a>', 
+             }); %>
             
             <%- include('../partials/errorMessageEmptyInput');%>
 

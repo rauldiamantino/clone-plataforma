@@ -18,7 +18,6 @@ const clickedButton = $button => {
           closeParcelsModal($button);
           openResponsiveMenu($button);
           verifyBannerCarouselButton($button);
-          // verifyProductCarouselButton($button);
           getProductList($button);
           currentImageManipulation($button);
           submitLogin($button, e);
@@ -86,7 +85,6 @@ const getValueInputs = ($loginInputs, e) => {
 /* - CHANGE MANUAL AND AUTO ROTATE BANNER
 -------------------------------------------------------------------------*/
 
-// let $banners = document.querySelectorAll(".item");
 let $banners;
 let currentBanner = 0;
 
@@ -165,7 +163,6 @@ stopIfTheMouseEnters();
 
 /* - MENU RESPONSIVE
 -------------------------------------------------------------------------*/
-
 const openResponsiveMenu = button => {
      const isRespButtonToOpen = button.classList.contains("button-responsive");
      const $backgroundCategoriesMenu = document.querySelector(".background-categories");

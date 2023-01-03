@@ -635,6 +635,7 @@ video {
 .page-title {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
+  padding-top: 0.5rem;
   text-align: center;
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -1664,8 +1665,25 @@ video {
     line-height: 1.75rem;
   }
 
+  .lg\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
   .lg\:font-bold {
     font-weight: 700;
+  }
+
+  .lg\:transition-none {
+    transition-property: none;
+  }
+
+  .lg\:duration-700 {
+    transition-duration: 700ms;
+  }
+
+  .lg\:duration-75 {
+    transition-duration: 75ms;
   }
 
   .lg\:hover\:bg-yellow-100:hover {

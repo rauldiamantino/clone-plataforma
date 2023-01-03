@@ -1,7 +1,7 @@
-<section class="modal-product-background bg-black/75 hidden fixed z-10 top-0 w-screen h-screen justify-center items-center overflow-y-hidden  ">
+<section class="modal-product-background bg-black/75 hidden fixed z-20 top-0 w-screen h-screen justify-center items-center overflow-y-hidden  ">
 </section>
 
-<div class="modal-product-content bg-white w-full h-screen min-h-min lg:w-11/12 lg:h-5/6 fixed -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 rounded-l-lg scale-0 z-10">
+<div class="modal-product-content bg-white w-full h-screen min-h-min lg:w-11/12 lg:h-5/6 fixed -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 rounded-l-lg scale-0 z-20">
 
     <div class="modal-product-content-product-page lg:px-1 w-full h-full overflow-y-scroll">
         <!-- PRODUCT PAGE -->
@@ -20,7 +20,7 @@
                 <h2 id="prod-name" class="py-1 lg:text-lg lg:font-bold">Nome do Produto</h2>
                 <h5 class="text-xs py-1">Código: <span class="modal-product-code">0000</span> | Ref. <span class="modal-product-ref">000000</span></h5>
             </div>
-            <section class="modal-product-content-page-product-more-info flex flex-col gap-4 lg:row-start-2">
+            <section class="modal-product-content-page-product-more-info flex flex-col gap-4 lg:row-start-2 lg:w-480">
                 <div class="modal-product-content-page-product-payment">
                     <h2>R$ <span id="prod-price" class="lg:text-lg">0</span></h2>
                     <p class="product-payment-see-parcels cursor-pointer underline">Ver parcelamentos</p>
@@ -43,7 +43,7 @@
                     <input type="number" id="product-quantity" value="1" class="w-12 h-10 text-center border">
                 </div>
                 <button id="product-purchase" class="bg-c-bg-button w-3/4 p-2 mx-auto lg:w-full">COMPRAR</button>
-                <h5 id="product-add-wishlist" class="cursor-pointer text-center">+ Adicionar à lista de desejos</h5>
+                <h5 id="product-add-wishlist" class="cursor-pointer text-center text-sm">+ Adicionar à lista de desejos</h5>
                 <div class="modal-product-content-page-shipping w-4/6 mx-auto flex flex-col lg:mx-0">
                     <label for="shipping-cep" class="text-left pb-1 w-full">Simule o frete para sua região</label>
                     <div class="shipping-calc flex justify-around items-center w-full">
@@ -51,13 +51,13 @@
                         <button class="text-xs bg-c-bg-button py-2 w-5/12">Calcular Frete</button>
                     </div>
                 </div>
-            </section>
-        </section>
 
-        <!-- PRODUCT DESCRIPTION -->
-        <section class="modal-product-content-description p-4 my-10">
-            <h2 class="page-title">DESCRIÇÃO</h2>
-            <div class="prod-description text-center"></div>
+                <!-- PRODUCT DESCRIPTION -->
+                <section class="modal-product-content-description">
+                    <h2 class="page-title lg:text-base lg:text-left">DESCRIÇÃO</h2>
+                    <div class="prod-description lg:text-sm"></div>
+                </section>
+            </section>
         </section>
 
         <!-- PRODUCT LINE -->

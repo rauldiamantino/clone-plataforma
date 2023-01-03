@@ -5,16 +5,19 @@ const getProductList = $button => {
 
 const scrollReset = $button => {
      const $isBtnRight = $button.classList.contains("btn-right");
-     if ($isBtnRight) getProductList($button), scrollResetLeft($button);
+
+     if ($isBtnRight) getProductList($button), scrollResetLeft();
 };
 
-const scrollResetLeft = $button => {
-     const $productLists = $button.parentNode.querySelectorAll(".productList");
+const scrollResetLeft = () => {
+     let $productLists;
 
      $buttons.forEach($button => {
           const $isBtnLeft = $button.classList.contains("btn-left");
           if ($isBtnLeft) {
-               getProductList($button), removeTransitiionEffect($productLists);
+               getProductList($button);
+               $productLists = $button.parentNode.querySelectorAll(".productList");
+               removeTransitiionEffect($productLists);
           }
      });
 };

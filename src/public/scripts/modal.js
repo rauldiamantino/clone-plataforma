@@ -160,10 +160,12 @@ const setProductTexts = $product => {
      const $productRef = document.querySelector(".modal-product-ref");
      const $productName = document.querySelector("#prod-name");
      const $productPrice = document.querySelector("#prod-price");
+     const $modalPrice = parseFloat($product.querySelector(".product .prod-price").innerText);
      const $productDescription = document.querySelector(".prod-description");
 
      $productName.innerText = $product.querySelector(".product .prod-name").innerText;
-     $productPrice.innerText = $product.querySelector(".product .prod-price").innerText;
+     $productPrice.innerText = formatNumber($modalPrice);
+
      $productCode.innerText = $product.querySelector(".product-data-main").dataset.prodcod;
      $productRef.innerText = $product.querySelector(".product-data-main").dataset.prodref;
      $productDescription.innerText = $product.querySelector(".product-data-main").dataset.proddesc;
@@ -317,7 +319,8 @@ const $btnSeeParcels = document.querySelector(".product-payment-see-parcels");
 if ($btnSeeParcels) $btnSeeParcels.addEventListener("click", () => openParcelsModal($btnSeeParcels));
 
 const openParcelsModal = $btnSeeParcels => {
-     const $productPrice = $btnSeeParcels.parentNode.querySelector("#prod-price").innerText;
+     const $productPrice = removeFormatNumber($btnSeeParcels.parentNode.querySelector("#prod-price").innerText);
+
      const $productPaymentModalBackground = document.querySelector(".product-payment-modal-background");
      const $productPaymentModalContent = document.querySelector(".product-payment-internal-modal");
 
@@ -368,6 +371,8 @@ const createElementLi = liContent => {
 };
 
 const formatNumber = number => number.toFixed(2).replace(".", ",");
+
+const removeFormatNumber = number => number.replace(",", ".");
 
 const closeParcelsModal = button => {
      const $productPaymentModalBackground = document.querySelector(".product-payment-modal-background");

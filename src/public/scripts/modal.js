@@ -71,12 +71,16 @@ const setColorVariations = ($firstProductVariation, $modalVariations) => {
      $productColors.forEach(findValidColorVariation);
 
      $modalVariations.forEach($variation => {
+          const $firstVariationSelected = $variation.parentNode.querySelector(".first-variation-selected");
+          const $secondVariationSelected = $variation.parentNode.querySelector(".second-variation-selected");
           const $modalVariationsSelected = $variation.querySelectorAll("li");
 
           $modalVariationsSelected.forEach($modalVariation => {
                $variationsColorsReverse.forEach($prodVariation => {
                     setSizeVariations($prodVariation, $modalVariations);
                     setProductImages($productImgs, $prodVariation.dataset.variation);
+
+                    if ($firstVariationSelected) $firstVariationSelected.innerText = $prodVariation.dataset.variation;
                });
 
                $modalVariation.addEventListener("click", () => {
@@ -84,6 +88,9 @@ const setColorVariations = ($firstProductVariation, $modalVariations) => {
                          if ($modalVariation.innerText == $prodVariation.dataset.variation) {
                               setSizeVariations($prodVariation, $modalVariations);
                               setProductImages($productImgs, $prodVariation.dataset.variation);
+
+                              $firstVariationSelected.innerText = $prodVariation.dataset.variation;
+                              // $secondVariationSelected.innerText = "";
                          }
                     });
                });
@@ -115,6 +122,7 @@ const setSizeVariations = ($secondProductVariation, $modalVariations) => {
 
      $modalVariations.forEach($variation => {
           const $isModalSecondVariation = $variation.parentNode.classList.contains("second-variation");
+
           if ($isModalSecondVariation) $variation.innerHTML = "";
      });
 
@@ -136,7 +144,15 @@ const setSizeVariations = ($secondProductVariation, $modalVariations) => {
      $modalVariations.forEach($variationUl => {
           const $variationsLi = $variationUl.querySelectorAll("li");
           $variationsLi.forEach($variation => {
+               const $secondVariationSelected =
+                    $variation.parentNode.parentNode.parentNode.querySelector(".second-variation-selected");
+
                $variation.addEventListener("click", () => {
+                    if ($variationUl.parentNode.classList.contains("second-variation")) {
+                         $secondVariationSelected.innerText = $variation.innerText;
+                    } else {
+                         $secondVariationSelected.innerText = "";
+                    }
                     selectedVariationFormat($variation, $variationsLi);
                });
           });

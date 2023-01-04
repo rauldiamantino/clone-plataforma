@@ -19,9 +19,10 @@ const resetPositionProductCarousel = () => {
 const openModal = $product => {
      const $modalProduct = document.querySelector(".modal-product-content");
      const $modalProductBackground = document.querySelector(".modal-product-background");
-     // const $productImgs = $product.querySelectorAll(".product-data-source-img");
      const $ModalScrollTop = $modalProduct.querySelector(".modal-product-content-product-page");
      const $relatedProdCarouselModal = $modalProduct.querySelector(".productList");
+
+     console.log($product);
 
      $ModalScrollTop.scrollTop = 0;
      $modalProductBackground.classList.remove("hidden");

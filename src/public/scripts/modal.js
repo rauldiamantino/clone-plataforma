@@ -7,7 +7,6 @@ $products.forEach(clickedProduct);
 
 /* - MODAL
 -------------------------------------------------------------------------*/
-
 const removeBackgroundScroll = () => (document.documentElement.style.overflow = "hidden");
 const addBackgroundScroll = () => (document.documentElement.style.overflow = "auto");
 
@@ -22,8 +21,6 @@ const openModal = $product => {
      const $ModalScrollTop = $modalProduct.querySelector(".modal-product-content-product-page");
      const $relatedProdCarouselModal = $modalProduct.querySelector(".productList");
 
-     console.log($product);
-
      $ModalScrollTop.scrollTop = 0;
      $modalProductBackground.classList.remove("hidden");
      openModalContent($modalProduct);
@@ -33,7 +30,6 @@ const openModal = $product => {
      setProductTexts($product);
      setProductVariations($product, $modalProduct);
      resetPositionCarouselModal($relatedProdCarouselModal);
-
      document.body.onresize = () => resetPositionProductCarousel();
 };
 
@@ -57,50 +53,34 @@ const setProductVariations = ($product, $modalProduct) => {
      const $firstProductVariation = $product.querySelector(".product-data-variations-first");
      const $modalVariations = $modalProduct.querySelectorAll(".modal-product-content-page-variations ul");
 
-     $modalVariations.forEach($variation => {
-          $variation.innerHTML = "";
-     });
-
+     $modalVariations.forEach(deleteTextsPrev);
      setColorVariations($firstProductVariation, $modalVariations);
 };
+
+const deleteTextsPrev = $variation => ($variation.innerHTML = "");
+
+const sizesOfTheFirstColorVariation = $secondProductVariation => {};
 
 const setColorVariations = ($firstProductVariation, $modalVariations) => {
      const $productColors = $firstProductVariation.querySelectorAll(".prod-variations-color");
      const $productImgs = $firstProductVariation.querySelectorAll(".product-data-source-img");
      const $secondProductVariation = $firstProductVariation.querySelector(".product-data-variations-second");
+     const $variationsColors = $secondProductVariation.parentNode.parentNode.querySelectorAll(".prod-variations-color");
+     const $variationsColorsReverse = Array.from($variationsColors).reverse();
 
-     $productColors.forEach($color => {
-          const liContent = $color.dataset.variation;
-
-          if (liContent != "") {
-               $modalVariations.forEach($variation => {
-                    const li = document.createElement("li");
-                    const textLi = document.createTextNode(liContent);
-                    const $isModalFirstVariation = $variation.parentNode.classList.contains("first-variation");
-
-                    if ($isModalFirstVariation) {
-                         li.appendChild(textLi);
-                         defaultVariationFormat($variation.appendChild(li));
-                    }
-               });
-          }
-     });
+     $productColors.forEach(findValidColorVariation);
 
      $modalVariations.forEach($variation => {
           const $modalVariationsSelected = $variation.querySelectorAll("li");
-          const $productSecondVariationNodeList =
-               $secondProductVariation.parentNode.parentNode.querySelectorAll(".prod-variations-color");
-          const $productSecondVariationToArray = Array.from($productSecondVariationNodeList);
-          const $productSecondVariationReverse = $productSecondVariationToArray.reverse();
 
           $modalVariationsSelected.forEach($modalVariation => {
-               $productSecondVariationReverse.forEach($prodVariation => {
+               $variationsColorsReverse.forEach($prodVariation => {
                     setSizeVariations($prodVariation, $modalVariations);
                     setProductImages($productImgs, $prodVariation.dataset.variation);
                });
 
                $modalVariation.addEventListener("click", () => {
-                    $productSecondVariationReverse.forEach($prodVariation => {
+                    $variationsColorsReverse.forEach($prodVariation => {
                          if ($modalVariation.innerText == $prodVariation.dataset.variation) {
                               setSizeVariations($prodVariation, $modalVariations);
                               setProductImages($productImgs, $prodVariation.dataset.variation);
@@ -113,6 +93,23 @@ const setColorVariations = ($firstProductVariation, $modalVariations) => {
      });
 };
 
+const findValidColorVariation = $color => {
+     const $modalVariations = document.querySelectorAll(".modal-product-content-page-variations ul");
+     const liContent = $color.dataset.variation;
+
+     $modalVariations.forEach($variation => {
+          const $isModalFirstVariation = $variation.parentNode.classList.contains("first-variation");
+          if ($isModalFirstVariation) createLiVariationModal(liContent, $variation);
+     });
+};
+
+const createLiVariationModal = (liContent, $variation) => {
+     const li = document.createElement("li");
+     const textLi = document.createTextNode(liContent);
+
+     li.appendChild(textLi);
+     defaultVariationFormat($variation.appendChild(li));
+};
 const setSizeVariations = ($secondProductVariation, $modalVariations) => {
      const $productSizes = $secondProductVariation.querySelectorAll(".prod-variations-size");
 
@@ -181,7 +178,6 @@ let currentImageProduct = 0;
 const setProductImages = ($productImgs, $selectedVariation) => {
      removeCurrentImages();
      appendProductImg($productImgs, $selectedVariation);
-
      setMainImage();
 };
 
@@ -195,9 +191,6 @@ const appendProductImg = ($productImgs, $selectedVariation) => {
                     <div class="box-small-image p-1 cursor-pointer border border-gray-200 w-full h-12">
                          <img src="${$productImgUrl}" class="product-img">
                     </div>`;
-
-               // $secondaryImagesBox.innerHTML += htmlProductImg;
-               // $images = $secondaryImagesBox.querySelectorAll("img");
 
                if ($img.parentNode.parentNode.dataset.variation == $selectedVariation) {
                     $secondaryImagesBox.innerHTML += htmlProductImg;
@@ -269,7 +262,7 @@ const changeProductImage = () => {
      if (currentImageProduct < 0) currentImageProduct = 0;
      const styleTranslateDefinition = `translateX(${-currentImageProduct * 100}%)`;
 
-     // verify if $mainBanner exists in the page, and set style transform
+     // verify if $mainProductImage exists in the page, and set style transform
      if ($mainProductImage) $mainProductImage.style.transform = styleTranslateDefinition;
 
      addMainImageBorder();

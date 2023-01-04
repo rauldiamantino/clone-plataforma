@@ -31,8 +31,8 @@ const openModal = $product => {
      closeModalEscKey($modalProductBackground);
      setProductTexts($product);
      setProductImages($productImgs);
-     setProductVariations($product);
-     resetPositionCarouselModal($relatedProdCarouselModal);
+     setProductVariations($product, $modalProduct);
+     // resetPositionCarouselModal($relatedProdCarouselModal);
 
      document.body.onresize = () => resetPositionProductCarousel();
 };
@@ -53,97 +53,102 @@ const resetPositionCarouselModal = $carousel => {
 
 /* - MODAL - variations
 -------------------------------------------------------------------------*/
-const setProductVariations = $product => {
-     const $productColorVariation = $product.querySelectorAll(".prod-variations-color");
-     const $productSizeVariation = $product.querySelectorAll(".prod-variations-size");
-     const $firstVariation = document.querySelector(".first-variation ul");
-     const $secondVariation = document.querySelector(".second-variation ul");
+const setProductVariations = ($product, $modalProduct) => {
+     const $firstProductVariation = $product.querySelector(".product-data-variations-first");
+     const $modalVariations = $modalProduct.querySelectorAll(".modal-product-content-page-variations ul");
 
-     setSelectedVariation($productColorVariation);
-     $firstVariation.innerHTML = "";
-     setLiContent($productColorVariation, $firstVariation);
-     selectVariationModal($firstVariation);
+     $modalVariations.forEach($variation => {
+          $variation.innerHTML = "";
+     });
 
-     setSelectedVariation($productSizeVariation);
-     $secondVariation.innerHTML = "";
-     setLiContent($productSizeVariation, $secondVariation);
-     selectVariationModal($secondVariation);
+     setColorVariations($firstProductVariation, $modalVariations);
 };
 
-const selectVariationModal = $productVariation => {
-     const $variations = $productVariation.querySelectorAll("li");
+const setColorVariations = ($firstProductVariation, $modalVariations) => {
+     const $productColors = $firstProductVariation.querySelectorAll(".prod-variations-color");
+     const $secondProductVariation = $firstProductVariation.querySelector(".product-data-variations-second");
 
-     $variations.forEach($currentVariation => {
-          const isFirstVariation = $currentVariation.parentNode.parentNode.classList.contains("first-variation");
+     $productColors.forEach($color => {
+          const liContent = $color.dataset.variation;
 
-          if (isFirstVariation) {
-               const $selectedVariation = document.querySelector(".first-variation-selected");
+          $modalVariations.forEach($variation => {
+               const li = document.createElement("li");
+               const textLi = document.createTextNode(liContent);
+               const $isModalFirstVariation = $variation.parentNode.classList.contains("first-variation");
 
-               addClassesSelectedVariation($variations[0]);
+               if ($isModalFirstVariation) {
+                    li.appendChild(textLi);
+                    defaultVariationFormat($variation.appendChild(li));
+               }
+          });
+     });
 
-               $variations.forEach($variation => {
-                    $variation.addEventListener("click", () => {
-                         const variation = $variation.innerText;
-                         $selectedVariation.innerText = variation;
+     $modalVariations.forEach($variation => {
+          const $modalVariationsSelected = $variation.querySelectorAll("li");
+          const $productSecondVariationNodeList =
+               $secondProductVariation.parentNode.parentNode.querySelectorAll(".prod-variations-color");
+          const $productSecondVariationToArray = Array.from($productSecondVariationNodeList);
+          const $productSecondVariationReverse = $productSecondVariationToArray.reverse();
 
-                         removeAllClassesSelectedVariation($variations);
-                         addClassesSelectedVariation($variation);
+          $modalVariationsSelected.forEach($modalVariation => {
+               $productSecondVariationReverse.forEach($prodVariation => {
+                    setSizeVariations($prodVariation, $modalVariations);
+               });
+
+               $modalVariation.addEventListener("click", () => {
+                    $productSecondVariationReverse.forEach($prodVariation => {
+                         if ($modalVariation.innerText == $prodVariation.dataset.variation) {
+                              setSizeVariations($prodVariation, $modalVariations);
+                         }
                     });
                });
-          } else {
-               const $selectedVariation = document.querySelector(".second-variation-selected");
-               addClassesSelectedVariation($variations[0]);
+          });
 
-               $variations.forEach($variation => {
-                    $variation.addEventListener("click", () => {
-                         const variation = $variation.innerText;
-                         $selectedVariation.innerText = variation;
+          selectedVariationFormat($modalVariationsSelected[0], $modalVariationsSelected);
+     });
+};
 
-                         removeAllClassesSelectedVariation($variations);
-                         addClassesSelectedVariation($variation);
-                    });
+const setSizeVariations = ($secondProductVariation, $modalVariations) => {
+     const $productSizes = $secondProductVariation.querySelectorAll(".prod-variations-size");
+
+     $modalVariations.forEach($variation => {
+          const $isModalSecondVariation = $variation.parentNode.classList.contains("second-variation");
+          if ($isModalSecondVariation) $variation.innerHTML = "";
+     });
+
+     $productSizes.forEach($size => {
+          const liContent = $size.dataset.variation;
+
+          $modalVariations.forEach($variation => {
+               const li = document.createElement("li");
+               const textLi = document.createTextNode(liContent);
+               const $isModalSecondVariation = $variation.parentNode.classList.contains("second-variation");
+
+               if ($isModalSecondVariation) {
+                    li.appendChild(textLi);
+                    defaultVariationFormat($variation.appendChild(li));
+               }
+          });
+     });
+
+     $modalVariations.forEach($variationUl => {
+          const $variationsLi = $variationUl.querySelectorAll("li");
+          $variationsLi.forEach($variation => {
+               $variation.addEventListener("click", () => {
+                    selectedVariationFormat($variation, $variationsLi);
                });
-          }
+          });
      });
 };
 
-const setLiContent = ($productVariations, $modalVariation) => {
-     $productVariations.forEach($variation => {
-          if ($variation.dataset.variation != "") {
-               const liContent = textVariation($variation);
-               addVariation($modalVariation, liContent);
-          }
+const defaultVariationFormat = $variation =>
+     $variation.classList.add("border", "rounded-full", "py-2", "px-4", "cursor-pointer");
+
+const selectedVariationFormat = ($variation, $modalVariationsSelected) => {
+     $modalVariationsSelected.forEach($variation => {
+          $variation.classList.remove("bg-c-dark-gray", "text-white");
      });
-};
-
-const addVariation = ($modalVariation, liContent) => {
-     addClassesVariation($modalVariation.appendChild(createElementLi(liContent)));
-};
-
-const addClassesVariation = newVariation => newVariation.classList.add("border", "py-2", "px-4", "cursor-pointer");
-
-const addClassesSelectedVariation = newVariation => newVariation.classList.add("bg-c-dark-gray", "text-white");
-
-const removeAllClassesSelectedVariation = variations => {
-     variations.forEach(variation => {
-          variation.classList.remove("bg-c-dark-gray", "text-white");
-     });
-};
-
-const textVariation = $variation => document.createTextNode($variation.dataset.variation);
-
-const setSelectedVariation = $productVariations => {
-     $productVariations.forEach($currentVariation => {
-          if ($currentVariation.classList.contains("prod-variations-color")) {
-               const $selectedVariation = document.querySelector(".first-variation-selected");
-               const selectedVariation = $productVariations[0].dataset.variation;
-               $selectedVariation.innerText = selectedVariation;
-          } else {
-               const $selectedVariation = document.querySelector(".second-variation-selected");
-               const selectedVariation = $productVariations[0].dataset.variation;
-               $selectedVariation.innerText = selectedVariation;
-          }
-     });
+     $variation.classList.add("bg-c-dark-gray", "text-white");
 };
 
 const setProductTexts = $product => {

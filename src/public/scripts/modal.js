@@ -147,6 +147,8 @@ const setSizeVariations = ($secondProductVariation, $modalVariations) => {
                const $secondVariationSelected =
                     $variation.parentNode.parentNode.parentNode.querySelector(".second-variation-selected");
 
+               $secondVariationSelected.innerText = "";
+
                $variation.addEventListener("click", () => {
                     if ($variationUl.parentNode.classList.contains("second-variation")) {
                          $secondVariationSelected.innerText = $variation.innerText;

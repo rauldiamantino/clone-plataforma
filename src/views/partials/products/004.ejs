@@ -1,0 +1,20 @@
+<%- include('../../partials/product', {
+    product: {
+       code: 004, reference: "RSD0004", name: "Camiseta White Básica New", price: 99.80,
+       description: "Camiseta Branca, Casual e Elegante, ideal para uso no dia-a-dia! Conforto e Praticidade! Tipo de peça indispensável no seu guarda-roupas, combina com tudo. Social, casual, básico formal e informal!",                  
+       mainImage: "../images/products/31.jpg",
+       variations: { 
+         firstVariation: {
+            colors: 
+            [{
+               prodColor: "Marrom",
+               images: [ "../images/products/31.jpg", "../images/products/45.jpg", "../images/products/34.jpg"], secondVariation: [ "G" ] 
+            },
+            {
+               prodColor: "Azul",
+               images: [ "../images/products/26.jpg", "../images/products/23.jpg"], secondVariation: [ "G" , "M" ] 
+            }],
+         } 
+      }
+    }
+ }) -%>

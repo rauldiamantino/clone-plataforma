@@ -17,28 +17,11 @@
             <h2 class="page-title general-margin-padding">LANÇAMENTOS</h2>
 
             <!-- PRODUCT LIST -->
-            <section class="product-list grid grid-cols-2 gap-3 px-2 lg:grid-cols-4 lg:mx-20 lg:px-0">
-               <!-- product -->
-               <%- include('../partials/product', { 
-                  product: {
-                     code: 001, reference: "RSD0001", name: "Camiseta Básica New York", price: 299.90, 
-                     description: "Camiseta básica masculina, confeccionada em algodão. Possui decote redondo, manga curta e  barra simples.", 
-                     mainImage: "../images/products/13.jpg",
-                     variations: { 
-                        firstVariation: {
-                           colors: [{
-                              prodColor: "Branco", 
-                              images: [ "../images/products/13.jpg" , "../images/products/14.jpg" ], 
-                              secondVariation: [ "P", "M", "G" ]
-                           }],
-                        }
-                     }
-                  }
-               }) ;%>
-
-
-               <!-- product -->
-               
+            <section class="product-list grid grid-cols-2 gap-3 px-2 lg:grid-cols-4 lg:mx-20 lg:px-0">               
+               <%- include('../partials/products/005');%>               
+               <%- include('../partials/products/004');%>               
+               <%- include('../partials/products/006');%>               
+               <%- include('../partials/products/001');%>                            
             </section>
 
 

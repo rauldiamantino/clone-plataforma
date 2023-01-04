@@ -275,7 +275,7 @@ const changeProductImage = () => {
 const addMainImageBorder = () => {
      if ($mainProductImage) {
           const $imgs = $mainProductImage.querySelectorAll("img");
-          $imgs.forEach($img => $img.classList.add("p-1", "object-cover", "w-full"));
+          $imgs.forEach($img => $img.classList.add("p-1", "w-full", "h-full", "object-cover"));
      }
 };
 

@@ -7,22 +7,22 @@
         <!-- PRODUCT PAGE -->
         <section class="modal-product-content-page grid lg:grid-2col-product-page gap-4 p-2.5 text-center lg:text-left">
             <!-- box images -->
-            <div class="modal-product-content-page-images mt-1 grid grid-rows-1 lg:grid-2col-product-page lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-4">
+            <div class="modal-product-content-page-images mt-1 grid grid-rows-1 lg:grid-2col-product-page lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-4 lg:w-52vw">
                 <div class="secondary-images py-2 row-start-2 grid grid-cols-6 gap-2 lg:grid-cols-1 lg:w-16 lg:items-start lg:content-start lg:py-0 lg:pr-2 lg:row-start-1"></div>
                 <div class="main-image w-full border overflow-y-hidden overflow-x-hidden relative lg:col-start-2 lg:col-end-2">
-                    <button class="btn-modal-left absolute top-1/2 -translate-y-1/2 left-2 border rounded-full w-8 h-8 flex items-center justify-center z-10"><img src="../images/chevron-left.svg" class="w-10"></button>
-                    <button class="btn-modal-right absolute top-1/2 -translate-y-1/2 right-2 border rounded-full w-8 h-8 flex items-center justify-center z-10"><img src="../images/chevron-right.svg"></button>
-                    <div class="product-images flex duration-200"></div>
+                    <button class="btn-modal-left absolute top-1/2 -translate-y-1/2 left-2 border border-neutral-400 rounded-full w-8 h-8 flex items-center justify-center z-10"><img src="../images/chevron-left.svg" class="w-10"></button>
+                    <button class="btn-modal-right absolute top-1/2 -translate-y-1/2 right-2 border border-neutral-400 rounded-full w-8 h-8 flex items-center justify-center z-10"><img src="../images/chevron-right.svg"></button>
+                    <div class="product-images flex duration-200 h-full"></div>
                 </div>
             </div>
             <!-- box description -->
-            <div class="modal-product-content-page-product-name row-start-1 lg:col-start-2 text-left lg:w-480">
-                <h2 id="prod-name" class="py-1 lg:text-lg lg:font-bold">Nome do Produto</h2>
+            <div class="modal-product-content-page-product-name row-start-1 lg:col-start-2 text-left">
+                <h2 id="prod-name" class="pt-1 text-lg font-bold">Nome do Produto</h2>
                 <h5 class="text-xs py-1">Código: <span class="modal-product-code">0000</span> | Ref. <span class="modal-product-ref">000000</span></h5>
             </div>
-            <section class="modal-product-content-page-product-more-info flex flex-col gap-4 lg:row-start-2 lg:w-480">
+            <section class="modal-product-content-page-product-more-info flex flex-col gap-4 lg:row-start-2">
                 <div class="modal-product-content-page-product-payment">
-                    <h2>R$ <span id="prod-price" class="lg:text-lg">0</span></h2>
+                    <h2>R$ <span id="prod-price" class="text-lg">0</span></h2>
                     <p class="product-payment-see-parcels cursor-pointer underline">Ver parcelamentos</p>
                 </div>
                 <!-- box variations -->
@@ -55,7 +55,7 @@
                 <!-- PRODUCT DESCRIPTION -->
                 <section class="modal-product-content-description">
                     <h2 class="page-title lg:text-base lg:text-left">DESCRIÇÃO</h2>
-                    <div class="prod-description lg:text-sm"></div>
+                    <div class="prod-description lg:text-sm text-justify lg:text-left"></div>
                 </section>
             </section>
         </section>

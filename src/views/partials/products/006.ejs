@@ -1,0 +1,20 @@
+<%- include('../../partials/product', {
+   product: {
+      code: 006, reference: "RSD0006", name: "Camiseta Básica de Algodão", price: 107.99,
+      description: "Versatilidade e estilo define essa camiseta. Produzida em algodão, ela proporciona maior conforto e suavidade no uso, dando uma sensação refrescante. Seu uso combina com qualquer outra peça de roupa, te proporcionando mais segurança.",
+      mainImage: "../images/products/47.jpg",
+      variations: {
+        firstVariation: {
+           colors:
+           [{
+              prodColor: "Branco",
+              images: [ "../images/products/47.jpg", "../images/products/37.jpg", "../images/products/38.jpg" ], secondVariation: [ "G" ]
+           },
+           {
+              prodColor: "Rosa",
+              images: [ "../images/products/46.jpg", "../images/products/30.jpg", "../images/products/27.jpg"], secondVariation: [ "G" , "M" ]
+           }],
+        }
+     }
+   }
+}) -%>

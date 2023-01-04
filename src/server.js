@@ -8,10 +8,6 @@ app.get("/", function (req, res) {
      res.render("pages/index");
 }); //create a route
 
-app.get("/mais-vendidos", function (req, res) {
-     res.render("pages/mais-vendidos");
-});
-
 app.get("/lancamentos", function (req, res) {
      res.render("pages/lancamentos");
 });

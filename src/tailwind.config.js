@@ -12,7 +12,7 @@ module.exports = {
                     "translate-150%": "150%",
                },
                width: {
-                    480: "480px",
+                    "52vw": "52vw",
                },
 
                gridTemplateColumns: {

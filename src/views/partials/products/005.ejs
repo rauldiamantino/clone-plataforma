@@ -1,0 +1,24 @@
+<%- include('../../partials/product', {
+   product: {
+      code: 005, reference: "RSD0005", name: "Camiseta Básica Old Dollar", price: 100.20,
+      description: "Camiseta básica masculina, confeccionada em algodão. Possui decote redondo, manga curta e  barra simples.",
+      mainImage: "../images/products/36.jpg",
+      variations: {
+        firstVariation: {
+           colors:
+           [{
+              prodColor: "Azul",
+              images: [ "../images/products/36.jpg"], secondVariation: [ "G" ]
+           },
+           {
+              prodColor: "Preto",
+              images: [ "../images/products/32.jpg"], secondVariation: [ "G" , "M" ]
+           },
+           {
+              prodColor: "Vermelho",
+              images: [ "../images/products/33.jpg"], secondVariation: [ "P" ]
+           }],
+        }
+     }
+   }
+}) -%>

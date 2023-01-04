@@ -1,0 +1,16 @@
+<%- include('../../partials/product', {
+    product: {
+       code: 001, reference: "RSD0001", name: "Camiseta Básica New York", price: 299.90,
+       description: "Camiseta básica masculina, confeccionada em algodão. Possui decote redondo, manga curta e  barra simples.",
+       mainImage: "../images/products/13.jpg",
+       variations: {
+          firstVariation: {
+             colors: [{
+                prodColor: "Branco",
+                images: [ "../images/products/13.jpg" , "../images/products/14.jpg" ],
+                secondVariation: [ "P", "M", "G" ]
+             }],
+          }
+       }
+    }
+ }) ;%>

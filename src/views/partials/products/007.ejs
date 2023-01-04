@@ -1,0 +1,20 @@
+<%- include('../../partials/product', {
+    product: {
+       code: 007, reference: "RSD0007", name: "Camiseta Básica White New Jersey", price: 10.99,
+       description: "Muito fresca e confortável, tem corte reto que dá a sensação de alongar o corpo, além evitar marcas de dobras e deixa seu corpo livre para o movimento.",
+       mainImage: "../images/products/40.jpg",
+       variations: { 
+         firstVariation: {
+            colors: 
+            [{
+               prodColor: "Branco",
+               images: [ "../images/products/40.jpg", "../images/products/24.jpg", "../images/products/39.jpg"], secondVariation: [ "G" ] 
+            },
+            {
+               prodColor: "Preto",
+               images: [ "../images/products/29.jpg"], secondVariation: [ "P" , "M" ] 
+            }],
+         }
+      }
+    }
+ }) -%>

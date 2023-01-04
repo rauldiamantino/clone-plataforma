@@ -1,0 +1,20 @@
+<%- include('../../partials/product', {
+    product: {
+       code: 008, reference: "RSD0008", name: "Camiseta White Básica New Orleans", price: 99.80,
+       description: "Camiseta Branca, Casual e Elegante, ideal para uso no dia-a-dia! Conforto e Praticidade! Tipo de peça indispensável no seu guarda-roupas, combina com tudo. Social, casual, básico formal e informal!",
+       mainImage: "../images/products/22.jpg",
+       variations: {
+         firstVariation: {
+            colors:
+            [{
+               prodColor: "Azul",
+               images: [ "../images/products/22.jpg", "../images/products/26.jpg"], secondVariation: [ "G" ]
+            },
+            {
+               prodColor: "Verde",
+               images: [ "../images/products/21.jpg"], secondVariation: [ "P" , "M" ]
+            }],
+         }
+      }
+    }
+ }) -%>

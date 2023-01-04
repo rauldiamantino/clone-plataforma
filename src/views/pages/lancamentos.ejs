@@ -18,6 +18,7 @@
 
             <!-- PRODUCT LIST -->
             <section class="product-list grid grid-cols-2 gap-3 px-2 lg:grid-cols-4 lg:mx-20 lg:px-0">
+               <!-- product -->
                <%- include('../partials/product', { 
                   product: {
                      code: 001, reference: "RSD0001", name: "Camiseta Básica New York", price: 299.90, 
@@ -25,27 +26,19 @@
                      mainImage: "../images/products/13.jpg",
                      variations: { 
                         firstVariation: {
-                           colors: [
-                              {
-                                 color: "Branco", 
-                                 images: [
-                                    "../images/products/13.jpg" ,
-                                    "../images/products/14.jpg"
-                                 ], 
-                                 secondVariation: [ "P", "M", "G" ]
-                              },
-                              {
-                                 color: "Preto", 
-                                 images: [
-                                    "../images/products/15.jpg"
-                                 ], 
-                                 secondVariation: [ "XG" ]
-                              }
-                           ],
+                           colors: [{
+                              prodColor: "Branco", 
+                              images: [ "../images/products/13.jpg" , "../images/products/14.jpg" ], 
+                              secondVariation: [ "P", "M", "G" ]
+                           }],
                         }
                      }
                   }
                }) ;%>
+
+
+               <!-- product -->
+               
             </section>
 
 

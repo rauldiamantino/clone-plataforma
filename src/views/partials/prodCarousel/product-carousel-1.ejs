@@ -14,40 +14,39 @@
       </div>
       <div class="productList w-full flex duration-700" id="0">
          <div class="product w-prod-2-4 mx-[0.5%]">
-            <%- include('../../partials/product', {
-                product: {
-                   code: 001, reference: "RSD0001", name: "Camiseta Básica New York", price: 299.90,
-                   description: "Camiseta básica masculina, confeccionada em algodão. Possui decote redondo, manga curta e  barra simples.",
-                   variations: { 
-                     firstVariation: {                        
-                        colors: 
-                           [{
-                              color: "Branco",
-                              images: [ "../images/products/13.jpg", "../images/products/14.jpg"],
-                              secondVariation: [ "P", "M", "G" ],
-                           }], 
+            <%- include('../../partials/product', { 
+               product: {
+                  code: 001, reference: "RSD0001", name: "Camiseta Básica New York", price: 299.90, 
+                  description: "Camiseta básica masculina, confeccionada em algodão. Possui decote redondo, manga curta e  barra simples.", 
+                  mainImage: "../images/products/13.jpg",
+                  variations: { 
+                     firstVariation: {
+                        colors: [{
+                           prodColor: "Branco", 
+                           images: [ "../images/products/13.jpg" , "../images/products/14.jpg" ], 
+                           secondVariation: [ "P", "M", "G" ]
+                        }],
                      }
                   }
-                }
-             }) -%>
+               }
+            }) ;%>
           </div>
           <div class="product w-prod-2-4 mx-[0.5%]">
              <%- include('../../partials/product', {
                 product: {
                    code: 002, reference: "RSD0002", name: "Camiseta Básica White Yes", price: 109.90,
                    description: "Muito fresca e confortável, tem corte reto que dá a sensação de alongar o corpo, além evitar marcas de dobras e deixa seu corpo livre para o movimento.",
+                   mainImage: "../images/products/29.jpg",
                    variations: { 
                      firstVariation: {
                         colors: 
                            [{
-                              color: "Preto",
-                              images: [ "../images/products/29.jpg"],
-                              secondVariation: [ "G" ] 
+                              prodColor: "Preto",
+                              images: [ "../images/products/29.jpg" ], secondVariation: [ "G" ] 
                            },
                            {
-                              color: "Rosa",
-                              images: [ "../images/products/30.jpg"],
-                              secondVariation: [ "G" , "M" ] 
+                              prodColor: "Rosa",
+                              images: [ "../images/products/30.jpg"], secondVariation: [ "G" , "M" ] 
                            }], 
                      }
                   }
@@ -60,18 +59,17 @@
                 product: {
                    code: 003, reference: "RSD0003", name: "Camiseta Básica de Algodão", price: 107.99,
                    description: "Versatilidade e estilo define essa camiseta. Produzida em algodão, ela proporciona maior conforto e suavidade no uso, dando uma sensação refrescante. Seu uso combina com qualquer outra peça de roupa, te proporcionando mais segurança.",
+                   mainImage: "../images/products/28.jpg",
                    variations: { 
                      firstVariation: {
                         colors: 
                         [{
-                           color: "Preto",
-                           images: [ "../images/products/28.jpg"],
-                           secondVariation: [ "G" ] 
+                           prodColor: "Preto",
+                           images: [ "../images/products/28.jpg"], secondVariation: [ "G" ] 
                         },
                         {
-                           color: "Rosa",
-                           images: [ "../images/products/27.jpg"],
-                           secondVariation: [ "G" , "M" ] 
+                           prodColor: "Rosa",
+                           images: [ "../images/products/27.jpg"], secondVariation: [ "G" , "M" ] 
                         }],
                      }
                   }
@@ -82,20 +80,18 @@
              <%- include('../../partials/product', {
                 product: {
                    code: 004, reference: "RSD0005", name: "Camiseta White Básica New", price: 99.80,
-                   description: "Camiseta Branca, Casual e Elegante, ideal para uso no dia-a-dia! Conforto e Praticidade! Tipo de peça indispensável no seu guarda-roupas, combina com tudo. Social, casual, básico formal e informal!",
-                   images: [ "../images/products/31.jpg", "../images/products/26.jpg" ],
+                   description: "Camiseta Branca, Casual e Elegante, ideal para uso no dia-a-dia! Conforto e Praticidade! Tipo de peça indispensável no seu guarda-roupas, combina com tudo. Social, casual, básico formal e informal!",                  
+                   mainImage: "../images/products/31.jpg",
                    variations: { 
                      firstVariation: {
                         colors: 
                         [{
-                           color: "Marrom",
-                           images: [ "../images/products/31.jpg"],
-                           secondVariation: [ "G" ] 
+                           prodColor: "Marrom",
+                           images: [ "../images/products/31.jpg"], secondVariation: [ "G" ] 
                         },
                         {
-                           color: "Azul",
-                           images: [ "../images/products/26.jpg"],
-                           secondVariation: [ "G" , "M" ] 
+                           prodColor: "Azul",
+                           images: [ "../images/products/26.jpg"], secondVariation: [ "G" , "M" ] 
                         }],
                      } 
                   }
@@ -108,23 +104,21 @@
                 product: {
                    code: 005, reference: "RSD0005", name: "Camiseta Básica Old Dollar", price: 100.20,
                    description: "Camiseta básica masculina, confeccionada em algodão. Possui decote redondo, manga curta e  barra simples.",
+                   mainImage: "../images/products/36.jpg",
                    variations: { 
                      firstVariation: {
                         colors: 
                         [{
-                           color: "Azul",
-                           images: [ "../images/products/36.jpg"],
-                           secondVariation: [ "G" ] 
+                           prodColor: "Azul",
+                           images: [ "../images/products/36.jpg"], secondVariation: [ "G" ] 
                         },
                         {
-                           color: "Preto",
-                           images: [ "../images/products/32.jpg"],
-                           secondVariation: [ "G" , "M" ] 
+                           prodColor: "Preto",
+                           images: [ "../images/products/32.jpg"], secondVariation: [ "G" , "M" ] 
                         },
                         {
-                           color: "Vermelho",
-                           images: [ "../images/products/33.jpg"],
-                           secondVariation: [ "P" ] 
+                           prodColor: "Vermelho",
+                           images: [ "../images/products/33.jpg"], secondVariation: [ "P" ] 
                         }],
                      }
                   }
@@ -136,18 +130,17 @@
                 product: {
                    code: 006, reference: "RSD0006", name: "Camiseta Básica de Algodão", price: 107.99,
                    description: "Versatilidade e estilo define essa camiseta. Produzida em algodão, ela proporciona maior conforto e suavidade no uso, dando uma sensação refrescante. Seu uso combina com qualquer outra peça de roupa, te proporcionando mais segurança.",
+                   mainImage: "../images/products/47.jpg",
                    variations: { 
                      firstVariation: {
                         colors: 
                         [{
-                           color: "Branco",
-                           images: [ "../images/products/47.jpg"],
-                           secondVariation: [ "G" ] 
+                           prodColor: "Branco",
+                           images: [ "../images/products/47.jpg"], secondVariation: [ "G" ] 
                         },
                         {
-                           color: "Rosa",
-                           images: [ "../images/products/46.jpg"],
-                           secondVariation: [ "G" , "M" ] 
+                           prodColor: "Rosa",
+                           images: [ "../images/products/46.jpg"], secondVariation: [ "G" , "M" ] 
                         }],
                      }
                   }
@@ -160,18 +153,17 @@
                 product: {
                    code: 007, reference: "RSD0007", name: "Camiseta Básica White New Jersey", price: 10.99,
                    description: "Muito fresca e confortável, tem corte reto que dá a sensação de alongar o corpo, além evitar marcas de dobras e deixa seu corpo livre para o movimento.",
+                   mainImage: "../images/products/40.jpg",
                    variations: { 
                      firstVariation: {
                         colors: 
                         [{
-                           color: "Branco",
-                           images: [ "../images/products/40.jpg"],
-                           secondVariation: [ "G" ] 
+                           prodColor: "Branco",
+                           images: [ "../images/products/40.jpg"], secondVariation: [ "G" ] 
                         },
                         {
-                           color: "Preto",
-                           images: [ "../images/products/29.jpg"],
-                           secondVariation: [ "P" , "M" ] 
+                           prodColor: "Preto",
+                           images: [ "../images/products/29.jpg"], secondVariation: [ "P" , "M" ] 
                         }],
                      }
                   }
@@ -183,18 +175,17 @@
                 product: {
                    code: 008, reference: "RSD0008", name: "Camiseta White Básica New Orleans", price: 99.80,
                    description: "Camiseta Branca, Casual e Elegante, ideal para uso no dia-a-dia! Conforto e Praticidade! Tipo de peça indispensável no seu guarda-roupas, combina com tudo. Social, casual, básico formal e informal!",
+                   mainImage: "../images/products/22.jpg",
                    variations: { 
                      firstVariation: {
                         colors:
                         [{
-                           color: "Azul",
-                           images: [ "../images/products/22.jpg"],
-                           secondVariation: [ "G" ] 
+                           prodColor: "Azul",
+                           images: [ "../images/products/22.jpg"], secondVariation: [ "G" ] 
                         },
                         {
-                           color: "Verde",
-                           images: [ "../images/products/21.jpg"],
-                           secondVariation: [ "P" , "M" ] 
+                           prodColor: "Verde",
+                           images: [ "../images/products/21.jpg"], secondVariation: [ "P" , "M" ] 
                         }],
                      }
                   }

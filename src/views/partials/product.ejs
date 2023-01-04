@@ -5,37 +5,23 @@
 
         <section class="product-data-variations">
             <section class="product-data-variations-first">
-                <!-- color 1 -->
-                <div class="prod-variations-color border p-2 cursor-pointer" data-variation="<%- product.variations.firstVariation.colors[0].color %>">
-                    <!-- images -->
-                    <section class="product-data-source">
-                        <% product.variations.firstVariation.colors[0].images.forEach(function(img){ %>
-                            <div class="product-data-source-img" data-img="<%= img %>"></div>                        
-                        <% }) %>
-                    </section>
-                    <!-- second variation -->
-                    <section class="product-data-variations-second">
-                        <% product.variations.firstVariation.colors[0].secondVariation.forEach(function(variation){ %>
-                            <div class="prod-variations-size border p-2 cursor-pointer" data-variation="<%= variation %>"></div>                        
-                        <% }) %>
-                    </section>  
-                </div>
-                
                 <!-- color 2 -->
-                <div class="prod-variations-color border p-2 cursor-pointer" data-variation="<%- product.variations.firstVariation.colors[1].color %>">
-                    <!-- images -->
-                    <section class="product-data-source">
-                        <% product.variations.firstVariation.colors[1].images.forEach(function(img){ %>
-                            <div class="product-data-source-img" data-img="<%= img %>"></div>                        
-                        <% }) %>
-                    </section>
-                    <!-- second variation -->
-                    <section class="product-data-variations-second">
-                        <% product.variations.firstVariation.colors[1].secondVariation.forEach(function(variation){ %>
-                            <div class="prod-variations-size border p-2 cursor-pointer" data-variation="<%= variation %>"></div>                        
-                        <% }) %>
-                    </section>
-                </div>
+                <% product.variations.firstVariation.colors?.forEach(function(color) { %>
+                    <div class="prod-variations-color border p-2 cursor-pointer" data-variation="<%= color.prodColor %>">
+                        <!-- images -->
+                        <section class="product-data-source">
+                            <% color.images.forEach(function(img){ %>
+                                <div class="product-data-source-img" data-img="<%= img %>"></div>                        
+                            <% }) %>
+                        </section>
+                        <!-- second variation -->
+                        <section class="product-data-variations-second">
+                            <% color.secondVariation?.forEach(function(variation){ %>
+                                <div class="prod-variations-size border p-2 cursor-pointer" data-variation="<%= variation %>"></div>                        
+                            <% }) %>
+                        </section>                        
+                    </div> 
+                <%}) %>">                  
             </section>
         </section>
     </section>

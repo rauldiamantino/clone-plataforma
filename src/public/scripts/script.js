@@ -70,7 +70,7 @@ const addPrintErrorMessageLogin = $loginErrorMessage => {
 const removePrintErrorMessageLogin = $loginErrorMessage => {
      setTimeout(() => {
           $loginErrorMessage.classList.add("hidden");
-     }, 3000);
+     }, 5000);
 };
 
 const getValueInputs = ($loginInputs, e) => {

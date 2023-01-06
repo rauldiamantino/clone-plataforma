@@ -174,11 +174,13 @@ const setProductTexts = $product => {
      const $productRef = document.querySelector(".modal-product-ref");
      const $productName = document.querySelector("#prod-name");
      const $productPrice = document.querySelector("#prod-price");
+     const $productQty = document.querySelector("#product-quantity");
      const $modalPrice = parseFloat($product.querySelector(".product .prod-price").innerText);
      const $productDescription = document.querySelector(".prod-description");
 
      $productName.innerText = $product.querySelector(".product .prod-name").innerText;
      $productPrice.innerText = formatNumber($modalPrice);
+     $productQty.value = 1;
 
      $productCode.innerText = $product.querySelector(".product-data-main").dataset.prodcod;
      $productRef.innerText = $product.querySelector(".product-data-main").dataset.prodref;

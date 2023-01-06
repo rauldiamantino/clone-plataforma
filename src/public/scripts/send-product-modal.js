@@ -1,7 +1,7 @@
 const checkIfIsPurchaseBtn = $button => $button.id == "product-purchase";
 const saveProdToLocalStorage = $product => localStorage.setItem(`$product-${$product.code}`, JSON.stringify($product));
 const removeLocalStorageItem = productCodeLocalStorage => localStorage.removeItem(productCodeLocalStorage);
-const removeLocalStorageAllItems = productCodeLocalStorage => localStorage.removeItem(productCodeLocalStorage);
+const removeLocalStorageAllItems = productCodeLocalStorage => localStorage.clear();
 const returnLocalStorageAllItems = () => Object.keys(localStorage);
 const returnLocalStorageItem = productCodeLocalStorage => {
      const productLocalStorageString = localStorage.getItem(productCodeLocalStorage);

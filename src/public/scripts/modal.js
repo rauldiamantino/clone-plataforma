@@ -295,11 +295,12 @@ const addMainImageBorder = () => {
 
 const closeModalEscKey = $modalProduct => {
      const isproductPaymentModalContent = $modalProduct.classList.contains("product-payment-internal-modal");
+     const isproductPaymentCartContent = $modalProduct.classList.contains("product-payment-internal-cart");
      const isModalProductModalContent = $modalProduct.classList.contains("modal-product-content");
 
      document.addEventListener("keydown", e => {
           if (e.key === "Escape") {
-               if (isproductPaymentModalContent || isModalProductModalContent) {
+               if (isproductPaymentModalContent || isModalProductModalContent || isproductPaymentCartContent) {
                     closeModalContent($modalProduct);
                } else {
                     $modalProduct.classList.add("hidden");

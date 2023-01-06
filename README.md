@@ -52,6 +52,7 @@ O site se assemelha a uma loja real, no futuro você poderá fazer login, criar 
   <li>23/12/2022 - Selecionando variações ao clicar sob elas, Páginas de Contato e Submenu do menu categorias</li>
   <li>30/12/2022 - Páginas de Subcategorias</li>
   <li>04/01/2023 - Altera a imagem do produto e segunda variação ao selecionar primeira variação</li>
+  <li>06/01/2023 - Armazena os produtos selecionados pelo cliente no localStorage</li>
 </ul>
 
 <h2 id="add">Imagens adicionais</h2>

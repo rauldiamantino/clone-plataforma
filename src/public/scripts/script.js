@@ -16,6 +16,7 @@ const clickedButton = $button => {
      $button.addEventListener("click", e => {
           closeModal($button);
           closeParcelsModal($button);
+          // closeParcelsCart($button);
           openResponsiveMenu($button);
           verifyBannerCarouselButton($button);
           getProductList($button);

@@ -389,11 +389,21 @@ const removeFormatNumber = number => number.replace(",", ".");
 const closeParcelsModal = button => {
      const $productPaymentModalBackground = document.querySelector(".product-payment-modal-background");
      const $productPaymentModalContent = document.querySelector(".product-payment-internal-modal");
+     const $productPaymentCartBackground = document.querySelector(".product-payment-cart-background");
+     const $productPaymentCartContent = document.querySelector(".product-payment-internal-cart");
      const isCloseModal = button.classList.contains("btn-close-payment-modal");
+     const isCloseModalCart = button.classList.contains("btn-close-payment-cart");
 
-     if (isCloseModal) {
-          $productPaymentModalBackground.classList.add("hidden");
-          closeModalContent($productPaymentModalContent);
+     if (isCloseModal || isCloseModalCart) {
+          if ($productPaymentModalBackground) {
+               $productPaymentModalBackground.classList.add("hidden");
+               closeModalContent($productPaymentModalContent);
+          }
+
+          if (isCloseModalCart) {
+               $productPaymentCartBackground.classList.add("hidden");
+               closeModalContent($productPaymentCartContent);
+          }
      }
 };
 

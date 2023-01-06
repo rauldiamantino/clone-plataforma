@@ -48,5 +48,9 @@ app.get("/calcados/feminino", function (req, res) {
      res.render("pages/calcados/feminino");
 });
 
+app.get("/carrinho", function (req, res) {
+     res.render("pages/carrinho");
+});
+
 app.listen(8080); //charge all the express
 console.log("Server ON");

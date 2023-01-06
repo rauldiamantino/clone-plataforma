@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<!-- HEAD -->
+<%- include('../partials/head', {title: 'Meu Carrinho'}); %>
+
+<body>
+    <!-- HEADER -->
+    <%- include('../partials/header'); %>
+
+       <!-- MAIN -->
+       <main>
+            <section class="container-cart w-full h-full divide-y divide-gray-200 px-2.5">
+                    <div class="cart-top-button w-full mt-6 grid grid-cols-2 gap-4 content-center lg:w-1/2 lg:mx-auto">
+                        <button class="cart-button bg-gradient-to-b from-black to-black/80 text-white text-sm py-2.5 w-full border-1 border-black rounded-md col-start-1 col-end-3">Finalizar compra</button>
+                        <a href="" class="hover:no-underline">
+                            <button class="py-2 px-3 w-full bg-neutral-100 hover:underline text-sm font-bold rounded-md flex items-center justify-center gap-1">
+                                <img src="./images/arrow-back.svg" class="w-5 h-5">
+                                Continuar comprando
+                            </button>
+                        </a>
+                        <a href="" class="hover:no-underline">
+                            <button class="py-2 px-3 w-full bg-neutral-100 hover:underline text-sm font-bold rounded-md flex items-center justify-center gap-1">
+                                <img src="./images/share.svg" class="w-4 h-4">
+                                Compartilhar carrinho
+                            </button>
+                        </a>
+                    </div>
+                    
+                    <form action="" class="cart-form flex flex-col gap-2 mt-6 lg:w-1/2 mx-auto">
+                        <section class="cart-form-product py-4 flex items-start justify-center gap-2">
+                            <div class="cart-form-product-img">
+                                <img class="w-28 h-auto" src="../images/products/1.jpg">
+                            </div>
+                            <div class="cart-form-product-text w-full">
+                                <div class="cart-form-product-text-top grid grid-2col-product-page grid-rows-2 justify-between items-center gap-y-3">
+                                    <h2 class="font-bold self-start leading-none hover:underline cursor-pointer">Tênis Old</h2>
+                                    <div class="cart-form-product-text-top-variations text-sm">
+                                        Cor: <span class="cart-form-product-text-top-variations-first">Preto</span>, 
+                                        Tamanho: <span class="cart-form-product-text-top-variations-second">P</span>
+                                    </div>
+                                    <img class="w-7 h-7 row-start-1 row-end-3 col-start-2 cursor-pointer" src="../images/delete.svg" alt="">
+                                </div>
+                                <div class="cart-form-product-text-bottom flex justify-between mt-8 text-right">
+                                    <input type="number" min="1" value="1" class="border rounded-md bg-gray-200/25 w-12 pl-2 py-1 text-center">
+
+                                    <div class="cart-form-product-text-bottom-values">
+                                        <p class="text-xs font-bold">2x R$ 90,00</p>
+                                        <p class="font-bold">R$ 180,00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>                        
+                    </form>
+
+                    <section class="container-cart-shipping py-4 flex justify-end">
+                        <div class="grid grid-cols-grid-2col-product-page items-center gap-2 w-2/3 py-4">
+                            <div>
+                                <h2 class="font-bold">Frete Grátis para</h2> <p class="text-sm"><span class="font-bold">todo o Brasil</span> nas compras acima de <span class="font-bold">R$ 399,00</span></p>
+                            </div>
+                            <img src="../images/package.svg" class="w-8 h-8">
+                        </div>
+                    </section>
+                    
+                    <section class="container-cart-discount-coupon px-4 mb-8 divide-y divide-gray-200 bg-gray-100 rounded-lg border border-gray-200">
+                        <section class="flex gap-2 w-full justify-between items-center py-4">    
+                            <div class="w-full flex flex-col gap-2">
+                                <label for="ccdc-coupon" class="text-sm">Cupom de desconto</label>
+                                <div class="flex w-full gap-2">
+                                    <input type="text" id="ccdc-coupon" class="py-2 rounded-md w-full outline-none border border-gray-400 focus:border-indigo-500 px-4">
+                                    <button class="cart-button bg-gradient-to-b from-black to-black/80 text-white text-sm py-2 px-5 border-1 border-black rounded-md col-start-1 col-end-3 outline-none">Aplicar</button>
+                                </div>
+                            </div>                        
+                        </section>
+
+                        <section class="flex gap-2 w-full justify-between items-center">    
+                            <div class="w-full flex justify-between gap-2 py-4">
+                                <p class="text-sm">Subtotal*</p>
+                                <div class="text-right">
+                                    <p class="ccdcb-subtotal font-bold">R$ <span>530,00</span></p>
+                                    <p class="ccdcb-items text-xs">2 itens</p>
+                                </div>
+                            </div>                        
+                        </section>
+                        <section class="flex gap-2 w-full justify-between items-center">    
+                            <div class="w-full flex justify-between gap-2 py-4">
+                                <p class="text-sm">Frete*</p>
+                                <p class="ccdcb-shipping cursor-pointer underline text-xs">Calcular Frete</p>
+                            </div>                        
+                        </section>
+                        <section class="flex gap-2 w-full justify-between items-center">    
+                            <div class="w-full flex justify-between gap-2 py-4">
+                                <p class="text-sm">Total*</p>
+                                <div class="text-right">
+                                    <p class="ccdcb-total font-bold">R$ <span class="container-cart-discount-coupon-total">530,00</span></p>
+                                    <p class="ccdcb-see-parcels cursor-pointer underline text-xs">Ver parcelamentos</p>
+                                </div>                              
+                            </div>                                
+                        </section>
+
+                        <button class="cart-button bg-gradient-to-b from-black to-black/80 text-white text-sm py-2.5 w-full border-1 border-black rounded-md col-start-1 col-end-3 mb-5">Finalizar compra</button>                    
+                    </section>
+
+                    <section class="container-cart-shipping py-4 flex justify-end">
+                        <p class="text-xs text-center py-2">*O carrinho de compras armazena temporariamente uma lista dos produtos e não garante a disponibilidade em estoque no momento da compra. O preço e a disponibilidade dos produtos estão sujeitos a alterações.</p>
+                    </section>                                                
+
+                    <section>
+                        <!-- PRODUCT LINE -->
+                        <%- include('../partials/prodCarousel/product-carousel-1', {
+                            titleCarousel: "VISUALIZADOS RECENTEMENTE",
+                        }); %>
+                    </section>
+
+                    <!-- CART - PAYMENT -->
+                    <section class="product-payment-cart-background bg-black/95 min-w-full min-h-full fixed top-0 left-0 hidden z-20">
+                    </section>
+
+                    <section class="product-payment-internal-cart scale-0 bg-white w-max text-left lg:w-96 h-min p-9 fixed text-base -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 z-20">
+                        <button class="btn-close-payment-cart absolute -top-4 -right-4 rounded-full bg-red-600 border-2"><img src="../images/close-white.svg" class="w-5 h-5 m-1"></button>
+                        <p class="font-bold">Cartão de Crédito</p>
+                        <ul class="product-payment-credit">
+                        </ul>
+                        <p class="font-bold mt-4">Boleto</p>
+                        <ul class="product-payment-ticket">
+                            <li>1x R$ 104,50 (desconto de 5%)</li>
+                        </ul>
+                    </section>
+                    
+            </section>
+       </main>
+       <!-- SCRIPTS -->
+       <%- include('../partials/scripts'); %>
+ </body>
+
+</html>

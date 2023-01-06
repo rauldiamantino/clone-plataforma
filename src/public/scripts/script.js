@@ -20,6 +20,7 @@ const clickedButton = $button => {
           verifyBannerCarouselButton($button);
           getProductList($button);
           currentImageManipulation($button);
+          getProductWithVariationsModal($button);
           submitLogin($button, e);
           submitRegister($button, e);
           submitContact($button, e);

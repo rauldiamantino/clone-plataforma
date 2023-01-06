@@ -59,8 +59,6 @@ const setProductVariations = ($product, $modalProduct) => {
 
 const deleteTextsPrev = $variation => ($variation.innerHTML = "");
 
-const sizesOfTheFirstColorVariation = $secondProductVariation => {};
-
 const setColorVariations = ($firstProductVariation, $modalVariations) => {
      const $productColors = $firstProductVariation.querySelectorAll(".prod-variations-color");
      const $productImgs = $firstProductVariation.querySelectorAll(".product-data-source-img");

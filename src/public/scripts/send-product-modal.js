@@ -1,6 +1,14 @@
 const checkIfIsPurchaseBtn = $button => $button.id == "product-purchase";
-const saveProductInTheLocalStorage = $product =>
-     localStorage.setItem(`$product-${$product.code}`, JSON.stringify($product));
+const saveProdToLocalStorage = $product => localStorage.setItem(`$product-${$product.code}`, JSON.stringify($product));
+const removeLocalStorageItem = productCodeLocalStorage => localStorage.removeItem(productCodeLocalStorage);
+const removeLocalStorageAllItems = productCodeLocalStorage => localStorage.removeItem(productCodeLocalStorage);
+const returnLocalStorageAllItems = () => Object.keys(localStorage);
+const returnLocalStorageItem = productCodeLocalStorage => {
+     const productLocalStorageString = localStorage.getItem(productCodeLocalStorage);
+     const productLocalStorageObj = JSON.parse(productLocalStorageString);
+
+     return productLocalStorageObj;
+};
 
 const getProductWithVariationsModal = $button => {
      if (checkIfIsPurchaseBtn($button)) {
@@ -28,14 +36,6 @@ const checkIfVariationsAreSelecteds = $product => {
      if ($product.firstVariation == "" || $product.secondVariation == "") {
           alert("Por favor escolha uma das variações");
      } else {
-          saveProductInTheLocalStorage($product);
+          saveProdToLocalStorage($product);
      }
-};
-
-const returnAllLocalStorage = () => Object.keys(localStorage);
-
-const returnLocalStorageItem = productCodeLocalStorage => {
-     const productLocalStorageString = localStorage.getItem(productCodeLocalStorage);
-     const productLocalStorageObj = JSON.parse(productLocalStorageString);
-     return productLocalStorageObj;
 };

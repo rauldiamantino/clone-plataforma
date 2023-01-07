@@ -91,6 +91,7 @@ const deleteProdCookie = $nameCookieStr => {
      data = data.toGMTString();
 
      document.cookie = `${$nameCookieStr}=-1; expires= ${data} ;`;
+     window.location.reload(true);
 };
 
 /* - Cart - see-parcels

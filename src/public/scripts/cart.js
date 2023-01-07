@@ -1,7 +1,62 @@
 /* - Fields cart
 -------------------------------------------------------------------------*/
 let $containerPageCart = document.querySelector(".product-cart");
-const includeProd = `<%- include('../../partials/products/products-localStorage');%>`;
+let $productsCartCookie = document.querySelectorAll(".prod-cart-cookie");
+
+$productsCartCookie.forEach($product => {
+     let $nameCookieStr;
+
+     $product.addEventListener("click", () => {
+          const $btnDelete = $product.querySelector(".cfptt-delete");
+          deleteProductCart($btnDelete);
+     });
+
+     $product.addEventListener("change", () => {
+          const $inputQty = $product.querySelector(".cfptb-qty");
+          $nameCookieStr = $inputQty.parentNode.parentNode.dataset.namecookie;
+          const $nameCookieObj = getProdCartObj($nameCookieStr);
+          changeQty($inputQty, $nameCookieObj);
+     });
+});
+
+const getProdCartObj = prodCartStr => JSON.parse(getCookie(prodCartStr));
+
+const changeQty = ($inputQty, $nameCookieStr) => {
+     const $prodCartObjectCookie = $nameCookieStr;
+
+     getProdPrintedCart($inputQty, $prodCartObjectCookie);
+};
+
+const getProdPrintedCart = (field, $prodCartObjectCookie) => {
+     const $prodQty = field.parentNode.parentNode.parentNode.querySelector(".cfptb-qty").value;
+
+     const $productCartToChange = {
+          name: $prodCartObjectCookie.name,
+          code: $prodCartObjectCookie.code,
+          reference: $prodCartObjectCookie.reference,
+          price: $prodCartObjectCookie.price,
+          firstVariation: $prodCartObjectCookie.firstVariation,
+          secondVariation: $prodCartObjectCookie.secondVariation,
+          qty: $prodQty,
+     };
+
+     console.log("update:");
+     console.log($productCartToChange);
+     console.log("origin:");
+     console.log($prodCartObjectCookie);
+
+     saveProdToCookie($productCartToChange);
+};
+
+const deleteProductCart = $btnDelete => {
+     const $prodFromBtn = $btnDelete.parentNode.parentNode;
+     calcTotalCartFromBtn($prodFromBtn);
+};
+
+const calcTotalCartFromBtn = $prodFromBtn => {
+     const $qtyInput = $prodFromBtn.querySelector(".cfptb-qty").value;
+     const $qtyPrintedText = $prodFromBtn.querySelector(".qtyPartialPrice").innerText;
+};
 
 /* - Cart - see-parcels
 -------------------------------------------------------------------------*/

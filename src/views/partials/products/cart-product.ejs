@@ -21,13 +21,17 @@
             <div class="product-cart mt-6 border-y border-gray-200">
                 <% if(totalCookies > 0) { %>
                     <% for (const cart in carts) { %>
-                        <% const objCart = JSON.parse(carts[cart]) %>                                 
+                        <% const objCart = JSON.parse(carts[cart]) %>   
+                            <% const nameCookie = cart %>                              
                             <%- include('../../partials/products/products-localStorage', {
+                                nameCookie: nameCookie,
                                 prodTitleCart: objCart.name,
+                                prodCode: objCart.code,
+                                prodReference: objCart.reference,
                                 firstVariationCart: objCart.firstVariation,
                                 secondVariationCart: objCart.secondVariation,
                                 qtyProdCart: objCart.qty,
-                                priceProdCar: objCart.price,                                
+                                priceProdCar: objCart.price,                                                                
                             }); %>
                     <% } %>
                 <% } %>

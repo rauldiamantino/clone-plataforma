@@ -16,7 +16,6 @@ const getDataProductSelectedModal = $modal => {
           firstVariation: $modal.querySelector(".first-variation-selected").innerText,
           secondVariation: $modal.querySelector(".second-variation-selected").innerText,
           qty: $modal.querySelector("#product-quantity").value,
-          cep: $modal.querySelector("#product-shipping-cep").value,
      };
 
      checkIfVariationsAreSelecteds($productCart);
@@ -35,7 +34,7 @@ const saveProdToCookie = $productCart => {
      let data = new Date(2023, 1, 01);
      data = data.toGMTString();
 
-     document.cookie = `C${$productCart.code}F${$productCart.firstVariation}S${$productCart.secondVariation}Q${$productCart.qty}=${$productCartToJSON}; expires= ${data} ;`;
+     document.cookie = `C${$productCart.code}F${$productCart.firstVariation}S${$productCart.secondVariation}=${$productCartToJSON}; expires= ${data} ;`;
 };
 
 const getCookie = name => {

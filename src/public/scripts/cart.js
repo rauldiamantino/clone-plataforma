@@ -5,9 +5,16 @@ let $productsCartCookie = document.querySelectorAll(".prod-cart-cookie");
 
 const getProdCartObj = prodCartStr => JSON.parse(getCookie(prodCartStr));
 
+const deleteProdCookie = $nameCookieStr => {
+     let data = new Date(2022, 1, 01);
+     data = data.toGMTString();
+
+     document.cookie = `${$nameCookieStr}=-1; expires= ${data} ;`;
+     window.location.reload(true);
+};
+
 const changeQty = ($inputQty, $nameCookieStr) => {
      const $prodCartObjectCookie = $nameCookieStr;
-
      getProdPrintedCart($inputQty, $prodCartObjectCookie);
 };
 
@@ -70,29 +77,18 @@ $productsCartCookie.forEach($product => {
      $product.addEventListener("change", () => {
           $nameCookieStr = $inputQty.parentNode.parentNode.dataset.namecookie;
           const $nameCookieObj = getProdCartObj($nameCookieStr);
+          deleteProdCookie($nameCookieStr);
           changeQty($inputQty, $nameCookieObj);
      });
 
-     $product.addEventListener("click", () => {
-          $nameCookieStr = $inputQty.parentNode.parentNode.dataset.namecookie;
+     $product.addEventListener("click", event => {
           const $btnDelete = $product.querySelector(".cfptt-delete");
-          deleteProductCart($nameCookieStr, $btnDelete);
+          if (event.composedPath()[0] === $btnDelete) {
+               $nameCookieStr = $btnDelete.parentNode.parentNode.dataset.namecookie;
+               deleteProdCookie($nameCookieStr);
+          }
      });
 });
-
-const deleteProductCart = ($nameCookieStr, $btnDelete) => {
-     const $nameCookieObj = getProdCartObj($nameCookieStr);
-
-     deleteProdCookie($nameCookieStr);
-};
-
-const deleteProdCookie = $nameCookieStr => {
-     let data = new Date(2022, 1, 01);
-     data = data.toGMTString();
-
-     document.cookie = `${$nameCookieStr}=-1; expires= ${data} ;`;
-     window.location.reload(true);
-};
 
 /* - Cart - see-parcels
 -------------------------------------------------------------------------*/

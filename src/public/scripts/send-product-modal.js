@@ -34,7 +34,7 @@ const saveProdToCookie = $productCart => {
      let data = new Date(2023, 1, 01);
      data = data.toGMTString();
 
-     document.cookie = `C${$productCart.code}F${$productCart.firstVariation}S${$productCart.secondVariation}=${$productCartToJSON}; expires= ${data} ;`;
+     document.cookie = `C${$productCart.code}F${$productCart.firstVariation}S${$productCart.secondVariation}Q${$productCart.qty}=${$productCartToJSON}; expires= ${data} ;`;
 };
 
 const getCookie = name => {

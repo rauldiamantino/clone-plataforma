@@ -29,6 +29,7 @@ const getProdPrintedCart = (field, $prodCartObjectCookie) => {
           reference: $prodCartObjectCookie.reference,
           price: $prodCartObjectCookie.price,
           firstVariation: $prodCartObjectCookie.firstVariation,
+          image: $prodCartObjectCookie.image,
           secondVariation: $prodCartObjectCookie.secondVariation,
           qty: $prodQtyInput,
      };

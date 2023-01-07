@@ -14,6 +14,7 @@ const getDataProductSelectedModal = $modal => {
           reference: $modal.querySelector(".modal-product-ref").innerText,
           price: $modal.querySelector("#prod-price").innerText,
           firstVariation: $modal.querySelector(".first-variation-selected").innerText,
+          image: $modal.querySelector(".product-images img").src,
           secondVariation: $modal.querySelector(".second-variation-selected").innerText,
           qty: $modal.querySelector("#product-quantity").value,
      };

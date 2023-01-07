@@ -8,7 +8,7 @@ const getProductWithVariationsModal = $button => {
 };
 
 const getDataProductSelectedModal = $modal => {
-     const $product = {
+     const $productCart = {
           name: $modal.querySelector("#prod-name").innerText,
           code: $modal.querySelector(".modal-product-code").innerText,
           reference: $modal.querySelector(".modal-product-ref").innerText,
@@ -19,23 +19,23 @@ const getDataProductSelectedModal = $modal => {
           cep: $modal.querySelector("#product-shipping-cep").value,
      };
 
-     checkIfVariationsAreSelecteds($product);
+     checkIfVariationsAreSelecteds($productCart);
 };
 
-const checkIfVariationsAreSelecteds = $product => {
-     if ($product.firstVariation == "" || $product.secondVariation == "") {
+const checkIfVariationsAreSelecteds = $productCart => {
+     if ($productCart.firstVariation == "" || $productCart.secondVariation == "") {
           alert("Por favor escolha uma das variações");
      } else {
-          saveProdToCookie($product);
+          saveProdToCookie($productCart);
      }
 };
 
-const saveProdToCookie = $product => {
-     const $productToJSON = JSON.stringify($product);
+const saveProdToCookie = $productCart => {
+     const $productCartToJSON = JSON.stringify($productCart);
      let data = new Date(2023, 1, 01);
      data = data.toGMTString();
 
-     document.cookie = `C${$product.code}F${$product.firstVariation}S${$product.secondVariation}Q${$product.qty}=${$productToJSON}; expires= ${data} ;`;
+     document.cookie = `C${$productCart.code}F${$productCart.firstVariation}S${$productCart.secondVariation}Q${$productCart.qty}=${$productCartToJSON}; expires= ${data} ;`;
 };
 
 const getCookie = name => {

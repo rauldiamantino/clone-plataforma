@@ -3,6 +3,7 @@
 <!-- HEAD -->
 <%- include('../partials/head', {title: 'Meu Carrinho'}); %>
 
+
 <body>
     <!-- HEADER -->
     <%- include('../partials/header'); %>
@@ -13,7 +14,7 @@
                 <%- include('../partials/products/cart-product',{
                     totalCookies: cookiesLength,
                     cookiesCarts: carts,
-                });%>            
+                });%>          
             </section>
 
             <section class="border-t border-gray-200 mx-2.5 lg:w-9/12 lg:mx-auto"></section>
@@ -24,7 +25,11 @@
                     titleCarousel: "VISUALIZADOS RECENTEMENTE",
                 }); %>
             </section>
+
+            <!-- MODAL -->
+            <%- include('../partials/modal'); %>
        </main>
+       
        <!-- SCRIPTS -->
        <%- include('../partials/scripts'); %>
  </body>

@@ -2,7 +2,10 @@
 -------------------------------------------------------------------------*/
 
 const $products = document.querySelectorAll(".product");
-const clickedProduct = $product => $product.addEventListener("click", () => openModal($product));
+const clickedProduct = $product =>
+     $product.addEventListener("click", () => {
+          openModal($product);
+     });
 $products.forEach(clickedProduct);
 
 /* - MODAL

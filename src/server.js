@@ -4,6 +4,7 @@ const cookieParser = require("cookie-parser");
 
 app.set("view engine", "ejs"); // talks to the express how to open the archive html
 app.use(express.static("public"));
+app.use(cookieParser());
 
 app.get("/", function (req, res) {
      res.render("pages/index");
@@ -49,15 +50,12 @@ app.get("/calcados/feminino", function (req, res) {
      res.render("pages/calcados/feminino");
 });
 
-app.use(cookieParser());
-
 app.get("/carrinho", function (req, res) {
      let cookiesNameCarts = req.cookies;
      let cookiesObjCart;
 
      for (const obj in cookiesNameCarts) {
-          cookiesObjCart = JSON.parse(cookiesNameCarts[obj]);
-          console.log(cookiesObjCart);
+          cookiesObjCart = cookiesNameCarts[obj];
      }
 
      res.render("pages/carrinho", {

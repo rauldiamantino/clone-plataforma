@@ -47,10 +47,24 @@ const updateTotalPriceCart = ($nameCookieStr, $inputQty) => {
      changeQty($inputQty, $nameCookieObj);
 };
 
+const updateProductNameCart = ($nameCookieStr, $nameProductCart) => {
+     $nameCookieStr = $nameProductCart.parentNode.parentNode.dataset.namecookie;
+     const $nameCookieObj = getProdCartObj($nameCookieStr);
+     const newNameProductCart = $nameCookieObj.name;
+
+     changeNameProdCart($nameProductCart, newNameProductCart);
+};
+
+const changeNameProdCart = ($nameProductCart, newNameProductCart) => {
+     $nameProductCart.innerText = newNameProductCart;
+};
+
 $productsCartCookie.forEach($product => {
      let $nameCookieStr;
      const $inputQty = $product.querySelector(".cfptb-qty");
+     const $nameProductCart = $product.querySelector(".cfptt-title");
 
+     updateProductNameCart($nameCookieStr, $nameProductCart);
      updateTotalPriceCart($nameCookieStr, $inputQty);
 
      $product.addEventListener("change", () => {

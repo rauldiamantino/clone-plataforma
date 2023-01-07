@@ -47,8 +47,3 @@ const getCookie = name => {
 
      return cookie[name];
 };
-
-// console.log(JSON.parse(getCookie("001-P-1")));
-
-var todos_os_cookies = document.cookie;
-// console.log(todos_os_cookies);

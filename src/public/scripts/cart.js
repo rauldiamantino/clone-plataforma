@@ -3,22 +3,6 @@
 let $containerPageCart = document.querySelector(".product-cart");
 let $productsCartCookie = document.querySelectorAll(".prod-cart-cookie");
 
-$productsCartCookie.forEach($product => {
-     let $nameCookieStr;
-
-     $product.addEventListener("click", () => {
-          const $btnDelete = $product.querySelector(".cfptt-delete");
-          deleteProductCart($btnDelete);
-     });
-
-     $product.addEventListener("change", () => {
-          const $inputQty = $product.querySelector(".cfptb-qty");
-          $nameCookieStr = $inputQty.parentNode.parentNode.dataset.namecookie;
-          const $nameCookieObj = getProdCartObj($nameCookieStr);
-          changeQty($inputQty, $nameCookieObj);
-     });
-});
-
 const getProdCartObj = prodCartStr => JSON.parse(getCookie(prodCartStr));
 
 const changeQty = ($inputQty, $nameCookieStr) => {
@@ -28,8 +12,10 @@ const changeQty = ($inputQty, $nameCookieStr) => {
 };
 
 const getProdPrintedCart = (field, $prodCartObjectCookie) => {
-     const $prodQty = field.parentNode.parentNode.parentNode.querySelector(".cfptb-qty").value;
-
+     const $prodQtyInput = field.parentNode.parentNode.parentNode.querySelector(".cfptb-qty").value;
+     const $prodQtyPrice = field.parentNode.parentNode.parentNode.querySelector(".qtyPartialPrice");
+     const $prodPrice = field.parentNode.parentNode.parentNode.querySelector(".partialPrice");
+     const $totalPrice = field.parentNode.parentNode.parentNode.querySelector(".cfptb-total-price");
      const $productCartToChange = {
           name: $prodCartObjectCookie.name,
           code: $prodCartObjectCookie.code,
@@ -37,26 +23,47 @@ const getProdPrintedCart = (field, $prodCartObjectCookie) => {
           price: $prodCartObjectCookie.price,
           firstVariation: $prodCartObjectCookie.firstVariation,
           secondVariation: $prodCartObjectCookie.secondVariation,
-          qty: $prodQty,
+          qty: $prodQtyInput,
      };
-
-     console.log("update:");
-     console.log($productCartToChange);
-     console.log("origin:");
-     console.log($prodCartObjectCookie);
-
      saveProdToCookie($productCartToChange);
+     printNewQtyPrice($prodQtyPrice, $prodQtyInput);
+     printNewTotalPriceCart(calcTotalProdCart($prodQtyInput, $prodPrice), $totalPrice);
 };
 
-const deleteProductCart = $btnDelete => {
-     const $prodFromBtn = $btnDelete.parentNode.parentNode;
-     calcTotalCartFromBtn($prodFromBtn);
+const printNewQtyPrice = ($prodQtyPrice, $prodQtyInput) => ($prodQtyPrice.innerText = $prodQtyInput);
+
+const printNewTotalPriceCart = (newTotal, $totalPrice) => ($totalPrice.innerText = newTotal);
+
+const calcTotalProdCart = ($prodQtyInput, $prodPrice) => {
+     const qty = $prodQtyInput;
+     const price = removeFormatNumber($prodPrice.innerText);
+     const total = formatNumber(qty * price);
+     return total;
 };
 
-const calcTotalCartFromBtn = $prodFromBtn => {
-     const $qtyInput = $prodFromBtn.querySelector(".cfptb-qty").value;
-     const $qtyPrintedText = $prodFromBtn.querySelector(".qtyPartialPrice").innerText;
+const updateTotalPriceCart = ($nameCookieStr, $inputQty) => {
+     $nameCookieStr = $inputQty.parentNode.parentNode.dataset.namecookie;
+     const $nameCookieObj = getProdCartObj($nameCookieStr);
+     changeQty($inputQty, $nameCookieObj);
 };
+
+$productsCartCookie.forEach($product => {
+     let $nameCookieStr;
+     const $inputQty = $product.querySelector(".cfptb-qty");
+
+     updateTotalPriceCart($nameCookieStr, $inputQty);
+
+     $product.addEventListener("change", () => {
+          $nameCookieStr = $inputQty.parentNode.parentNode.dataset.namecookie;
+          const $nameCookieObj = getProdCartObj($nameCookieStr);
+          changeQty($inputQty, $nameCookieObj);
+     });
+
+     $product.addEventListener("click", () => {
+          const $btnDelete = $product.querySelector(".cfptt-delete");
+          // deleteProductCart($btnDelete);
+     });
+});
 
 /* - Cart - see-parcels
 -------------------------------------------------------------------------*/

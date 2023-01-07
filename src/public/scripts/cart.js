@@ -67,6 +67,14 @@ const changeNameProdCart = ($nameProductCart, newNameProductCart) => {
      $nameProductCart.innerText = newNameProductCart;
 };
 
+if ($productsCartCookie.length == 0) {
+     const cart = document.querySelector(".allProductsCart");
+     cart.classList.add("hidden");
+} else {
+     const cart = document.querySelector(".allProductsCart");
+     cart.classList.remove("hidden");
+}
+
 $productsCartCookie.forEach($product => {
      let $nameCookieStr;
      const $inputQty = $product.querySelector(".cfptb-qty");

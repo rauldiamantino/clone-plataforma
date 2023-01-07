@@ -1,14 +1,4 @@
 const checkIfIsPurchaseBtn = $button => $button.id == "product-purchase";
-const saveProdToLocalStorage = $product => localStorage.setItem(`$product-${$product.code}`, JSON.stringify($product));
-const removeLocalStorageItem = productCodeLocalStorage => localStorage.removeItem(productCodeLocalStorage);
-const removeLocalStorageAllItems = productCodeLocalStorage => localStorage.clear();
-const returnLocalStorageAllItems = () => Object.keys(localStorage);
-const returnLocalStorageItem = productCodeLocalStorage => {
-     const productLocalStorageString = localStorage.getItem(productCodeLocalStorage);
-     const productLocalStorageObj = JSON.parse(productLocalStorageString);
-
-     return productLocalStorageObj;
-};
 
 const getProductWithVariationsModal = $button => {
      if (checkIfIsPurchaseBtn($button)) {
@@ -25,7 +15,7 @@ const getDataProductSelectedModal = $modal => {
           price: $modal.querySelector("#prod-price").innerText,
           firstVariation: $modal.querySelector(".first-variation-selected").innerText,
           secondVariation: $modal.querySelector(".second-variation-selected").innerText,
-          qtde: $modal.querySelector("#product-quantity").value,
+          qty: $modal.querySelector("#product-quantity").value,
           cep: $modal.querySelector("#product-shipping-cep").value,
      };
 
@@ -36,6 +26,30 @@ const checkIfVariationsAreSelecteds = $product => {
      if ($product.firstVariation == "" || $product.secondVariation == "") {
           alert("Por favor escolha uma das variações");
      } else {
-          saveProdToLocalStorage($product);
+          saveProdToCookie($product);
      }
 };
+
+const saveProdToCookie = $product => {
+     const $productToJSON = JSON.stringify($product);
+     let data = new Date(2023, 1, 01);
+     data = data.toGMTString();
+
+     document.cookie = `C${$product.code}F${$product.firstVariation}S${$product.secondVariation}Q${$product.qty}=${$productToJSON}; expires= ${data} ;`;
+};
+
+const getCookie = name => {
+     let cookie = {};
+
+     document.cookie.split(";").forEach(function (el) {
+          let [k, v] = el.split("=");
+          cookie[k.trim()] = v;
+     });
+
+     return cookie[name];
+};
+
+// console.log(JSON.parse(getCookie("001-P-1")));
+
+var todos_os_cookies = document.cookie;
+// console.log(todos_os_cookies);

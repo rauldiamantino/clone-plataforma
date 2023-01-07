@@ -1,0 +1,102 @@
+<section class="divide-y divide-gray-200 lg:w-9/12 lg:mx-auto lg:flex lg:flex-col">
+    <section class="lg:mx-auto lg:flex lg:w-full">
+        <div class="lg:w-full lg:pr-4">
+            <div class="cart-top-button w-full mt-6 grid grid-cols-2 gap-4 content-center lg:flex">
+                <button class="cart-button bg-gradient-to-b from-black to-black/80 text-white text-sm py-2.5 w-full border-1 border-black rounded-md col-start-1 col-end-3 lg:hidden">Finalizar compra</button>
+
+                <a href="/">
+                    <button class="cart-btn-back py-2 px-3 w-full lg:w-max bg-neutral-100 hover:underline text-sm font-bold rounded-md flex items-center justify-center gap-1 ">
+                        <img src="./images/arrow-back.svg" class="w-5 h-5">
+                        Continuar comprando
+                    </button>
+                </a>
+
+                <button class="py-2 px-3 lg:w-max bg-neutral-100 hover:underline text-sm font-bold rounded-md flex items-center justify-center gap-1">
+                    <img src="./images/share.svg" class="w-4 h-4">
+                    Compartilhar carrinho
+                </button>
+
+            </div>
+
+            <div class="product-cart mt-6 border-y border-gray-200">
+                <% if(totalCookies > 0) { %>
+                    <% for (const cart in carts) { %>
+                        <% const objCart = JSON.parse(carts[cart]) %>                                 
+                            <%- include('../../partials/products/products-localStorage', {
+                                prodTitleCart: objCart.name,
+                                firstVariationCart: objCart.firstVariation,
+                                secondVariationCart: objCart.secondVariation,
+                                qtyProdCart: objCart.qty,
+                                priceProdCar: objCart.price,                                
+                            }); %>
+                    <% } %>
+                <% } %>
+            </div>
+
+            <section class="container-cart-shipping py-4 flex justify-end lg:justify-start lg:px-2">
+                <div class="grid grid-cols-grid-2col-product-page items-center gap-2 w-2/3 lg:w-full py-4 lg:justify-start lg:gap-4">
+                    <div class="lg:order-1">
+                        <h2 class="font-bold">Frete Grátis para</h2>
+                        <p class="text-sm"><span class="font-bold">todo o Brasil</span> nas compras acima de <span class="font-bold">R$ 399,00</span></p>
+                    </div>
+                    <img src="../images/package.svg" class="w-8 h-8">
+                </div>
+            </section>
+        </div>
+        <section class="container-cart-discount-coupon px-4 mb-8 lg:mb-6 divide-y divide-gray-200 bg-gray-100 rounded-lg border border-gray-200 lg:min-w-64 lg:h-max">
+            <section class="flex gap-2 w-full justify-between items-center py-4">
+                <div class="w-full flex flex-col gap-2">
+                    <label for="ccdc-coupon" class="text-sm">Cupom de desconto</label>
+                    <div class="flex w-full gap-2">
+                        <input type="text" id="ccdc-coupon" class="rounded-md w-full outline-none border border-gray-400 focus:border-indigo-500 px-4 lg:w-32">
+                        <button class="cart-button bg-gradient-to-b from-black to-black/80 text-white text-sm py-2 px-5 border-1 border-black rounded-md col-start-1 col-end-3 outline-none">Aplicar</button>
+                    </div>
+                </div>
+            </section>
+            <section class="flex gap-2 w-full justify-between items-center">
+                <div class="w-full flex justify-between gap-2 py-4">
+                    <p class="text-sm">Subtotal*</p>
+                    <div class="text-right">
+                        <p class="ccdcb-subtotal font-bold">R$ <span>530,00</span></p>
+                        <p class="ccdcb-items text-xs">2 itens</p>
+                    </div>
+                </div>
+            </section>
+            <section class="flex gap-2 w-full justify-between items-center">
+                <div class="w-full flex justify-between gap-2 py-4">
+                    <p class="text-sm">Frete*</p>
+                    <p class="ccdcb-shipping cursor-pointer underline text-xs">Calcular Frete</p>
+                </div>
+            </section>
+            <section class="flex gap-2 w-full justify-between items-center">
+                <div class="w-full flex justify-between gap-2 py-4">
+                    <p class="text-sm">Total*</p>
+                    <div class="text-right">
+                        <p class="ccdcb-total font-bold">R$ <span class="container-cart-discount-coupon-total">530,00</span></p>
+                        <p class="ccdcb-see-parcels cursor-pointer underline text-xs">Ver parcelamentos</p>
+                    </div>
+                </div>
+            </section>
+            <button class="cart-button bg-gradient-to-b from-black to-black/80 text-white text-sm py-2.5 w-full border-1 border-black rounded-md col-start-1 col-end-3 mb-4">Finalizar compra</button>
+        </section>
+    </section>
+
+    <section class="py-4 flex justify-end lg:w-2/3 lg:mx-auto ">
+        <p class="text-xs text-center py-2">*O carrinho de compras armazena temporariamente uma lista dos produtos e não garante a disponibilidade em estoque no momento da compra. O preço e a disponibilidade dos produtos estão sujeitos a alterações.</p>
+    </section>
+</section>
+
+<!-- CART - PAYMENT -->
+<section class="product-payment-cart-background bg-black/95 min-w-full h-screen fixed top-0 left-0 hidden z-20">
+</section>
+
+<section class="product-payment-internal-cart scale-0 bg-white w-max text-left lg:w-96 h-min p-9 fixed text-base -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 z-20">
+    <button class="btn-close-payment-cart absolute -top-4 -right-4 rounded-full bg-red-600 border-2"><img src="../images/close-white.svg" class="w-5 h-5 m-1"></button>
+    <p class="font-bold">Cartão de Crédito</p>
+    <ul class="product-payment-credit">
+    </ul>
+    <p class="font-bold mt-4">Boleto</p>
+    <ul class="product-payment-ticket">
+        <li>1x R$ 104,50 (desconto de 5%)</li>
+    </ul>
+</section>

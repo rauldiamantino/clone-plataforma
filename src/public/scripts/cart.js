@@ -1,3 +1,8 @@
+/* - Fields cart
+-------------------------------------------------------------------------*/
+let $containerPageCart = document.querySelector(".product-cart");
+const includeProd = `<%- include('../../partials/products/products-localStorage');%>`;
+
 /* - Cart - see-parcels
 -------------------------------------------------------------------------*/
 const $btnSeeParcelsCart = document.querySelector(".ccdcb-see-parcels");
@@ -14,7 +19,7 @@ const openParcelsCart = $btnSeeParcelsCart => {
      openModalContent($productPaymentCartContent);
      closeModalEscKey($productPaymentCartBackground);
      closeModalEscKey($productPaymentCartContent);
-      getProductPayments($productPrice, $productPaymentCartContent);
+     getProductPayments($productPrice, $productPaymentCartContent);
 };
 
 const closeParcelsCart = button => {
@@ -25,25 +30,6 @@ const closeParcelsCart = button => {
      if (isCloseCart) {
           $productPaymentCartBackground.classList.add("hidden");
           closeModalContent($productPaymentCartContent);
+          addProductToCart();
      }
 };
-
-// const getProductPayments = ($productPrice, $productPaymentCartContent) => {
-//      const $productPaymentCartCredit = document.querySelector(".product-payment-credit");
-//      const $productPaymentCartTicket = document.querySelector(".product-payment-ticket");
-
-//      printProductCreditParcels($productPrice, $productPaymentCartCredit);
-//      printProductTicket($productPrice, $productPaymentCartTicket);
-// };
-
-// const printProductCreditParcels = ($productPrice, $productPaymentCartCredit) => {
-//      const maxParcels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-//      $productPaymentCartCredit.innerHTML = "";
-//      maxParcels.forEach((parcel, index) => {
-//           const calculateParcel = formatNumber($productPrice / parcel);
-//           const liContent = textParcel(index, calculateParcel);
-
-//           $productPaymentCartCredit.appendChild(createElementLi(liContent));
-//      });
-// };

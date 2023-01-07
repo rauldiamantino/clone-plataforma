@@ -1,0 +1,25 @@
+<form action="" class="flex flex-col gap-2 ">
+    <section class="cart-form-product py-4 flex items-start justify-center gap-2">
+        <div class="cart-form-product-img">
+            <img class="w-28 h-auto" src="../images/products/1.jpg">
+        </div>
+        <div class="cart-form-product-text w-full">
+            <div class="cart-form-product-text-top grid grid-2col-product-page grid-rows-2 justify-between items-center gap-y-3">
+                <h2 class="cfptt-title font-bold self-start leading-none hover:underline cursor-pointer"><%- prodTitleCart %></h2>
+
+                <div class="cart-form-product-text-top-variations text-sm">
+                    Cor: <span class="cfpttv-first"><%- firstVariationCart %></span>,
+                    Tamanho: <span class="cfpttv-second"><%- secondVariationCart %></span>
+                </div>
+                <img class="cfptt-image w-7 h-7 row-start-1 row-end-3 col-start-2 cursor-pointer" src="../images/delete.svg" alt="">
+            </div>
+            <div class="cart-form-product-text-bottom flex justify-between mt-8 text-right">
+                <input type="number" min="1" value="<%- qtyProdCart %>" class="cfptb-qty border rounded-md bg-gray-200/25 w-12 pl-2 py-1 text-center">
+                <div class="cart-form-product-text-bottom-values">
+                    <p class="cfptb-partial-price text-xs font-bold"><span class="qtyPartialPrice"><%- qtyProdCart %></span>x R$ <span class="totalPartialPrice">00</span></p>
+                    <p class="cfptb-total-price font-bold">R$ <%- priceProdCar %></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>

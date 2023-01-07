@@ -74,10 +74,24 @@ $productsCartCookie.forEach($product => {
      });
 
      $product.addEventListener("click", () => {
+          $nameCookieStr = $inputQty.parentNode.parentNode.dataset.namecookie;
           const $btnDelete = $product.querySelector(".cfptt-delete");
-          // deleteProductCart($btnDelete);
+          deleteProductCart($nameCookieStr, $btnDelete);
      });
 });
+
+const deleteProductCart = ($nameCookieStr, $btnDelete) => {
+     const $nameCookieObj = getProdCartObj($nameCookieStr);
+
+     deleteProdCookie($nameCookieStr);
+};
+
+const deleteProdCookie = $nameCookieStr => {
+     let data = new Date(2022, 1, 01);
+     data = data.toGMTString();
+
+     document.cookie = `${$nameCookieStr}=-1; expires= ${data} ;`;
+};
 
 /* - Cart - see-parcels
 -------------------------------------------------------------------------*/

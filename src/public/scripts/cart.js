@@ -69,10 +69,16 @@ const changeNameProdCart = ($nameProductCart, newNameProductCart) => {
 
 if ($productsCartCookie.length == 0) {
      const cart = document.querySelector(".allProductsCart");
+     const emptyCart = document.querySelector(".empty-cart");
+
      cart.classList.add("hidden");
+     emptyCart.classList.remove("hidden");
 } else {
      const cart = document.querySelector(".allProductsCart");
+     const emptyCart = document.querySelector(".empty-cart");
+
      cart.classList.remove("hidden");
+     emptyCart.classList.add("hidden");
 }
 
 $productsCartCookie.forEach($product => {

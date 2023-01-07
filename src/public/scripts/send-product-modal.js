@@ -27,6 +27,7 @@ const checkIfVariationsAreSelecteds = $productCart => {
           alert("Por favor escolha uma das variações");
      } else {
           saveProdToCookie($productCart);
+          window.location.href = "/carrinho";
      }
 };
 

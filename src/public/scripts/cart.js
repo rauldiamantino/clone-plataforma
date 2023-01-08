@@ -68,24 +68,19 @@ const changeNameProdCart = ($nameProductCart, newNameProductCart) => {
      $nameProductCart.innerText = newNameProductCart;
 };
 
-if ($productsCartCookie.length == 0) {
+const dontShowCartIfEmpty = () => {
      const cart = document.querySelector(".allProductsCart");
      const emptyCart = document.querySelector(".empty-cart");
 
-     if (cart) {
-          cart.classList.add("hidden");
-          emptyCart.classList.remove("hidden");
+     if ($productsCartCookie.length == 0) {
+          if (cart) cart.classList.add("hidden"), emptyCart.classList.remove("hidden");
+     } else {
+          cart.classList.remove("hidden"), emptyCart.classList.add("hidden");
      }
-} else {
-     const cart = document.querySelector(".allProductsCart");
-     const emptyCart = document.querySelector(".empty-cart");
+};
 
-     cart.classList.remove("hidden");
-     emptyCart.classList.add("hidden");
-}
-
-let totalPriceAllCarts = [];
-let totalItemsAllCarts = [];
+let totalPriceAllCarts = [0];
+let totalItemsAllCarts = [0];
 
 const printTotalsCartPage = () => {
      const $subTotalPriceCartPage = document.querySelector(".ccdcb-subtotal");
@@ -155,6 +150,7 @@ $productsCartCookie.forEach($product => {
      getTotalsBoxDiscount($product);
 });
 
+dontShowCartIfEmpty();
 printTotalsCartPage();
 
 /* - Cart - see-parcels

@@ -401,9 +401,7 @@ const createElementLi = liContent => {
      return li;
 };
 
-const formatNumber = number => number.toFixed(2).replace(".", ",");
 
-const removeFormatNumber = number => number.replace(",", ".");
 
 const closeParcelsModal = button => {
      const $productPaymentModalBackground = document.querySelector(".product-payment-modal-background");

@@ -55,10 +55,12 @@ O site se assemelha a uma loja real, no futuro você poderá fazer login, criar 
   <li>06/01/2023 - Armazena os produtos selecionados pelo cliente no localStorage</li>
   <li>06/01/2023 - Página do carrinho</li>
   <li>07/01/2023 - Alterei o local de armazenamento dos produtos para os Cookies</li>
-  <li>07/01/2023 - Os produtos armazenados nos cookies estão sendo recuperados no carrinho.</li>
+  <li>08/01/2023 - Os produtos armazenados nos cookies estão sendo recuperados no carrinho.</li>
 </ul>
 
 <h2 id="add">Imagens adicionais</h2>
+
+![image](https://user-images.githubusercontent.com/100098231/211219057-4b57e0f5-2015-4fd6-b26e-7611aa73149d.png)
 
 ![image](https://user-images.githubusercontent.com/100098231/209417908-5f9fec23-0898-4b0e-84da-ea362fb3bcd1.png)
 

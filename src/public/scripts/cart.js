@@ -84,6 +84,51 @@ if ($productsCartCookie.length == 0) {
      emptyCart.classList.add("hidden");
 }
 
+let totalPriceAllCarts = [];
+let totalItemsAllCarts = [];
+
+const printTotalsCartPage = () => {
+     const $subTotalPriceCartPage = document.querySelector(".ccdcb-subtotal");
+     const $totalItemsCartPage = document.querySelector(".ccdcb-items");
+     const $totalPriceCartPage = document.querySelector(".container-cart-discount-coupon-total");
+
+     printSubTotalPrice($subTotalPriceCartPage);
+     printSubTotalItems($totalItemsCartPage);
+     printTotalPrice($totalPriceCartPage);
+};
+
+const printSubTotalPrice = $subTotalPriceCartPage => {
+     if ($subTotalPriceCartPage) {
+          const total = totalPriceAllCarts.reduce((soma, i) => soma + i);
+          $subTotalPriceCartPage.innerText = formatNumber(total);
+     }
+};
+
+const printTotalPrice = $totalPriceCartPage => {
+     if ($totalPriceCartPage) {
+          const total = totalPriceAllCarts.reduce((soma, i) => soma + i);
+          $totalPriceCartPage.innerText = formatNumber(total);
+     }
+};
+
+const printSubTotalItems = $totalItemsAllCarts => {
+     if ($totalItemsAllCarts) {
+          const total = totalItemsAllCarts.reduce((soma, i) => soma + i);
+          let text;
+
+          total == 1 ? (text = "item") : (text = "itens");
+          $totalItemsAllCarts.innerText = `${total} ${text}`;
+     }
+};
+
+const getTotalsBoxDiscount = $product => {
+     const $prodCartTotalPrice = $product.querySelector(".cfptb-total-price").innerText;
+     const $prodCartTotalItems = $product.querySelector(".cfptb-qty").value;
+
+     totalPriceAllCarts.push(parseFloat(removeFormatNumber($prodCartTotalPrice)));
+     totalItemsAllCarts.push(parseFloat($prodCartTotalItems));
+};
+
 $productsCartCookie.forEach($product => {
      let $nameCookieStr;
      const $inputQty = $product.querySelector(".cfptb-qty");
@@ -106,7 +151,11 @@ $productsCartCookie.forEach($product => {
                deleteProdCookie($nameCookieStr);
           }
      });
+
+     getTotalsBoxDiscount($product);
 });
+
+printTotalsCartPage();
 
 /* - Cart - see-parcels
 -------------------------------------------------------------------------*/

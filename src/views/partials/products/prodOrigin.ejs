@@ -1,0 +1,37 @@
+<section class="product border cursor-pointer border-white hover:border-gray-200 duration-300">
+   <section class="product-data hidden">
+
+       <section class="product-data-main" data-prodCod="<%- product.code %>" data-prodRef="<%- product.reference %>" data-prodDesc="<%- product.description %>"></section>
+
+       <section class="product-data-variations">
+           <section class="product-data-variations-first">
+               <!-- color 2 -->
+               <% product.variations.firstVariation.colors?.forEach(function(color) { %>
+                   <div class="prod-variations-color border p-2 cursor-pointer" data-variation="<%= color.prodColor %>">
+                       <!-- images -->
+                       <section class="product-data-source">
+                           <% color.images.forEach(function(img){ %>
+                               <div class="product-data-source-img" data-img="<%= img %>"></div>                        
+                           <% }) %>
+                       </section>
+                       <!-- second variation -->
+                       <section class="product-data-variations-second">
+                           <% color.secondVariation?.forEach(function(variation){ %>
+                               <div class="prod-variations-size border p-2 cursor-pointer" data-variation="<%= variation %>"></div>                        
+                           <% }) %>
+                       </section>                        
+                   </div> 
+               <%}) %>">                  
+           </section>
+       </section>
+   </section>
+
+   <section class="product-image overflow-hidden">
+       <img src="<%- product.mainImage %>" class="w-full hover:scale-125 duration-700">
+   </section>
+
+   <section class="product-text text-center p-2">
+       <h3 class="text-sm prod-name"><%- product.name %></h3>
+       <p class="font-bold prod-price"><%- product.price %></p>
+   </section>
+</section>

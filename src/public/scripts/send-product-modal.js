@@ -2,7 +2,7 @@ const checkIfIsPurchaseBtn = $button => $button.id == "product-purchase";
 
 const getProductWithVariationsModal = $button => {
      if (checkIfIsPurchaseBtn($button)) {
-          const $modal = $button.parentNode.parentNode;
+          const $modal = $button.parentNode.parentNode.parentNode;
           getDataProductSelectedModal($modal);
      }
 };
@@ -17,6 +17,27 @@ const getDataProductSelectedModal = $modal => {
           image: $modal.querySelector(".product-images img").src,
           secondVariation: $modal.querySelector(".second-variation-selected").innerText,
           qty: $modal.querySelector("#product-quantity").value,
+          prodOrigin: {
+               product: {
+                    code: $modal.querySelector(".modal-product-code").innerText,
+                    reference: $modal.querySelector(".modal-product-ref").innerText,
+                    name: $modal.querySelector("#prod-name").innerText,
+                    price: $modal.querySelector("#prod-price").innerText,
+                    description: $modal.querySelector(".prod-description").innerText,
+                    mainImage: "../images/products/13.jpg",
+                    variations: {
+                         firstVariation: {
+                              colors: [
+                                   {
+                                        prodColor: "Branco",
+                                        images: ["../images/products/13.jpg", "../images/products/14.jpg"],
+                                        secondVariation: ["P", "M", "G"],
+                                   },
+                              ],
+                         },
+                    },
+               },
+          },
      };
 
      checkIfVariationsAreSelecteds($productCart);
@@ -33,7 +54,7 @@ const checkIfVariationsAreSelecteds = $productCart => {
 
 const saveProdToCookie = $productCart => {
      const $productCartToJSON = JSON.stringify($productCart);
-     let data = new Date(2023, 1, 01);
+     let data = new Date(2023, 12, 01);
      data = data.toGMTString();
 
      document.cookie = `C${$productCart.code}F${$productCart.firstVariation}S${$productCart.secondVariation}Q${$productCart.qty}=${$productCartToJSON}; expires= ${data} ;`;

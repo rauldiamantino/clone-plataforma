@@ -32,6 +32,7 @@ const getProdPrintedCart = (field, $prodCartObjectCookie) => {
           image: $prodCartObjectCookie.image,
           secondVariation: $prodCartObjectCookie.secondVariation,
           qty: $prodQtyInput,
+          prodOrigin: $prodCartObjectCookie.prodOrigin,
      };
      saveProdToCookie($productCartToChange);
      printNewQtyPrice($prodQtyPrice, $prodQtyInput);
@@ -71,8 +72,10 @@ if ($productsCartCookie.length == 0) {
      const cart = document.querySelector(".allProductsCart");
      const emptyCart = document.querySelector(".empty-cart");
 
-     cart.classList.add("hidden");
-     emptyCart.classList.remove("hidden");
+     if (cart) {
+          cart.classList.add("hidden");
+          emptyCart.classList.remove("hidden");
+     }
 } else {
      const cart = document.querySelector(".allProductsCart");
      const emptyCart = document.querySelector(".empty-cart");

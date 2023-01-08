@@ -23,6 +23,7 @@ const openModal = $product => {
      const $modalProductBackground = document.querySelector(".modal-product-background");
      const $ModalScrollTop = $modalProduct.querySelector(".modal-product-content-product-page");
      const $relatedProdCarouselModal = $modalProduct.querySelector(".productList");
+     const $prodObject = JSON.parse($product.querySelector(".product-obj-data").innerText);
 
      $ModalScrollTop.scrollTop = 0;
      $modalProductBackground.classList.remove("hidden");
@@ -30,8 +31,8 @@ const openModal = $product => {
      removeBackgroundScroll();
      closeModalEscKey($modalProduct);
      closeModalEscKey($modalProductBackground);
-     setProductTexts($product);
-     setProductVariations($product, $modalProduct);
+     setProductTexts($product, $prodObject);
+     setProductVariations($product, $modalProduct, $prodObject);
      resetPositionCarouselModal($relatedProdCarouselModal);
      document.body.onresize = () => resetPositionProductCarousel();
 };
@@ -52,24 +53,27 @@ const resetPositionCarouselModal = $carousel => {
 
 /* - MODAL - variations
 -------------------------------------------------------------------------*/
-const setProductVariations = ($product, $modalProduct) => {
+const setProductVariations = ($product, $modalProduct, $prodObject) => {
+     const $firstProductVariationObj = $prodObject.variations.firstVariation;
      const $firstProductVariation = $product.querySelector(".product-data-variations-first");
      const $modalVariations = $modalProduct.querySelectorAll(".modal-product-content-page-variations ul");
 
+     // console.log($prodObject)
+
      $modalVariations.forEach(deleteTextsPrev);
-     setColorVariations($firstProductVariation, $modalVariations);
+     setColorVariations($firstProductVariation, $modalVariations, Object.values($firstProductVariationObj));
 };
 
 const deleteTextsPrev = $variation => ($variation.innerHTML = "");
 
-const setColorVariations = ($firstProductVariation, $modalVariations) => {
-     const $productColors = $firstProductVariation.querySelectorAll(".prod-variations-color");
+const setColorVariations = ($firstProductVariation, $modalVariations, $firstProductVariationObj) => {
+     // const $productColors = $firstProductVariation.querySelectorAll(".prod-variations-color");
      const $productImgs = $firstProductVariation.querySelectorAll(".product-data-source-img");
      const $secondProductVariation = $firstProductVariation.querySelector(".product-data-variations-second");
      const $variationsColors = $secondProductVariation.parentNode.parentNode.querySelectorAll(".prod-variations-color");
      const $variationsColorsReverse = Array.from($variationsColors).reverse();
 
-     $productColors.forEach(findValidColorVariation);
+     $firstProductVariationObj.forEach(findValidColorVariation);
 
      $modalVariations.forEach($variation => {
           const $firstVariationSelected = $variation.parentNode.querySelector(".first-variation-selected");
@@ -101,13 +105,16 @@ const setColorVariations = ($firstProductVariation, $modalVariations) => {
      });
 };
 
-const findValidColorVariation = $color => {
+const findValidColorVariation = colors => {
      const $modalVariations = document.querySelectorAll(".modal-product-content-page-variations ul");
-     const liContent = $color.dataset.variation;
 
-     $modalVariations.forEach($variation => {
-          const $isModalFirstVariation = $variation.parentNode.classList.contains("first-variation");
-          if ($isModalFirstVariation) createLiVariationModal(liContent, $variation);
+     Object.values(colors).forEach(color => {
+          const liContent = color.prodColor;
+
+          $modalVariations.forEach($variation => {
+               const $isModalFirstVariation = $variation.parentNode.classList.contains("first-variation");
+               if ($isModalFirstVariation) createLiVariationModal(liContent, $variation);
+          });
      });
 };
 
@@ -172,22 +179,22 @@ const selectedVariationFormat = ($variation, $modalVariationsSelected) => {
      $variation.classList.add("bg-c-dark-gray", "text-white");
 };
 
-const setProductTexts = $product => {
+const setProductTexts = ($product, $prodObject) => {
      const $productCode = document.querySelector(".modal-product-code");
      const $productRef = document.querySelector(".modal-product-ref");
      const $productName = document.querySelector("#prod-name");
      const $productPrice = document.querySelector("#prod-price");
      const $productQty = document.querySelector("#product-quantity");
-     const $modalPrice = parseFloat($product.querySelector(".product .prod-price").innerText);
      const $productDescription = document.querySelector(".prod-description");
+     const $modalPrice = parseFloat($prodObject.price);
 
-     $productName.innerText = $product.querySelector(".product .prod-name").innerText;
+     $productName.innerText = $prodObject.name;
      $productPrice.innerText = formatNumber($modalPrice);
      $productQty.value = 1;
 
-     $productCode.innerText = $product.querySelector(".product-data-main").dataset.prodcod;
-     $productRef.innerText = $product.querySelector(".product-data-main").dataset.prodref;
-     $productDescription.innerText = $product.querySelector(".product-data-main").dataset.proddesc;
+     $productCode.innerText = $prodObject.code;
+     $productRef.innerText = $prodObject.reference;
+     $productDescription.innerText = $prodObject.description;
 };
 
 /* - MODAL - IMAGES OF THE PRODUCTS
@@ -347,12 +354,20 @@ const openParcelsModal = $btnSeeParcels => {
      getProductPayments($productPrice, $productPaymentModalContent);
 };
 
-const getProductPayments = ($productPrice, $productPaymentModalContent) => {
+const getProductPayments = ($productPrice, $productPaymentContent) => {
      const $productPaymentModalCredit = document.querySelector(".product-payment-credit");
      const $productPaymentModalTicket = document.querySelector(".product-payment-ticket");
+     const $productPaymentModalCreditCart = document.querySelector(".product-payment-credit-cart");
+     const $productPaymentModalTicketCart = document.querySelector(".product-payment-ticket-cart");
+     const isProductPaymentCartContent = $productPaymentContent.classList.contains("product-payment-internal-cart");
 
-     printProductCreditParcels($productPrice, $productPaymentModalCredit);
-     printProductTicket($productPrice, $productPaymentModalTicket);
+     if (isProductPaymentCartContent) {
+          printProductCreditParcels($productPrice, $productPaymentModalCreditCart);
+          printProductTicket($productPrice, $productPaymentModalTicketCart);
+     } else {
+          printProductCreditParcels($productPrice, $productPaymentModalCredit);
+          printProductTicket($productPrice, $productPaymentModalTicket);
+     }
 };
 
 const printProductCreditParcels = ($productPrice, $productPaymentModalCredit) => {

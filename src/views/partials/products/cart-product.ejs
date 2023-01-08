@@ -22,21 +22,29 @@
                 <% if(totalCookies > 0) { %>
                     <% for (const cart in carts) { %>
                         <% const objCart = JSON.parse(carts[cart]) %>   
-                            <% const nameCookie = cart %>                              
-                            <%- include('../../partials/products/products-localStorage', {
-                                nameCookie: nameCookie,
-                                prodTitleCart: objCart.name,
-                                prodCode: objCart.code,
-                                prodReference: objCart.reference,
-                                firstVariationCart: objCart.firstVariation,
-                                image: objCart.image,
-                                secondVariationCart: objCart.secondVariation,
-                                qtyProdCart: objCart.qty,
-                                priceProdCar: objCart.price,                                
-                            }); %>
-                    <% } %>
+                        <% const nameCookie = cart %>   
+                        <% const productOrigin = objCart.prodOrigin %>
+                        <%#- include('../../partials/products/prodOrigin', {
+                            product: productOrigin.product, 
+                        }); %>
+                        <%- include('../../partials/products/products-localStorage', {
+                            nameCookie: nameCookie,
+                            prodTitleCart: objCart.name,
+                            prodCode: objCart.code,
+                            prodReference: objCart.reference,
+                            firstVariationCart: objCart.firstVariation,
+                            image: objCart.image,
+                            secondVariationCart: objCart.secondVariation,
+                            qtyProdCart: objCart.qty,
+                            priceProdCar: objCart.price,                                                            
+                        }); %>
+                        
+                    <% } %>                    
                 <% } %>
+
+
             </div>
+
 
             <section class="container-cart-shipping py-4 flex justify-end lg:justify-start lg:px-2">
                 <div class="grid grid-cols-grid-2col-product-page items-center gap-2 w-2/3 lg:w-full py-4 lg:justify-start lg:gap-4">
@@ -98,10 +106,10 @@
 <section class="product-payment-internal-cart scale-0 bg-white w-max text-left lg:w-96 h-min p-9 fixed text-base -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 z-20">
     <button class="btn-close-payment-cart absolute -top-4 -right-4 rounded-full bg-red-600 border-2"><img src="../images/close-white.svg" class="w-5 h-5 m-1"></button>
     <p class="font-bold">Cartão de Crédito</p>
-    <ul class="product-payment-credit">
+    <ul class="product-payment-credit-cart">
     </ul>
     <p class="font-bold mt-4">Boleto</p>
-    <ul class="product-payment-ticket">
+    <ul class="product-payment-ticket-cart">
         <li>1x R$ 104,50 (desconto de 5%)</li>
     </ul>
 </section>

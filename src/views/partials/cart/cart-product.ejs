@@ -24,10 +24,10 @@
                         <% const objCart = JSON.parse(carts[cart]) %>   
                         <% const nameCookie = cart %>   
                         <% const productOrigin = objCart.prodOrigin %>
-                        <%#- include('../../partials/products/prodOrigin', {
+                        <%#- include('./prodOrigin', {
                             product: productOrigin.product, 
                         }); %>
-                        <%- include('../../partials/products/products-localStorage', {
+                        <%- include('./products-localStorage', {
                             nameCookie: nameCookie,
                             prodTitleCart: objCart.name,
                             prodCode: objCart.code,

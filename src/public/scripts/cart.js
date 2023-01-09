@@ -101,7 +101,16 @@ const printSubTotalPrice = $subTotalPriceCartPage => {
 
 const printTotalPrice = $totalPriceCartPage => {
      if ($totalPriceCartPage) {
-          const total = totalPriceAllCarts.reduce((soma, i) => soma + i);
+          let total;
+          const returnFreteValue = removeFormatNumber(document.querySelector(".return-frete-value").innerText);
+          const $returnFreteField = document.querySelector(".return-frete");
+
+          if ($returnFreteField.classList.contains("hidden")) {
+               total = totalPriceAllCarts.reduce((soma, i) => soma + i);
+          } else {
+               total = totalPriceAllCarts.reduce((soma, i) => soma + i) + returnFreteValue;
+          }
+
           $totalPriceCartPage.innerText = formatNumber(total);
      }
 };
@@ -120,8 +129,20 @@ const getTotalsBoxDiscount = $product => {
      const $prodCartTotalPrice = $product.querySelector(".cfptb-total-price").innerText;
      const $prodCartTotalItems = $product.querySelector(".cfptb-qty").value;
 
-     totalPriceAllCarts.push(parseFloat(removeFormatNumber($prodCartTotalPrice)));
+     totalPriceAllCarts.push(removeFormatNumber($prodCartTotalPrice));
      totalItemsAllCarts.push(parseFloat($prodCartTotalItems));
+};
+
+const showReturnFreteValue = $button => {
+     const $isBtnCalcShipping = $button.classList.contains("ccdcb-shipping");
+     const $returnFreteValueField = document.querySelector(".return-frete");
+     const returnFreteValue = document.querySelector(".return-frete-value").innerText;
+
+     if ($isBtnCalcShipping) {
+          $returnFreteValueField.classList.remove("hidden");
+          // saveFreteValueToCookie(returnFreteValue);
+          printTotalsCartPage();
+     }
 };
 
 $productsCartCookie.forEach($product => {

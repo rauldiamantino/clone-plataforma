@@ -9,7 +9,7 @@ const hiddenScroll = () => {
 document.addEventListener("scroll", hiddenScroll);
 
 const formatNumber = number => number.toFixed(2).replace(".", ",");
-const removeFormatNumber = number => number.replace(",", ".");
+const removeFormatNumber = number => parseFloat(number.replace(",", "."));
 
 /* - GET BUTTONS 
 -------------------------------------------------------------------------*/
@@ -27,6 +27,7 @@ const clickedButton = $button => {
           submitLogin($button, e);
           submitRegister($button, e);
           submitContact($button, e);
+          showReturnFreteValue($button);
      });
 };
 
@@ -226,6 +227,6 @@ categoriesMenu.forEach(categorie => {
 const $allProdPrice = document.querySelectorAll(".product .product-text .prod-price");
 
 const insertsCommaInThePriceProduct = $prodPrice =>
-     ($prodPrice.innerText = formatNumber(parseFloat(removeFormatNumber($prodPrice.innerText))));
+     ($prodPrice.innerText = formatNumber(removeFormatNumber($prodPrice.innerText)));
 
 $allProdPrice.forEach(insertsCommaInThePriceProduct);

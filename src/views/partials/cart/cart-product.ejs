@@ -21,24 +21,29 @@
             <div class="product-cart mt-6 border-y border-gray-200">
                 <% if(totalCookies > 0) { %>
                     <% for (const cart in carts) { %>
-                        <% const objCart = JSON.parse(carts[cart]) %>   
-                        <% const nameCookie = cart %>   
-                        <% const productOrigin = objCart.prodOrigin %>
-                        <%#- include('./prodOrigin', {
-                            product: productOrigin.product, 
-                        }); %>
-                        <%- include('./products-localStorage', {
-                            nameCookie: nameCookie,
-                            prodTitleCart: objCart.name,
-                            prodCode: objCart.code,
-                            prodReference: objCart.reference,
-                            firstVariationCart: objCart.firstVariation,
-                            image: objCart.image,
-                            secondVariationCart: objCart.secondVariation,
-                            qtyProdCart: objCart.qty,
-                            priceProdCar: objCart.price,                                                            
-                        }); %>
-                        
+                        <% if (cart !== "shippingValue") {%>
+                            <% const objCart = JSON.parse(carts[cart]) %>   
+                            <% const nameCookie = cart %>   
+                            <% const productOrigin = objCart.prodOrigin %>
+
+                            <%#- include('./prodOrigin', {
+                                product: productOrigin.product, 
+                            }); %>
+
+                            <%- include('./products-localStorage', {
+                                nameCookie: nameCookie,
+                                prodTitleCart: objCart.name,
+                                prodCode: objCart.code,
+                                prodReference: objCart.reference,
+                                firstVariationCart: objCart.firstVariation,
+                                image: objCart.image,
+                                secondVariationCart: objCart.secondVariation,
+                                qtyProdCart: objCart.qty,
+                                priceProdCar: objCart.price,                                                            
+                            }); %>    
+                        <%} else {%>
+                            <h1 class="returnShippingValueCookie hidden"><%= cart %></h1>
+                        <%}%>
                     <% } %>                    
                 <% } %>
 
@@ -79,10 +84,11 @@
                 <div class="w-full flex justify-between gap-2 py-4">
                     <p class="text-sm">Frete*</p>
                     <div class="text-right">
-                        <p class="return-frete font-bold hidden">R$ <span class="return-frete-value">21,23</span></p>
+                        <p class="return-shipping font-bold hidden">R$ <span class="return-shipping-value"></span></p>
                         <button class="ccdcb-shipping">
                             <p class="underline text-xs">Calcular Frete</p>
                         </button>
+                        <input type="text" id="product-shipping-cep" placeholder="Digite seu CEP" class="hidden text-xs border w-7/12 py-2 pl-1">
                     </div>
                 </div>
             </section>

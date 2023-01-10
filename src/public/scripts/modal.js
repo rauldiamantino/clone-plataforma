@@ -401,8 +401,6 @@ const createElementLi = liContent => {
      return li;
 };
 
-
-
 const closeParcelsModal = button => {
      const $productPaymentModalBackground = document.querySelector(".product-payment-modal-background");
      const $productPaymentModalContent = document.querySelector(".product-payment-internal-modal");
@@ -436,4 +434,23 @@ const openModalContent = $modalContent => {
      $modalContent.classList.add("scale-100", "duration-700");
 
      document.body.onresize = () => $modalContent.classList.remove("duration-700");
+};
+
+/* - MODAL - shipping
+-------------------------------------------------------------------------*/
+const getShippingValue = $button => {
+     const $isBtnCalcShipping = $button.classList.contains("calc-shipping");
+     const $isBtnCalcShippingCart = $button.classList.contains("ccdcb-shipping");
+
+     if ($isBtnCalcShipping || $isBtnCalcShippingCart) {
+          const zipCode = $button.parentNode.querySelector("#product-shipping-cep").value;
+          const priceShipping = 25.13;
+
+          shipping = {
+               code: zipCode,
+               price: priceShipping,
+          };
+
+          saveShippingValueToCookie(shipping);
+     }
 };

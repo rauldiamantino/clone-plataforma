@@ -27,7 +27,8 @@ const clickedButton = $button => {
           submitLogin($button, e);
           submitRegister($button, e);
           submitContact($button, e);
-          showReturnFreteValue($button);
+          showReturnShippingValue($button);
+          getShippingValue($button);
      });
 };
 

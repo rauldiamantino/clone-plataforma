@@ -102,13 +102,19 @@ const printSubTotalPrice = $subTotalPriceCartPage => {
 const printTotalPrice = $totalPriceCartPage => {
      if ($totalPriceCartPage) {
           let total;
-          const returnFreteValue = removeFormatNumber(document.querySelector(".return-frete-value").innerText);
-          const $returnFreteField = document.querySelector(".return-frete");
-
-          if ($returnFreteField.classList.contains("hidden")) {
+          const $returnShippingField = document.querySelector(".return-shipping");
+          const returnShippingValue = document.querySelector(".return-shipping-value");
+          if (getCookie("shippingValue") !== undefined) {
+               returnShippingValue.innerText = formatNumber(JSON.parse(getCookie("shippingValue")).price);
+          }
+          if (returnShippingValue.innerText == "") {
+               $returnShippingField.classList.add("hidden");
                total = totalPriceAllCarts.reduce((soma, i) => soma + i);
           } else {
-               total = totalPriceAllCarts.reduce((soma, i) => soma + i) + returnFreteValue;
+               $returnShippingField.classList.remove("hidden");
+               total =
+                    totalPriceAllCarts.reduce((soma, i) => soma + i) +
+                    removeFormatNumber(returnShippingValue.innerText);
           }
 
           $totalPriceCartPage.innerText = formatNumber(total);
@@ -133,14 +139,21 @@ const getTotalsBoxDiscount = $product => {
      totalItemsAllCarts.push(parseFloat($prodCartTotalItems));
 };
 
-const showReturnFreteValue = $button => {
-     const $isBtnCalcShipping = $button.classList.contains("ccdcb-shipping");
-     const $returnFreteValueField = document.querySelector(".return-frete");
-     const returnFreteValue = document.querySelector(".return-frete-value").innerText;
+const showReturnShippingValue = $button => {
+     const $isBtnCalcShippingCart = $button.classList.contains("ccdcb-shipping");
 
-     if ($isBtnCalcShipping) {
-          $returnFreteValueField.classList.remove("hidden");
-          // saveFreteValueToCookie(returnFreteValue);
+     if ($isBtnCalcShippingCart) {
+          const returnShippingValue = document.querySelector(".return-shipping-value");
+          const $returnShippingField = document.querySelector(".return-shipping");
+          // const returnShippingValuePrint = document.querySelector(".return-shipping-value").value;
+          // const returnShippingValueCookie = JSON.parse(getCookie("shippingValue")).price;
+          // const $returnShippingValueCookie = document.querySelector(".returnShippingValueCookie");
+          // const returnShippingZipCodeCookie = JSON.parse(getCookie("shippingValue")).code;
+          getShippingValue($button);
+
+          returnShippingValue.innerText = JSON.parse(getCookie("shippingValue")).price;
+          getShippingValue($button);
+          window.location.reload();
           printTotalsCartPage();
      }
 };

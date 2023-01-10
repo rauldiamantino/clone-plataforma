@@ -60,12 +60,14 @@ const saveProdToCookie = $productCart => {
      document.cookie = `C${$productCart.code}F${$productCart.firstVariation}S${$productCart.secondVariation}Q${$productCart.qty}=${$productCartToJSON}; expires= ${data} ;`;
 };
 
-const saveFreteValueToCookie = $freteValue => {
-     const $freteValueToJSON = JSON.stringify($freteValue);
+const saveShippingValueToCookie = shipping => {
+     const $shippingToJSON = JSON.stringify(shipping);
      let data = new Date(2023, 12, 01);
-     data = data.toGMTString();
 
-     document.cookie = `freteValue=${$freteValueToJSON}; expires= ${data} ;`;
+     data = data.toGMTString();
+     document.cookie = `shippingValue=${$shippingToJSON}; expires= ${data} ;`;
+
+     return $shippingToJSON;
 };
 
 const getCookie = name => {

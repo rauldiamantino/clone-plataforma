@@ -5,12 +5,15 @@ let $productsCartCookie = document.querySelectorAll(".prod-cart-cookie");
 
 const getProdCartObj = prodCartStr => JSON.parse(getCookie(prodCartStr));
 
-const deleteProdCookie = $nameCookieStr => {
+const deleteCookie = $nameCookieStr => {
      let data = new Date(2022, 1, 01);
      data = data.toGMTString();
 
      document.cookie = `${$nameCookieStr}=-1; expires= ${data} ;`;
-     window.location.reload(true);
+
+     if ($nameCookieStr !== "shippingValue") {
+          window.location.reload(true);
+     }
 };
 
 const changeQty = ($inputQty, $nameCookieStr) => {
@@ -104,11 +107,14 @@ const printTotalPrice = $totalPriceCartPage => {
           let total;
           const $returnShippingField = document.querySelector(".return-shipping");
           const returnShippingValue = document.querySelector(".return-shipping-value");
+
           if (getCookie("shippingValue") !== undefined) {
                returnShippingValue.innerText = formatNumber(JSON.parse(getCookie("shippingValue")).price);
           }
-          if (returnShippingValue.innerText == "") {
+          if (returnShippingValue.innerText == "" || totalItemsAllCarts.length == 1) {
                $returnShippingField.classList.add("hidden");
+               deleteCookie("shippingValue");
+
                total = totalPriceAllCarts.reduce((soma, i) => soma + i);
           } else {
                $returnShippingField.classList.remove("hidden");
@@ -169,7 +175,7 @@ $productsCartCookie.forEach($product => {
      $product.addEventListener("change", () => {
           $nameCookieStr = $inputQty.parentNode.parentNode.dataset.namecookie;
           const $nameCookieObj = getProdCartObj($nameCookieStr);
-          deleteProdCookie($nameCookieStr);
+          deleteCookie($nameCookieStr);
           changeQty($inputQty, $nameCookieObj);
      });
 
@@ -177,7 +183,7 @@ $productsCartCookie.forEach($product => {
           const $btnDelete = $product.querySelector(".cfptt-delete");
           if (event.composedPath()[0] === $btnDelete) {
                $nameCookieStr = $btnDelete.parentNode.parentNode.dataset.namecookie;
-               deleteProdCookie($nameCookieStr);
+               deleteCookie($nameCookieStr);
           }
      });
 

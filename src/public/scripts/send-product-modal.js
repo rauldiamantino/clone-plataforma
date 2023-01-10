@@ -70,6 +70,7 @@ const saveShippingValueToCookie = shipping => {
      return $shippingToJSON;
 };
 
+
 const getCookie = name => {
      let cookie = {};
 

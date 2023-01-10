@@ -454,3 +454,5 @@ const getShippingValue = $button => {
           saveShippingValueToCookie(shipping);
      }
 };
+
+

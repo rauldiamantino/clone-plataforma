@@ -303,17 +303,22 @@ const addMainImageBorder = () => {
      }
 };
 
-const closeModalEscKey = $modalProduct => {
-     const isproductPaymentModalContent = $modalProduct.classList.contains("product-payment-internal-modal");
-     const isproductPaymentCartContent = $modalProduct.classList.contains("product-payment-internal-cart");
-     const isModalProductModalContent = $modalProduct.classList.contains("modal-product-content");
-
+const closeModalEscKey = $modal => {
+     const isproductPaymentModalContent = $modal.classList.contains("product-payment-internal-modal");
+     const isproductPaymentCartContent = $modal.classList.contains("product-payment-internal-cart");
+     const isModalProductModalContent = $modal.classList.contains("modal-product-content");
+     const isShippingModalCartContent = $modal.classList.contains("shipping-container-modal");
      document.addEventListener("keydown", e => {
           if (e.key === "Escape") {
-               if (isproductPaymentModalContent || isModalProductModalContent || isproductPaymentCartContent) {
-                    closeModalContent($modalProduct);
+               if (
+                    isproductPaymentModalContent ||
+                    isModalProductModalContent ||
+                    isproductPaymentCartContent ||
+                    isShippingModalCartContent
+               ) {
+                    closeModalContent($modal);
                } else {
-                    $modalProduct.classList.add("hidden");
+                    $modal.classList.add("hidden");
                }
           }
           addBackgroundScroll();
@@ -440,7 +445,7 @@ const openModalContent = $modalContent => {
 -------------------------------------------------------------------------*/
 const getShippingValue = $button => {
      const $isBtnCalcShipping = $button.classList.contains("calc-shipping");
-     const $isBtnCalcShippingCart = $button.classList.contains("ccdcb-shipping");
+     const $isBtnCalcShippingCart = $button.classList.contains("shipping-container-modal-button");
 
      if ($isBtnCalcShipping || $isBtnCalcShippingCart) {
           const zipCode = $button.parentNode.querySelector("#product-shipping-cep").value;
@@ -454,5 +459,3 @@ const getShippingValue = $button => {
           saveShippingValueToCookie(shipping);
      }
 };
-
-

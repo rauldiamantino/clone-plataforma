@@ -29,6 +29,8 @@ const clickedButton = $button => {
           submitContact($button, e);
           showReturnShippingValue($button);
           getShippingValue($button);
+          openShippingModalCart($button);
+          closeShippingModalCart($button);
      });
 };
 

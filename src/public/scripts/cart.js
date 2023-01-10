@@ -146,20 +146,15 @@ const getTotalsBoxDiscount = $product => {
 };
 
 const showReturnShippingValue = $button => {
-     const $isBtnCalcShippingCart = $button.classList.contains("ccdcb-shipping");
+     const $isBtnCalcShippingModalCart = $button.classList.contains("shipping-container-modal-butto");
 
-     if ($isBtnCalcShippingCart) {
+     if ($isBtnCalcShippingModalCart) {
           const returnShippingValue = document.querySelector(".return-shipping-value");
           const $returnShippingField = document.querySelector(".return-shipping");
-          // const returnShippingValuePrint = document.querySelector(".return-shipping-value").value;
-          // const returnShippingValueCookie = JSON.parse(getCookie("shippingValue")).price;
-          // const $returnShippingValueCookie = document.querySelector(".returnShippingValueCookie");
-          // const returnShippingZipCodeCookie = JSON.parse(getCookie("shippingValue")).code;
-          getShippingValue($button);
 
-          returnShippingValue.innerText = JSON.parse(getCookie("shippingValue")).price;
           getShippingValue($button);
-          window.location.reload();
+          returnShippingValue.innerText = JSON.parse(getCookie("shippingValue")).price;
+          getShippingValue($button);          
           printTotalsCartPage();
      }
 };
@@ -221,5 +216,32 @@ const closeParcelsCart = button => {
           $productPaymentCartBackground.classList.add("hidden");
           closeModalContent($productPaymentCartContent);
           addProductToCart();
+     }
+};
+
+/* - Cart - shipping-modal
+-------------------------------------------------------------------------*/
+const openShippingModalCart = $button => {
+     const $isBtnCalcShippingModal = $button.classList.contains("ccdcb-shipping");
+
+     if ($isBtnCalcShippingModal) {
+          const $shippingModalCartBackground = document.querySelector(".shipping-background-modal");
+          const $shippingModalCartContent = document.querySelector(".shipping-container-modal");
+
+          $shippingModalCartBackground.classList.remove("hidden");
+          openModalContent($shippingModalCartContent);
+          closeModalEscKey($shippingModalCartBackground);
+          closeModalEscKey($shippingModalCartContent);
+     }
+};
+
+const closeShippingModalCart = $button => {
+     const $shippingModalCartBackground = document.querySelector(".shipping-background-modal");
+     const $shippingModalCartContent = document.querySelector(".shipping-container-modal");
+     const isCloseCart = $button.classList.contains("btn-close-shipping-modal");
+
+     if (isCloseCart) {
+          $shippingModalCartBackground.classList.add("hidden");
+          closeModalContent($shippingModalCartContent);
      }
 };

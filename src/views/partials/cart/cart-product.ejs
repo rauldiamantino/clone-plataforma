@@ -85,9 +85,6 @@
                         <button class="ccdcb-shipping">
                             <p class="underline text-xs">Calcular Frete</p>
                         </button>
-                        <section class="background-ccdc-modal-shipping absolute"></section>
-                        <section class="container-ccdc-modal-shipping"></section>
-                        <input type="text" id="product-shipping-cep" placeholder="Digite seu CEP" class="hidden text-xs border w-7/12 py-2 pl-1">
                     </div>
                 </div>
             </section>
@@ -122,4 +119,27 @@
     <ul class="product-payment-ticket-cart">
         <li>1x R$ 104,50 (desconto de 5%)</li>
     </ul>
+</section>
+
+
+<!-- CART - SHIPPING -->
+<section class="shipping-background-modal bg-black/95 min-w-full h-screen fixed top-0 left-0 z-20 hidden">
+</section>
+
+<section class="shipping-container-modal scale-0 bg-white w-max text-left h-max py-6 px-5 fixed text-base -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 z-20">
+    <button class="btn-close-shipping-modal absolute -top-4 -right-4 rounded-full bg-red-600 border-2"><img src="../images/close-white.svg" class="w-5 h-5 m-1"></button>
+    <form>
+        <h2 class="font-bold text-xl my-2">Calcular frete</h2>
+        <fieldset class="rounded-md border border-gray-300 px-5 flex flex-col justify-center items-center">            
+                <div class="form-col w-56">
+                    <label for="product-shipping-cep" class="pt-3.5">CEP</label>
+                    <input class="form-col-input border-gray-300 rounded-lg py-2" type="text" id="product-shipping-cep">
+                    <a href="https://buscacepinter.correios.com.br/app/localidade_logradouro/index.php" target="_blank" class="hover:no-underline text-c-dark-gray text-sm">Não sabe seu CEP? Consulte Aqui</a>
+                </div>
+                
+                <button class="shipping-container-modal-button bg-gradient-to-b from-black to-black/80 text-white text-sm py-2 w-full lg:py-1.5 lg:w-3/5 border-1 border-black rounded-md my-4">Simular frete</button>
+            </div>
+        </fieldset>
+    </form>
+    
 </section>

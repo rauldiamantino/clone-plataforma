@@ -128,9 +128,9 @@
 
 <section class="shipping-container-modal scale-0 bg-white w-max text-left h-max py-6 px-5 fixed text-base -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 z-20">
     <button class="btn-close-shipping-modal absolute -top-4 -right-4 rounded-full bg-red-600 border-2"><img src="../images/close-white.svg" class="w-5 h-5 m-1"></button>
-    <form>
+    
         <h2 class="font-bold text-xl my-2">Calcular frete</h2>
-        <fieldset class="rounded-md border border-gray-300 px-5 flex flex-col justify-center items-center">            
+        <section class="rounded-md border border-gray-300 px-5 flex flex-col justify-center items-center">            
                 <div class="form-col w-56">
                     <label for="product-shipping-cep" class="pt-3.5">CEP</label>
                     <input class="form-col-input border-gray-300 rounded-lg py-2" type="text" id="product-shipping-cep">
@@ -138,8 +138,11 @@
                 </div>
                 
                 <button class="shipping-container-modal-button bg-gradient-to-b from-black to-black/80 text-white text-sm py-2 w-full lg:py-1.5 lg:w-3/5 border-1 border-black rounded-md my-4">Simular frete</button>
-            </div>
-        </fieldset>
-    </form>
+        </section>
+</section>
+
+<section class="shipping-container-modal-empty scale-0 bg-white w-max text-left h-max py-6 px-5 fixed text-base -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 z-20">
+    <button class="btn-close-shipping-modal absolute -top-4 -right-4 rounded-full bg-red-600 border-2"><img src="../images/close-white.svg" class="w-5 h-5 m-1"></button>
     
+    <p>Não foi possível calcular o frete.</p>
 </section>

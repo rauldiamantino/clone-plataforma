@@ -237,10 +237,29 @@ const openShippingModalCart = $button => {
 const closeShippingModalCart = $button => {
      const $shippingModalCartBackground = document.querySelector(".shipping-background-modal");
      const $shippingModalCartContent = document.querySelector(".shipping-container-modal");
-     const isCloseCart = $button.classList.contains("btn-close-shipping-modal");
+     const $isBtnCalcShippingCart = $button.classList.contains("shipping-container-modal-button");
+     const $shippingModalCartEmptyContent = document.querySelector(".shipping-container-modal-empty");
+     const inputBoxShipping = document.querySelector("#product-shipping-cep").value;
+     const $isCloseCart = $button.classList.contains("btn-close-shipping-modal");
 
-     if (isCloseCart) {
+     if ($isCloseCart) {
           $shippingModalCartBackground.classList.add("hidden");
           closeModalContent($shippingModalCartContent);
+          closeModalContent($shippingModalCartEmptyContent);
      }
+
+     if ($isBtnCalcShippingCart) {
+          if (inputBoxShipping == "") {
+               closeModalContent($shippingModalCartContent);
+               openShippingModalEmptyCart($shippingModalCartEmptyContent, $shippingModalCartBackground);
+          } else {
+               window.location.reload();
+          }
+     }
+};
+
+const openShippingModalEmptyCart = ($shippingModalCartEmptyContent, $shippingModalCartBackground) => {
+     openModalContent($shippingModalCartEmptyContent);
+     closeModalEscKey($shippingModalCartEmptyContent);
+     closeModalEscKey($shippingModalCartBackground);
 };

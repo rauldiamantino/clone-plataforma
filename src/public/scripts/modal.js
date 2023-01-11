@@ -308,13 +308,16 @@ const closeModalEscKey = $modal => {
      const isproductPaymentCartContent = $modal.classList.contains("product-payment-internal-cart");
      const isModalProductModalContent = $modal.classList.contains("modal-product-content");
      const isShippingModalCartContent = $modal.classList.contains("shipping-container-modal");
+     const isShippingModalCartEmptyContent = $modal.classList.contains("shipping-container-modal-empty");
+
      document.addEventListener("keydown", e => {
           if (e.key === "Escape") {
                if (
                     isproductPaymentModalContent ||
                     isModalProductModalContent ||
                     isproductPaymentCartContent ||
-                    isShippingModalCartContent
+                    isShippingModalCartContent ||
+                    isShippingModalCartEmptyContent
                ) {
                     closeModalContent($modal);
                } else {
@@ -432,16 +435,18 @@ const closeParcelsModal = button => {
 };
 
 const closeModalContent = $modalContent => {
-     $modalContent.classList.add("scale-0", "duration-700");
+     $modalContent.classList.add("scale-0");
      $modalContent.classList.remove("scale-100", "duration-700");
-
      document.body.onresize = () => $modalContent.classList.remove("duration-700");
 };
 
 const openModalContent = $modalContent => {
-     $modalContent.classList.remove("scale-0", "duration-700");
-     $modalContent.classList.add("scale-100", "duration-700");
+     const $isShippingModalCartEmptyContent = $modalContent.classList.contains("shipping-container-modal-empty");
 
+     $modalContent.classList.remove("scale-0", "duration-700");
+     $isShippingModalCartEmptyContent
+          ? $modalContent.classList.add("scale-100")
+          : $modalContent.classList.add("scale-100", "duration-700");
      document.body.onresize = () => $modalContent.classList.remove("duration-700");
 };
 
@@ -490,10 +495,3 @@ const hideErrorEmptyInputShipping = () => {
      const $boxReturnErrorShipping = document.querySelector(".modal-shipping-return-empty");
      $boxReturnErrorShipping.classList.add("hidden");
 };
-
-/* - MODAL - shipping
--------------------------------------------------------------------------*/
-const $inputBoxShipping = document.querySelector("#product-shipping-cep");
-$inputBoxShipping.addEventListener("click", () => {
-     // boxReturnShippingErrorModalProduct();
-});

@@ -322,6 +322,8 @@ const closeModalEscKey = $modal => {
                }
           }
           addBackgroundScroll();
+          hideBoxReturnShippingModalProduct();
+          hideErrorEmptyInputShipping();
 
           document.body.onresize = () => resetPositionProductCarousel();
      });
@@ -338,6 +340,8 @@ const closeModal = button => {
           addBackgroundScroll();
 
           document.body.onresize = () => resetPositionProductCarousel();
+          hideBoxReturnShippingModalProduct();
+          hideErrorEmptyInputShipping();
      }
 };
 
@@ -441,21 +445,55 @@ const openModalContent = $modalContent => {
      document.body.onresize = () => $modalContent.classList.remove("duration-700");
 };
 
-/* - MODAL - shipping
--------------------------------------------------------------------------*/
 const getShippingValue = $button => {
      const $isBtnCalcShipping = $button.classList.contains("calc-shipping");
      const $isBtnCalcShippingCart = $button.classList.contains("shipping-container-modal-button");
 
      if ($isBtnCalcShipping || $isBtnCalcShippingCart) {
-          const zipCode = $button.parentNode.querySelector("#product-shipping-cep").value;
-          const priceShipping = 25.13;
+          const inputBoxShipping = $button.parentNode.querySelector("#product-shipping-cep").value;
 
-          shipping = {
-               code: zipCode,
-               price: priceShipping,
-          };
+          if (inputBoxShipping !== "") {
+               const zipCode = inputBoxShipping;
+               const priceShipping = 25.13;
 
-          saveShippingValueToCookie(shipping);
+               shipping = {
+                    code: zipCode,
+                    price: priceShipping,
+               };
+
+               saveShippingValueToCookie(shipping);
+               showBoxReturnShippingModalProduct();
+          } else {
+               showErrorEmptyInputShipping();
+          }
      }
 };
+
+const showBoxReturnShippingModalProduct = () => {
+     const $boxReturnShipping = document.querySelector(".modal-shipping-return-price");
+     $boxReturnShipping.classList.remove("hidden");
+     hideErrorEmptyInputShipping();
+};
+
+const hideBoxReturnShippingModalProduct = () => {
+     const $boxReturnShipping = document.querySelector(".modal-shipping-return-price");
+     $boxReturnShipping.classList.add("hidden");
+};
+
+const showErrorEmptyInputShipping = () => {
+     const $boxReturnErrorShipping = document.querySelector(".modal-shipping-return-empty");
+     $boxReturnErrorShipping.classList.remove("hidden");
+     hideBoxReturnShippingModalProduct();
+};
+
+const hideErrorEmptyInputShipping = () => {
+     const $boxReturnErrorShipping = document.querySelector(".modal-shipping-return-empty");
+     $boxReturnErrorShipping.classList.add("hidden");
+};
+
+/* - MODAL - shipping
+-------------------------------------------------------------------------*/
+const $inputBoxShipping = document.querySelector("#product-shipping-cep");
+$inputBoxShipping.addEventListener("click", () => {
+     // boxReturnShippingErrorModalProduct();
+});

@@ -1181,6 +1181,10 @@ video {
   border-width: 2px;
 }
 
+.border-0 {
+  border-width: 0px;
+}
+
 .border-y {
   border-top-width: 1px;
   border-bottom-width: 1px;
@@ -1231,6 +1235,27 @@ video {
 .border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
+.border-green-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(134 239 172 / var(--tw-border-opacity));
+}
+
+.border-green-300\/90 {
+  border-color: rgb(134 239 172 / 0.9);
+}
+
+.border-green-300\/100 {
+  border-color: rgb(134 239 172 / 1);
+}
+
+.border-green-400\/70 {
+  border-color: rgb(74 222 128 / 0.7);
+}
+
+.border-green-400\/30 {
+  border-color: rgb(74 222 128 / 0.3);
 }
 
 .bg-neutral-100 {
@@ -1289,6 +1314,31 @@ video {
   background-color: rgb(229 231 235 / 0.25);
 }
 
+.bg-green-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(134 239 172 / var(--tw-bg-opacity));
+}
+
+.bg-green-300\/40 {
+  background-color: rgb(134 239 172 / 0.4);
+}
+
+.bg-green-200\/40 {
+  background-color: rgb(187 247 208 / 0.4);
+}
+
+.bg-green-300\/20 {
+  background-color: rgb(134 239 172 / 0.2);
+}
+
+.bg-green-400\/10 {
+  background-color: rgb(74 222 128 / 0.1);
+}
+
+.bg-green-500\/10 {
+  background-color: rgb(34 197 94 / 0.1);
+}
+
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
@@ -1335,6 +1385,10 @@ video {
 
 .p-6 {
   padding: 1.5rem;
+}
+
+.p-4 {
+  padding: 1rem;
 }
 
 .px-4 {
@@ -1560,6 +1614,38 @@ video {
 .text-c-dark-gray {
   --tw-text-opacity: 1;
   color: rgb(73 73 73 / var(--tw-text-opacity));
+}
+
+.text-green-400 {
+  --tw-text-opacity: 1;
+  color: rgb(74 222 128 / var(--tw-text-opacity));
+}
+
+.text-green-400\/10 {
+  color: rgb(74 222 128 / 0.1);
+}
+
+.text-green-900 {
+  --tw-text-opacity: 1;
+  color: rgb(20 83 45 / var(--tw-text-opacity));
+}
+
+.text-green-800 {
+  --tw-text-opacity: 1;
+  color: rgb(22 101 52 / var(--tw-text-opacity));
+}
+
+.text-green-700 {
+  --tw-text-opacity: 1;
+  color: rgb(21 128 61 / var(--tw-text-opacity));
+}
+
+.text-green-700\/75 {
+  color: rgb(21 128 61 / 0.75);
+}
+
+.text-green-700\/95 {
+  color: rgb(21 128 61 / 0.95);
 }
 
 .underline {

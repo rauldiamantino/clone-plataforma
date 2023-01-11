@@ -150,11 +150,10 @@ const showReturnShippingValue = $button => {
 
      if ($isBtnCalcShippingModalCart) {
           const returnShippingValue = document.querySelector(".return-shipping-value");
-          const $returnShippingField = document.querySelector(".return-shipping");
 
           getShippingValue($button);
           returnShippingValue.innerText = JSON.parse(getCookie("shippingValue")).price;
-          getShippingValue($button);          
+          getShippingValue($button);
           printTotalsCartPage();
      }
 };

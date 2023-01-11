@@ -47,9 +47,25 @@
                 <div class="modal-product-content-page-shipping w-4/6 mx-auto flex flex-col lg:mx-0">
                     <label for="shipping-cep" class="text-left pb-1 w-full">Simule o frete para sua região</label>
                     <div class="shipping-calc flex justify-around items-center w-full">
-                        <input type="text" id="product-shipping-cep" placeholder="Digite seu CEP" class="text-xs border w-7/12 py-2 pl-1">
+                        <input type="text" id="product-shipping-cep" placeholder="Digite seu CEP" class="text-sm border w-7/12 py-1 pl-2">
                         <button class="calc-shipping text-xs bg-c-bg-button py-2 w-5/12">Calcular Frete</button>
                     </div>
+                    <section class="modal-shipping-return-price bg-green-500/10 border border-green-400/30 text-green-700/95 text-sm flex flex-col gap-2 p-4 mt-1 items-start text-left hidden">
+                        <p>Valores sujeitos a alteração</p>
+
+                        <div class="msrp-col w-full">
+                            <h2 class="msrp-col-title font-bold">Sedex</h2>
+                            <p>R$ <span class="msrp-col-price">25,13</span> - Prazo até 2 dias úteis</p>
+                        </div>
+
+                        <div class="msrp-col">
+                            <h2 class="msrp-col-title font-bold">PAC</h2>
+                            <p>R$ <span class="msrp-col-price">16,05</span> - Prazo até 6 dias úteis</p>
+                        </div>
+                    </section>
+                    <section class="modal-shipping-return-empty bg-green-500/10 border border-green-400/30 text-green-700/95 text-sm flex flex-col gap-2 p-4 mt-1 items-start text-left hidden ">
+                        <p>Escolha uma variação para calcular.</p>
+                    </section>
                 </div>
 
                 <!-- PRODUCT DESCRIPTION -->

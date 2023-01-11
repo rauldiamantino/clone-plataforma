@@ -56,6 +56,7 @@ O site se assemelha a uma loja real, no futuro você poderá fazer login, criar 
   <li>06/01/2023 - Página do carrinho</li>
   <li>07/01/2023 - Alterei o local de armazenamento dos produtos para os Cookies</li>
   <li>08/01/2023 - Os produtos armazenados nos cookies estão sendo recuperados no carrinho.</li>
+  <li>10/01/2023 - Mensagens de cálculo de frete no modal de produto e carrinho.</li>
 </ul>
 
 <h2 id="add">Imagens adicionais</h2>
